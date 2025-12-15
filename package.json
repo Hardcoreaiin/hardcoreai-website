@@ -1,0 +1,26 @@
+{
+  "name": "hardcoreai",
+  "version": "1.0.0",
+  "description": "Official website for HardcoreAI - AI-powered hardware development platform.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hardcoreaiin/hardcoreai-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Hardcoreaiin/hardcoreai-website/issues"
+  },
+  "homepage": "https://github.com/Hardcoreaiin/hardcoreai-website#readme",
+  "devDependencies": {
+    "vite": "^7.3.0"
+  }
+}

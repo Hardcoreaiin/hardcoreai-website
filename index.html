@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HardcoreAI - Hardware Development, Automated</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="logo">HardcoreAI</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="#download" class="nav-link hover-float"
+                style="margin-right: 1.5rem; font-weight: 600; color: var(--text-main);">Download</a>
+            <a href="#pilot" class="btn btn-primary hover-float"
+                style="padding: 0.6rem 1.5rem; font-size: 0.95rem; background-color: #7c3aed; border-color: #7c3aed; color: #ffffff !important;">Get
+                Early Access</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title fade-in-up">Build hardware devices<br>by just simple text prompts.</h1>
+            <p class="hero-subtitle fade-in-up delay-1">
+                AI-powered IDE & ecosystem for microcontrollers — generate firmware, wiring diagrams, and deploy
+                wirelessly to STM32, ESP32, Raspberry Pi, Jetson, Arduino, and more.
+            </p>
+            <div class="hero-actions fade-in-up delay-2">
+                <a href="#pilot" class="btn btn-primary glow-effect hover-float">Get Early Access</a>
+            </div>
+        </div>
+        <div class="hero-glow"></div>
+    </section>
+
+    </section>
+
+    <!-- About / Vision (Moved to Top) -->
+    <section class="section-padding">
+        <div class="container text-center narrow">
+            <h2 class="section-title fade-on-scroll">The Vision</h2>
+            <p class="vision-text fade-on-scroll"
+                style="font-size: 1.2rem; color: var(--text-muted); line-height: 1.8;">
+                We are building the future of hardware development — where physical products can be built as easily as
+                writing software. Hardware development now begins with a prompt.
+            </p>
+        </div>
+    </section>
+
+    <!-- Process / How it Works (Scrollytelling) -->
+    <section class="scrolly-process" id="process">
+        <div class="container text-center mb-5">
+            <h2 class="section-title fade-on-scroll" style="margin-bottom: 3rem;">How It Works</h2>
+        </div>
+        <div class="process-container">
+            <!-- Scrollable Steps (Left) -->
+            <div class="process-steps">
+                <div class="step-item active" data-step="1">
+                    <div class="step-number">STEP 01</div>
+                    <h3 class="step-title">Command with AI</h3>
+                    <p class="step-description">"Build a robot control for forward and backward for the connected
+                        board."<br><br>Hardcore AI understands natural language commands and turns them into embedded
+                        firmware automatically.</p>
+                </div>
+                <div class="step-item" data-step="2">
+                    <div class="step-number">STEP 02</div>
+                    <h3 class="step-title">Generate Firmware</h3>
+                    <p class="step-description">Firmware generated successfully.<br><br>The AI generates
+                        production-ready embedded C/C++ firmware tailored to the detected microcontroller.</p>
+                </div>
+                <div class="step-item" data-step="3">
+                    <div class="step-number">STEP 03</div>
+                    <h3 class="step-title">Map Connections</h3>
+                    <p class="step-description">Automatically maps GPIO pins and peripheral connections.<br><br>Hardcore
+                        AI understands hardware wiring and configures GPIO, motor drivers, power pins, and peripherals
+                        automatically.</p>
+                </div>
+                <div class="step-item" data-step="4">
+                    <div class="step-number">STEP 04</div>
+                    <h3 class="step-title">Configure Peripherals</h3>
+                    <p class="step-description">Configure GPIO, UART, SPI, I2C, Timers — automatically.<br><br>No manual
+                        register setup. Hardcore AI configures peripherals visually and generates correct low-level
+                        code.</p>
+                </div>
+                <div class="step-item" data-step="5">
+                    <div class="step-number">STEP 05</div>
+                    <h3 class="step-title">Flash & Run</h3>
+                    <p class="step-description">Flash → Robot moves instantly.<br><br>With one click, firmware is
+                        compiled and flashed to the microcontroller using USB. The robot responds immediately.</p>
+                </div>
+            </div>
+
+            <!-- Sticky Images (Right) -->
+            <div class="process-visuals">
+                <div class="visual-container">
+                    <img src="assets/uploaded_image_0_1765804431660.png" alt="Natural Language Command"
+                        class="process-img active" data-step="1">
+                    <img src="assets/uploaded_image_1_1765804431660.png" alt="Firmware Generated" class="process-img"
+                        data-step="2">
+                    <img src="assets/uploaded_image_2_1765804431660.png" alt="Pin Mapping" class="process-img"
+                        data-step="3">
+                    <img src="assets/uploaded_image_3_1765804431660.png" alt="Peripheral Configuration"
+                        class="process-img" data-step="4">
+                    <img src="assets/uploaded_image_4_1765804431660.png" alt="Flash Hardware" class="process-img"
+                        data-step="5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Vision (Moved to Top) -->
+
+
+
+
+    <!-- Video Showcase Section -->
+    <section class="video-showcase" id="demo">
+        <div class="container narrow">
+            <h2 class="section-title fade-on-scroll">See HardcoreAI in Action</h2>
+            <p class="section-subtitle fade-on-scroll">Watch how our AI-powered IDE transforms hardware development from
+                concept to deployment.</p>
+            <div class="video-container fade-on-scroll">
+                <!-- Replace with your actual video URL -->
+                <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
+
+                <!-- Placeholder until video is added -->
+                <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶</div>
+                    <div class="video-placeholder-text">Product Demo Video Coming Soon</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Controllers -->
+    <section class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-title fade-on-scroll">Supported Controllers</h2>
+            <div class="chip-logos fade-on-scroll">
+                <span class="chip">Raspberry Pi</span>
+                <span class="chip">STM32</span>
+                <span class="chip">ESP32</span>
+                <span class="chip">Arduino</span>
+                <span class="chip">Jetson Nano</span>
+                <span class="chip">NXP</span>
+                <span class="chip">TI</span>
+                <span class="chip">Renesas</span>
+                <span class="chip">Qualcomm</span>
+                <span class="chip">NVIDIA (Coming Soon)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combined Forms Section: Reviews & Pilot Access -->
+    <section id="forms" class="section-padding">
+        <div class="container">
+            <h2 class="section-title fade-on-scroll">Get Involved</h2>
+            <p class="section-subtitle fade-on-scroll">Share your experience or request pilot access to HardcoreAI</p>
+
+            <div class="forms-grid fade-on-scroll">
+                <!-- Reviews Form -->
+                <div class="form-column">
+                    <div class="form-box">
+                        <h3 class="form-title">Share Your Experience</h3>
+                        <p class="form-description">Help others by sharing your experience with HardcoreAI IDE</p>
+
+                        <form class="review-form" id="reviewForm">
+                            <input type="hidden" name="access_key" value="8f25aa84-d3cc-439d-8d05-3de9a8128560">
+                            <input type="hidden" name="subject" value="New Review Submission - HardcoreAI IDE">
+                            <input type="hidden" name="from_name" value="HardcoreAI Website Reviews">
+
+                            <div class="form-group">
+                                <label for="reviewerName">Your Name *</label>
+                                <input type="text" id="reviewerName" name="name" placeholder="John Doe" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reviewerEmail">Email *</label>
+                                <input type="email" id="reviewerEmail" name="email" placeholder="you@example.com"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reviewerRole">Role/Title</label>
+                                <input type="text" id="reviewerRole" name="role" placeholder="e.g., Student, Engineer">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rating">Rating *</label>
+                                <div class="star-rating" id="starRating">
+                                    <span class="star" data-rating="1">☆</span>
+                                    <span class="star" data-rating="2">☆</span>
+                                    <span class="star" data-rating="3">☆</span>
+                                    <span class="star" data-rating="4">☆</span>
+                                    <span class="star" data-rating="5">☆</span>
+                                </div>
+                                <input type="hidden" id="ratingValue" name="rating" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reviewText">Your Review *</label>
+                                <textarea id="reviewText" name="review" rows="4"
+                                    placeholder="Share your experience with HardcoreAI IDE..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary full-width">Submit Review</button>
+                            <p class="form-note">Reviews will be moderated before publishing.</p>
+                        </form>
+                        <div id="reviewSuccessMessage" class="success-message hidden">
+                            Thank you for your review! We'll review it and publish it soon.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pilot Access Form -->
+                <div class="form-column">
+                    <div class="form-box">
+                        <h3 class="form-title">Request Pilot Access</h3>
+                        <p class="form-description">Join the first 10 enterprise pilot partners building the future of
+                            hardware development</p>
+
+                        <form class="waitlist-form" id="waitlistForm">
+                            <input type="hidden" name="access_key" value="8f25aa84-d3cc-439d-8d05-3de9a8128560">
+                            <input type="hidden" name="subject" value="New Pilot Access Request - HardcoreAI">
+                            <input type="hidden" name="from_name" value="HardcoreAI Website">
+
+                            <div class="form-group">
+                                <label for="pilotName">Name *</label>
+                                <input type="text" id="pilotName" name="name" placeholder="Your name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pilotCompany">Company *</label>
+                                <input type="text" id="pilotCompany" name="company" placeholder="Company name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pilotEmail">Work Email *</label>
+                                <input type="email" id="pilotEmail" name="email" placeholder="you@company.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pilotHardware">Hardware Type *</label>
+                                <input type="text" id="pilotHardware" name="hardware" placeholder="e.g., ESP32, STM32"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pilotScale">Expected Scale *</label>
+                                <select id="pilotScale" name="scale" required>
+                                    <option value="" disabled selected>Select scale</option>
+                                    <option value="prototype">Prototype (< 100)</option>
+                                    <option value="production">Production (100 - 2,000)</option>
+                                    <option value="scale">Scale (2,000+)</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary full-width">Request Pilot Access</button>
+                            <p class="form-note">NDA available before demo.</p>
+                        </form>
+                        <div id="successMessage" class="success-message hidden">
+                            Request sent! We'll be in touch shortly.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section (Black) -->
+    <section id="download" class="download-section">
+        <div class="container text-center">
+            <h2 class="section-title">Start Building Today</h2>
+            <div class="download-container">
+                <a href="#" class="btn btn-download hover-float">
+                    Download for Windows
+                </a>
+                <a href="#" class="btn btn-secondary hover-float">
+                    macOS (Coming Soon)
+                </a>
+                <a href="#" class="btn btn-secondary hover-float">
+                    Linux (Coming Soon)
+                </a>
+            </div>
+            <p class="download-note">Version 1.0.2 • Free for non-commercial use</p>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h4>HardcoreAI</h4>
+                    <p class="copyright">© 2025 HardcoreAI. All rights reserved.</p>
+
+                </div>
+                <div class="footer-links">
+                    <span>📧 info@hardcoreai.in</span>
+                    <span>📞 +91 7010293386</span>
+                    <a href="LICENSE.txt" target="_blank">Legal & Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
