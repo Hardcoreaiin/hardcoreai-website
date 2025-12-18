@@ -47,8 +47,13 @@ body {
     font-size: 18px;
     line-height: 1.8;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 #particle-canvas {
@@ -1223,13 +1228,24 @@ a:focus {
     }
 
     .visual-container {
-        display: none;
-        /* Hide sticky container on mobile, show generic images inline instead or simplify */
+        display: block;
+        /* Show container on mobile */
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
     }
 
-    /* On mobile, we might want to interleave images or just hide the sticky effect. 
-       For "AntiGravity" feel, typically mobile just stacks them. 
-       Let's use a simpler stack for mobile in the HTML structure. */
+    .process-img {
+        position: relative;
+        /* Stack images on mobile instead of absolute overlap */
+        width: 100%;
+        height: auto;
+        opacity: 1 !important;
+        /* Force visible */
+        transform: none !important;
+        margin-bottom: 2rem;
+        display: block;
+    }
 }
 
 /* Product Walkthrough Carousel */
@@ -1663,26 +1679,82 @@ a:focus {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
 }
-/* Scroll Animations */
-.fade-on-scroll { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
-.fade-on-scroll.visible { opacity: 1; transform: translateY(0); }
-.fade-in-up { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.8s forwards; }
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
-body { background-color: transparent !important; }
+/* Scroll Animations */
+.fade-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    background-color: transparent !important;
+}
 
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .container { padding: 0 1.5rem; }
-  .navbar { padding: 1rem 1.5rem; }
-  .hero-title { font-size: 2.5rem; }
-  .hero-subtitle { font-size: 1.1rem; }
-  .section-padding { padding: 6rem 0; }
-  .section-title { font-size: 2rem; }
-  .forms-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .chip-logos { flex-wrap: wrap; gap: 0.75rem; }
-  .chip { font-size: 0.85rem; }
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .section-padding {
+        padding: 6rem 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .forms-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .chip-logos {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .chip {
+        font-size: 0.85rem;
+    }
 }
