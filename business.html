@@ -123,6 +123,51 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Workflow Steps */
+        .workflow-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        .workflow-step:last-child {
+            border-bottom: none;
+        }
+
+        .step-marker {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--surface-border);
+            color: var(--text-muted);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            text-align: left;
+        }
+
+        .step-content h4 {
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .step-content p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
     </style>
 </head>
 
@@ -209,70 +254,73 @@
     <section class="section-padding alt-bg">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title">HardcoreAI – Intelligent Firmware Validation for ESP32 Kits</h2>
-                <p class="section-subtitle">HardcoreAI is a deterministic validation engine that checks firmware before
-                    it reaches hardware.</p>
+                <h2 class="section-title">The HardcoreAI Workflow</h2>
+                <p class="section-subtitle">From simple prompts to validated hardware deployment.</p>
             </div>
 
-            <div class="product-grid">
-                <!-- Left: Features -->
-                <div
-                    style="background: var(--surface); padding: 3rem; border-radius: 8px; border: 1px solid var(--surface-border);">
-                    <ul style="list-style: none; padding: 0;">
-                        <li
-                            style="margin-bottom: 1rem; color: var(--text-muted); display: flex; gap: 1rem; font-size: 1.05rem;">
-                            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> Prevents unsafe GPIO
-                            usage
-                        </li>
-                        <li
-                            style="margin-bottom: 1rem; color: var(--text-muted); display: flex; gap: 1rem; font-size: 1.05rem;">
-                            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> Blocks boot-critical
-                            conflicts
-                        </li>
-                        <li
-                            style="margin-bottom: 1rem; color: var(--text-muted); display: flex; gap: 1rem; font-size: 1.05rem;">
-                            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> Detects power and
-                            configuration errors
-                        </li>
-                        <li
-                            style="margin-bottom: 1rem; color: var(--text-muted); display: flex; gap: 1rem; font-size: 1.05rem;">
-                            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> Explains issues in
-                            simple language
-                        </li>
-                        <li
-                            style="margin-bottom: 1rem; color: var(--text-muted); display: flex; gap: 1rem; font-size: 1.05rem;">
-                            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> Ensures safe
-                            flashing
-                        </li>
-                    </ul>
-                    <div
-                        style="margin-top: 2rem; font-weight: 700; color: var(--text-main); border-top: 1px solid var(--surface-border); padding-top: 1.5rem; font-size: 1.1rem; text-align: center;">
-                        AI assists. Hardware correctness is enforced.
+            <div class="product-grid" style="align-items: start;">
+                <!-- Left: Workflow Steps -->
+                <div>
+                    <div class="workflow-step">
+                        <div class="step-marker">1</div>
+                        <div class="step-content">
+                            <h4>Student Prompts</h4>
+                            <p>"Build a line follower robot."<br>AI interprets intent into firmware.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-marker">2</div>
+                        <div class="step-content">
+                            <h4>System Validates</h4>
+                            <p>Checks against 500+ hardware rules.<br>Ensures GPIOs and power are safe.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-marker">3</div>
+                        <div class="step-content">
+                            <h4>Safety Enforced</h4>
+                            <p>Blocks unsafe code before flashing.<br>Explains errors in plain English.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-marker">4</div>
+                        <div class="step-content">
+                            <h4>Deploy</h4>
+                            <p>Safe firmware flashes instantly.<br>Hardware works as expected.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Right: Result -->
-                <div style="padding: 2rem;">
-                    <h3 style="color: var(--text-main); font-size: 1.8rem; margin-bottom: 2rem;">The Result</h3>
-                    <div style="display: flex; flex-direction: column; gap: 2rem;">
-                        <div class="stat-item" style="text-align: left;">
-                            <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem; font-size: 1.3rem;">Fewer
-                                Failures</h4>
-                            <p style="font-size: 1rem; color: var(--text-muted);">Hardware is protected from logic
-                                errors.</p>
-                        </div>
-                        <div class="stat-item" style="text-align: left;">
-                            <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem; font-size: 1.3rem;">Fewer
-                                Frustrated Students</h4>
-                            <p style="font-size: 1rem; color: var(--text-muted);">Success is engineered into the
-                                process.</p>
-                        </div>
-                        <div class="stat-item" style="text-align: left;">
-                            <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem; font-size: 1.3rem;">Fewer
-                                Support Escalations</h4>
-                            <p style="font-size: 1rem; color: var(--text-muted);">The software handles the "why isn't
-                                this working" questions.</p>
-                        </div>
+                <!-- Right: Capabilities Box (Visual Anchor) -->
+                <div
+                    style="background: var(--surface); padding: 3rem; border-radius: 8px; border: 1px solid var(--surface-border); display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                    <h3 style="margin-bottom: 2rem; text-align: center; color: var(--text-main);">Why Manufacturers
+                        Switch</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li
+                            style="margin-bottom: 1.5rem; color: var(--text-muted); display: flex; gap: 1rem; font-size: 1.05rem;">
+                            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> Deterministic
+                            Validation Layer
+                        </li>
+                        <li
+                            style="margin-bottom: 1.5rem; color: var(--text-muted); display: flex; gap: 1rem; font-size: 1.05rem;">
+                            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> GPIO Protection &
+                            Boot Awareness
+                        </li>
+                        <li
+                            style="margin-bottom: 1.5rem; color: var(--text-muted); display: flex; gap: 1rem; font-size: 1.05rem;">
+                            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> Automatic Power
+                            Limit Checks
+                        </li>
+                        <li
+                            style="margin-bottom: 1.5rem; color: var(--text-muted); display: flex; gap: 1rem; font-size: 1.05rem;">
+                            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> Beginner-Friendly
+                            Explanations
+                        </li>
+                    </ul>
+                    <div
+                        style="margin-top: 1rem; font-weight: 700; color: var(--accent-primary); text-align: center; font-size: 1.1rem;">
+                        Result: 60% Reduction in Support Tickets
                     </div>
                 </div>
             </div>
