@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HardcoreAI for Business</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Enterprise Theme Overrides */
+        :root {
+            /* Deeper, more authoritative blue */
+            --accent-primary: #2563EB;
+            /* Blue 600 */
+            --accent-secondary: #1D4ED8;
+            /* Blue 700 */
+            --accent-glow: rgba(37, 99, 235, 0.1);
+            --bg-color: #ffffff;
+            --text-main: #0f172a;
+            /* Slate 900 */
+            --text-muted: #475569;
+            /* Slate 600 */
+            --surface: #f8fafc;
+            /* Slate 50 */
+            --surface-border: #e2e8f0;
+            /* Slate 200 */
+        }
+
+        /* Specific modifications for Business page */
+        .hero {
+            padding: 10rem 0 6rem;
+            min-height: auto;
+            /* Remove vh height constraint for content focus */
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        /* Enterprise card grid */
+        .enterprise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .enterprise-card {
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            padding: 2.5rem;
+            border-radius: 8px;
+            /* More square tailored look */
+            transition: all 0.3s ease;
+        }
+
+        .enterprise-card:hover {
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .enterprise-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .enterprise-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Workflow Step Vertical */
+        .workflow-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        .workflow-step:last-child {
+            border-bottom: none;
+        }
+
+        .step-marker {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--surface-border);
+            color: var(--text-muted);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Minimalistic Stats */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        /* Navbar tweaks for business */
+        .navbar .nav-cta {
+            background-color: var(--accent-primary) !important;
+            border-color: var(--accent-primary) !important;
+            color: white !important;
+        }
+
+        .navbar .nav-cta:hover {
+            background-color: var(--accent-secondary) !important;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .workflow-step {
+                flex-direction: row;
+                gap: 1rem;
+            }
+        }
+    </style>
+  <link rel="stylesheet" crossorigin href="/assets/styles-BEyaUjEl.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar transition-all" id="navbar">
+        <a href="index.html" class="logo">HardcoreAI <span class="beta-tag"
+                style="background: var(--surface-border); color: var(--text-muted);">Business</span></a>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Consumer Product</a>
+            <a href="#demo" class="nav-cta">Schedule Executive Demo</a>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero alt-bg">
+        <div class="container text-center">
+            <h1 class="hero-title fade-in-up">Give Your Robotics Kits Their Own Intelligent Software Ecosystem</h1>
+            <p class="hero-subtitle fade-in-up delay-1">
+                Stop depending on generic IDEs. Own the learning experience. <br>Reduce friction. Increase retention.
+                Differentiate your hardware.
+            </p>
+            <div class="hero-actions fade-in-up delay-2">
+                <a href="#demo" class="btn btn-primary">Schedule Executive Demo</a>
+            </div>
+
+            <!-- Visual Placeholder for Enterprise Dashboard/Idea -->
+            <div class="preview-container fade-in-up delay-3" style="margin-top: 4rem; max-width: 900px;">
+                <div class="preview-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span class="preview-title">HardcoreAI Ecosystem Validation Engine</span>
+                </div>
+                <div
+                    style="background: #1e1e1e; padding: 2rem; text-align: left; height: 320px; color: #d4d4d4; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; position: relative; overflow: hidden;">
+                    <span style="color: #6a9955;">// System: Validation Check Initiated for
+                        educational_kit_v2</span><br>
+                    <span style="color: #569cd6;">const</span> <span style="color: #9cdcfe;">systemState</span> = <span
+                        style="color: #ce9178;">"validating"</span>;<br>
+                    <br>
+                    <span style="color: #c586c0;">if</span> (pin_configuration.unsafe) {<br>
+                    &nbsp;&nbsp;<span style="color: #ce9178;">warnUser</span>(<span style="color: #ce9178;">"GPIO 12 is
+                        boot strap pin. Unsafe for direct motor driver connection."</span>);<br>
+                    &nbsp;&nbsp;<span style="color: #569cd6;">return</span> <span
+                        style="color: #ce9178;">false</span>;<br>
+                    }<br>
+                    <br>
+                    <span style="color: #6a9955;">// Validation passed. Firmware generation allowed.</span><br>
+                    <span style="color: #4ec9b0;">System</span>.<span style="color: #dcdcaa;">generateFirmware</span>({
+                    target: <span style="color: #ce9178;">"ESP32-S3"</span>, safety_level: <span
+                        style="color: #ce9178;">"strict"</span> });<br>
+                    <br>
+                    <span style="color: #9cdcfe;">> Firmware generated successfully.</span><br>
+                    <span style="color: #9cdcfe;">> Flashing prevented on potential short circuit detection.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. STRATEGIC PROBLEM SECTION -->
+    <section class="section-padding">
+        <div class="container narrow text-center">
+            <h2 class="section-title">You Sell Hardware.<br>But You Don’t Control the Software Experience.</h2>
+            <p class="section-subtitle" style="font-size: 1.15rem; max-width: 800px;">
+                All robotics kits currently rely on Arduino IDE or generic tools. No kit manufacturer owns their own
+                intelligent development environment.
+                Students struggle inside third-party software, and when projects fail, hardware gets blamed.
+            </p>
+            <div
+                style="margin-top: 2rem; border-left: 4px solid var(--accent-primary); padding-left: 1.5rem; text-align: left; background: var(--surface); padding: 1.5rem;">
+                <p style="margin: 0; font-weight: 600; color: var(--text-main); font-size: 1.2rem;">The software
+                    experience defines product perception.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Brand perception suffers when users hit setup
+                    friction.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. MARKET OPPORTUNITY -->
+    <section class="section-padding alt-bg">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">The Missing Layer in Educational Hardware</h2>
+                <p class="section-subtitle">Hardware margins are tightening. Support costs are increasing. Customer
+                    acquisition is expensive.</p>
+            </div>
+
+            <div class="enterprise-grid">
+                <div class="enterprise-card">
+                    <h3>Tightening Hardware Margins</h3>
+                    <p>Competition is driving hardware prices down. The differentiator must be the experience.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>Rising Support Costs</h3>
+                    <p>Every minute spent debugging user setup errors erodes profit margin.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>The Retention Battle</h3>
+                    <p>Retention and brand differentiation matter more than ever in a crowded market.</p>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 4rem;">
+                <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem;">Enter HardcoreAI</h3>
+                <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+                    The embedded development platform designed specifically for ESP32 educational hardware
+                    ecosystems.<br><br>
+                    <strong style="color: var(--text-main);">Not just an IDE. Not just AI. A validation-driven learning
+                        engine.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PRODUCT POSITIONING -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">HardcoreAI for Robotics Manufacturers</h2>
+
+            <div class="product-grid">
+                <!-- Flow -->
+                <div>
+                    <div class="workflow-step">
+                        <div class="step-marker">1</div>
+                        <div class="step-content">
+                            <h4>Student connects your ESP32 kit</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Seamless USB detection.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-marker">2</div>
+                        <div class="step-content">
+                            <h4>Writes code or uses prompt-based generation</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Natural language to firmware.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-marker">3</div>
+                        <div class="step-content">
+                            <h4>HardcoreAI validates against hardware rules</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Deterministic validation layer
+                                checks GPIO, power, connections.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-marker">4</div>
+                        <div class="step-content">
+                            <h4>Blocks unsafe configurations</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Explains issues clearly before
+                                flashing.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-marker">5</div>
+                        <div class="step-content">
+                            <h4>Flashes safely</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Successful deployment, guaranteed.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Box -->
+                <div
+                    style="background: var(--surface); padding: 3rem; border-radius: 12px; border: 1px solid var(--surface-border);">
+                    <h3 style="margin-bottom: 1.5rem;">Key Capabilities</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; color: var(--text-muted); display: flex; gap: 0.5rem;">
+                            <span style="color: var(--accent-primary);">✓</span> Deterministic validation layer
+                        </li>
+                        <li style="margin-bottom: 1rem; color: var(--text-muted); display: flex; gap: 0.5rem;">
+                            <span style="color: var(--accent-primary);">✓</span> GPIO protection & Boot pin awareness
+                        </li>
+                        <li style="margin-bottom: 1rem; color: var(--text-muted); display: flex; gap: 0.5rem;">
+                            <span style="color: var(--accent-primary);">✓</span> Power limit checks
+                        </li>
+                        <li style="margin-bottom: 1rem; color: var(--text-muted); display: flex; gap: 0.5rem;">
+                            <span style="color: var(--accent-primary);">✓</span> Beginner-friendly explanations
+                        </li>
+                        <li style="margin-bottom: 1rem; color: var(--text-muted); display: flex; gap: 0.5rem;">
+                            <span style="color: var(--accent-primary);">✓</span> Branded ecosystem opportunity
+                        </li>
+                    </ul>
+                    <div
+                        style="margin-top: 2rem; font-weight: 600; text-align: center; border-top: 1px solid var(--surface-border); padding-top: 1.5rem;">
+                        AI assists. Hardware correctness is enforced.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. COMPETITIVE ADVANTAGE -->
+    <section class="section-padding alt-bg">
+        <div class="container text-center">
+            <h2 class="section-title">Why This Matters for Your Business</h2>
+            <p class="section-subtitle">Transform from a hardware vendor to an ecosystem provider.</p>
+
+            <div class="enterprise-grid">
+                <div class="enterprise-card">
+                    <h3>Reduced Support Burden</h3>
+                    <p>Fewer avoidable user errors mean fewer tickets and returns.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>Higher Success Rates</h3>
+                    <p>Students succeed faster, leading to stronger product reviews.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>Differentiation</h3>
+                    <p>Stand out against competitors still using generic Arduino workflows.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>Lower Churn</h3>
+                    <p>Keep institutional accounts engaged with a reliable platform.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>Repeat Purchases</h3>
+                    <p>Success builds confidence. Confidence drives more kit sales.</p>
+                </div>
+                <div class="enterprise-card">
+                    <h3>Brand Trust</h3>
+                    <p>Every prevented failure protects your reputation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ECONOMIC VALUE -->
+    <section class="section-padding">
+        <div class="container narrow text-center">
+            <h2 class="section-title">Revenue and Retention Impact</h2>
+            <p class="section-subtitle">HardcoreAI increases lifetime customer value by improving user success rates.
+            </p>
+
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <h3>Brand Trust</h3>
+                    <p>Protected by every prevented failure</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Retention</h3>
+                    <p>Increased by every successful project</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Support Cost</h3>
+                    <p>Reduced by every friction point removed</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 3rem; color: var(--text-muted); font-style: italic;">No unrealistic ROI math. Just
+                intelligent positioning.</p>
+        </div>
+    </section>
+
+    <!-- 7. PARTNERSHIP MODEL -->
+    <section class="section-padding alt-bg">
+        <div class="container text-center">
+            <h2 class="section-title">Enterprise Partnership</h2>
+            <p class="section-subtitle">We partner selectively with serious manufacturers.</p>
+
+            <div class="grid" style="gap: 2rem; max-width: 900px; margin: 0 auto;">
+                <div class="enterprise-card" style="text-align: left;">
+                    <h3 style="color: var(--accent-primary);">Flexible Deployment</h3>
+                    <ul style="list-style: none; margin-top: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">• Licensing model per kit or per institutional account</li>
+                        <li style="margin-bottom: 0.5rem;">• White-label options available</li>
+                        <li style="margin-bottom: 0.5rem;">• Co-branded deployment</li>
+                    </ul>
+                </div>
+                <div class="enterprise-card" style="text-align: left;">
+                    <h3 style="color: var(--accent-primary);">Seamless Integration</h3>
+                    <ul style="list-style: none; margin-top: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">• No heavy engineering integration required</li>
+                        <li style="margin-bottom: 0.5rem;">• Fast deployment timelines</li>
+                        <li style="margin-bottom: 0.5rem;">• Ongoing support and updates</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. AUTHORITY SECTION -->
+    <section class="section-padding">
+        <div class="container narrow text-center">
+            <h2 class="section-title">Built by Engineers. Designed for Learning.</h2>
+            <div style="max-width: 700px; margin: 0 auto; line-height: 1.8; color: var(--text-muted);">
+                <p style="margin-bottom: 1.5rem;">
+                    Founded in Chennai. Built from real debugging and embedded system failures.
+                </p>
+                <p>
+                    HardcoreAI is not a wrapper. It is a real ESP32 validation engine with <strong>500+ hardware
+                        rules</strong> encoded into the system.
+                    We employ a <strong>deterministic architecture</strong>, not probabilistic AI guessing, ensuring
+                    that code is safe before it ever touches your hardware.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FINAL CTA -->
+    <section class="section-padding alt-bg" id="demo">
+        <div class="container text-center">
+            <h2 class="section-title">Own the Software Layer. Lead the Market.</h2>
+            <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+                <a href="mailto:shrivarun@hardcoreai.in" class="btn btn-primary">Book Executive Discussion</a>
+                <a href="#" class="btn btn-secondary">Download Enterprise Brief</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h4>HardcoreAI Enterprise</h4>
+                    <p class="copyright">© 2025 HardcoreAI. All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <span>📧 enterprise@hardcoreai.in</span>
+                    <span>📞 +91 7010293386</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
