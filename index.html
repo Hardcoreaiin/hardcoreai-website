@@ -145,6 +145,210 @@
         </div>
     </section>
 
+    <!-- Student Success Testimonials Section -->
+    <style>
+        .student-marquee {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .student-marquee-inner {
+            display: flex;
+            width: max-content;
+            animation: student-marquee-scroll 50s linear infinite;
+        }
+
+        .student-marquee-inner:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes student-marquee-scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .student-card {
+            width: 400px;
+            margin-right: 40px;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            white-space: normal;
+        }
+    </style>
+
+    <section class="student-success"
+        style="padding: 80px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); overflow: hidden;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 15px; color: white;">
+                Built By Students & Engineers
+            </h2>
+            <p style="text-align: center; font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 20px;">
+                Real projects. Real results. Real learning.
+            </p>
+
+            <div class="student-marquee">
+                <div class="student-marquee-inner">
+                    <!-- Testimonials 1-5 -->
+                    <div class="student-card">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #333;">"Built My Robot in 10 Minutes"
+                        </h3>
+                        <p style="color: #666; line-height: 1.8; margin-bottom: 20px;">"I built a line-following robot
+                            in
+                            literally 10 minutes. I just described what I wanted and HardcoreAI generated all the
+                            firmware and wiring. Usually takes me hours to debug GPIO configurations. The robot worked
+                            on first flash. No debugging. No rewiring."</p>
+                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
+                            <strong style="color: #333;">Sricharan Srikrishna</strong><br>
+                            <span style="color: #888; font-size: 0.9rem;">Founder, Building with HardcoreAI</span><br>
+                            <span style="color: #007bff; font-size: 0.85rem;">Project: Line-Following Robot</span>
+                        </div>
+                    </div>
+
+                    <div class="student-card">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #333;">"Saved Me From Bricking My
+                            Board"</h3>
+                        <p style="color: #666; line-height: 1.8; margin-bottom: 20px;">"We compared ChatGPT code vs
+                            HardcoreAI. ChatGPT gave me a pin that prevents booting. HardcoreAI's validation engine
+                            caught it immediately and explained why. The validation layer prevents AI hallucinations
+                            that could damage your board."</p>
+                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
+                            <strong style="color: #333;">Ashish</strong><br>
+                            <span style="color: #888; font-size: 0.9rem;">Electronics Engineering Student</span><br>
+                            <span style="color: #007bff; font-size: 0.85rem;">SASTRA University, Thanjavur</span>
+                        </div>
+                    </div>
+
+                    <div class="student-card">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #333;">"Submitted My Project In
+                            Minutes"</h3>
+                        <p style="color: #666; line-height: 1.8; margin-bottom: 20px;">"Had to submit an IoT door sensor
+                            project the next day. Built it in minutes with HardcoreAI, understood how it worked, and
+                            presented those exact points to my professor. Thank you Sricharan for this tool. It saved my
+                            grade."</p>
+                        <div style="border-top: 2 =px solid #f0f0f0; padding-top: 15px;">
+                            <strong style="color: #333;">Kishan</strong><br>
+                            <span style="color: #888; font-size: 0.9rem;">Computer Science Engineering</span><br>
+                            <span style="color: #007bff; font-size: 0.85rem;">VIT University, Vellore</span>
+                        </div>
+                    </div>
+
+                    <div class="student-card">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #333;">"Future of Hardware
+                            Development"</h3>
+                        <p style="color: #666; line-height: 1.8; margin-bottom: 20px;">"I've fried too many ESP32s from
+                            basic GPIO mistakes. Being able to build with prompts like we build software would be a
+                            game-changer for rapid prototyping. If they expand to STM32 and industrial controllers, this
+                            is a breakthrough product."</p>
+                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
+                            <strong style="color: #333;">Mohammad</strong><br>
+                            <span style="color: #888; font-size: 0.9rem;">Embedded Systems Engineer</span><br>
+                            <span style="color: #007bff; font-size: 0.85rem;">L&T Technology Services, Chennai</span>
+                        </div>
+                    </div>
+
+                    <div class="student-card">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #333;">"The Wiring Diagrams Are
+                            Brilliant"</h3>
+                        <p style="color: #666; line-height: 1.8; margin-bottom: 20px;">"The visual diagram UI is what
+                            sold us. We can see exactly where every connection goes. If we disconnect something, we just
+                            pull up the diagram and rewire correctly in seconds. Makes embedded systems accessible
+                            without dumbing it down."</p>
+                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
+                            <strong style="color: #333;">Raakesh & Harish</strong><br>
+                            <span style="color: #888; font-size: 0.9rem;">Final Year Students</span><br>
+                            <span style="color: #007bff; font-size: 0.85rem;">SASTRA University, Thanjavur</span>
+                        </div>
+                    </div>
+
+                    <!-- DUPLICATES FOR SEAMLESS -->
+                    <div class="student-card">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #333;">"Built My Robot in 10 Minutes"
+                        </h3>
+                        <p style="color: #666; line-height: 1.8; margin-bottom: 20px;">"I built a line-following robot
+                            in
+                            literally 10 minutes. I just described what I wanted and HardcoreAI generated all the
+                            firmware and wiring. Usually takes me hours to debug GPIO configurations. The robot worked
+                            on first flash. No debugging. No rewiring."</p>
+                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
+                            <strong style="color: #333;">Sricharan Srikrishna</strong><br>
+                            <span style="color: #888; font-size: 0.9rem;">Founder, Building with HardcoreAI</span><br>
+                            <span style="color: #007bff; font-size: 0.85rem;">Project: Line-Following Robot</span>
+                        </div>
+                    </div>
+
+                    <div class="student-card">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #333;">"Saved Me From Bricking My
+                            Board"</h3>
+                        <p style="color: #666; line-height: 1.8; margin-bottom: 20px;">"We compared ChatGPT code vs
+                            HardcoreAI. ChatGPT gave me a pin that prevents booting. HardcoreAI's validation engine
+                            caught it immediately and explained why. The validation layer prevents AI hallucinations
+                            that could damage your board."</p>
+                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
+                            <strong style="color: #333;">Ashish</strong><br>
+                            <span style="color: #888; font-size: 0.9rem;">Electronics Engineering Student</span><br>
+                            <span style="color: #007bff; font-size: 0.85rem;">SASTRA University, Thanjavur</span>
+                        </div>
+                    </div>
+
+                    <div class="student-card">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #333;">"Submitted My Project In
+                            Minutes"</h3>
+                        <p style="color: #666; line-height: 1.8; margin-bottom: 20px;">"Had to submit an IoT door sensor
+                            project the next day. Built it in minutes with HardcoreAI, understood how it worked, and
+                            presented those exact points to my professor. Thank you Sricharan for this tool. It saved my
+                            grade."</p>
+                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
+                            <strong style="color: #333;">Kishan</strong><br>
+                            <span style="color: #888; font-size: 0.9rem;">Computer Science Engineering</span><br>
+                            <span style="color: #007bff; font-size: 0.85rem;">VIT University, Vellore</span>
+                        </div>
+                    </div>
+
+                    <div class="student-card">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #333;">"Future of Hardware
+                            Development"</h3>
+                        <p style="color: #666; line-height: 1.8; margin-bottom: 20px;">"I've fried too many ESP32s from
+                            basic GPIO mistakes. Being able to build with prompts like we build software would be a
+                            game-changer for rapid prototyping. If they expand to STM32 and industrial controllers, this
+                            is a breakthrough product."</p>
+                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
+                            <strong style="color: #333;">Mohammad</strong><br>
+                            <span style="color: #888; font-size: 0.9rem;">Embedded Systems Engineer</span><br>
+                            <span style="color: #007bff; font-size: 0.85rem;">L&T Technology Services, Chennai</span>
+                        </div>
+                    </div>
+
+                    <div class="student-card">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #333;">"The Wiring Diagrams Are
+                            Brilliant"</h3>
+                        <p style="color: #666; line-height: 1.8; margin-bottom: 20px;">"The visual diagram UI is what
+                            sold us. We can see exactly where every connection goes. If we disconnect something, we just
+                            pull up the diagram and rewire correctly in seconds. Makes embedded systems accessible
+                            without dumbing it down."</p>
+                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
+                            <strong style="color: #333;">Raakesh & Harish</strong><br>
+                            <span style="color: #888; font-size: 0.9rem;">Final Year Students</span><br>
+                            <span style="color: #007bff; font-size: 0.85rem;">SASTRA University, Thanjavur</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Supported Controllers -->
     <section class="section-padding">
         <div class="container text-center">
