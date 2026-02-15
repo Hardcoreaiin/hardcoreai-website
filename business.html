@@ -337,7 +337,7 @@
     </section>
 
     <!-- Pilot Results Section (Industry & Professional Testimonials) -->
-    <section class="pilot-results" style="padding: 60px 20px; background: #f8f9fa;">
+    <section class="pilot-results" style="padding: 60px 20px; background: #f8f9fa; overflow: hidden;">
         <div style="max-width: 1200px; margin: 0 auto;">
             <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: #333;">
                 Used By Students & Industry Professionals
@@ -366,56 +366,207 @@
                 </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
-                <blockquote
-                    style="background: white; padding: 25px; border-left: 4px solid #007bff; border-radius: 4px; margin: 0;">
-                    <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 15px; color: #333;">
-                        "Used for industrial automation at Daimler. Validation caught timing issues with interrupt pins
-                        that would cause erratic behavior in production. Professional-grade checking we need."
-                    </p>
-                    <cite style="color: #666; font-style: normal; font-size: 0.95rem;">— Sivagnanam, Automotive Systems
-                        Engineer, Daimler India</cite>
-                </blockquote>
+            <!-- Testimonial Marquee -->
+            <style>
+                .business-marquee {
+                    overflow: hidden;
+                    width: 100%;
+                    position: relative;
+                    padding: 20px 0;
+                }
 
-                <blockquote
-                    style="background: white; padding: 25px; border-left: 4px solid #dc3545; border-radius: 4px; margin: 0;">
-                    <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 15px; color: #333;">
-                        "DRDO projects demand high reliability. Validation caught power rail overload that would cause
-                        brownouts. This level of hardware checking is rare in commercial tools."
-                    </p>
-                    <cite style="color: #666; font-style: normal; font-size: 0.95rem;">— Krtin Srinivas, Embedded
-                        Systems Engineer, DRDO</cite>
-                </blockquote>
+                .business-marquee-inner {
+                    display: flex;
+                    width: max-content;
+                    animation: business-marquee-scroll 50s linear infinite;
+                }
 
-                <blockquote
-                    style="background: white; padding: 25px; border-left: 4px solid #28a745; border-radius: 4px; margin: 0;">
-                    <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 15px; color: #333;">
-                        "We're using it for rapid prototyping at TVS Electronics. The wiring diagram UI saves hours of
-                        documentation time. Real-time updates when requirements change are game-changing."
-                    </p>
-                    <cite style="color: #666; font-style: normal; font-size: 0.95rem;">— Harish, Hardware Engineer, TVS
-                        Electronics</cite>
-                </blockquote>
+                .business-marquee-inner:hover {
+                    animation-play-state: paused;
+                }
 
-                <blockquote
-                    style="background: white; padding: 25px; border-left: 4px solid #ffc107; border-radius: 4px; margin: 0;">
-                    <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 15px; color: #333;">
-                        "Power management validation is exceptional. Caught current limit violations and suggested
-                        proper power distribution for motor controllers. Essential for power electronics work."
-                    </p>
-                    <cite style="color: #666; font-style: normal; font-size: 0.95rem;">— Raakesh, Power Electronics
-                        Engineer</cite>
-                </blockquote>
+                @keyframes business-marquee-scroll {
+                    0% {
+                        transform: translateX(0);
+                    }
 
-                <blockquote
-                    style="background: white; padding: 25px; border-left: 4px solid #6c757d; border-radius: 4px; margin: 0;">
-                    <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 15px; color: #333;">
-                        "Very easy compared to other software in the market. We're evaluating it for training our junior
-                        engineers. The learning curve is significantly shorter."
-                    </p>
-                    <cite style="color: #666; font-style: normal; font-size: 0.95rem;">— Lalith Kumar, Senior Engineer,
-                        Atsuya Technologies</cite>
-                </blockquote>
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
+
+                .business-card {
+                    width: 450px;
+                    margin-right: 30px;
+                    flex-shrink: 0;
+                    background: white;
+                    padding: 25px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+            </style>
+
+            <div class="business-marquee">
+                <div class="business-marquee-inner">
+                    <!-- 1. Sricharan -->
+                    <div class="business-card" style="border-left: 4px solid #007bff;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Built a line-following robot in 10 minutes. HardcoreAI handled all motor driver GPIO
+                            mapping and sensor connections automatically. Robot worked on first flash."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Sricharan Srikrishna,
+                            Founder, HardcoreAI</cite>
+                    </div>
+                    <!-- 2. Sivagnanam -->
+                    <div class="business-card" style="border-left: 4px solid #dc3545;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Used for industrial automation project. Validation caught timing issues with interrupt pins
+                            that would cause erratic behavior in production. Professional-grade checking we need at
+                            Daimler."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Sivagnanam, Daimler
+                            India</cite>
+                    </div>
+                    <!-- 3. Adithya -->
+                    <div class="business-card" style="border-left: 4px solid #28a745;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "The peripheral configuration was automatic - I2C, SPI, UART all set up correctly without
+                            reading datasheets for hours. Perfect for rapid prototyping."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Adithya Balaji, SRM
+                            Institute</cite>
+                    </div>
+                    <!-- 4. Harish -->
+                    <div class="business-card" style="border-left: 4px solid #ffc107;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "We're using it for rapid prototyping at TVS Electronics. The wiring diagram UI saves hours
+                            of documentation time. Real-time updates when requirements change are game-changing."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Harish, TVS
+                            Electronics</cite>
+                    </div>
+                    <!-- 5. Raakesh -->
+                    <div class="business-card" style="border-left: 4px solid #343a40;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Power management validation is exceptional. Caught current limit violations and suggested
+                            proper power distribution for motor controllers. Essential for power electronics work."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Raakesh, Power Electronics
+                            Engineer</cite>
+                    </div>
+                    <!-- 6. Krtin -->
+                    <div class="business-card" style="border-left: 4px solid #0056b3;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "DRDO projects demand high reliability. The validation caught power rail overload that would
+                            cause brownouts. This level of hardware checking is rare in commercial tools."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Krtin Srinivas, DRDO</cite>
+                    </div>
+                    <!-- 7. Kishan -->
+                    <div class="business-card" style="border-left: 4px solid #c82333;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Had to submit IoT project next day. Built it in minutes, understood how it worked,
+                            presented to professor. This tool saved my grade."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Kishan, VIT University
+                            Student</cite>
+                    </div>
+                    <!-- 8. Ashish -->
+                    <div class="business-card" style="border-left: 4px solid #218838;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Compared ChatGPT vs HardcoreAI. ChatGPT gave boot-critical pin. HardcoreAI caught it and
+                            suggested correct GPIO. Validation prevents AI hallucinations."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Ashish, SASTRA University
+                            Student</cite>
+                    </div>
+                    <!-- 9. Lalith -->
+                    <div class="business-card" style="border-left: 4px solid #e0a800;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Very easy compared to other software in the market. We're evaluating it for training our
+                            junior engineers. The learning curve is significantly shorter."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Lalith Kumar, Atsuya
+                            Technologies</cite>
+                    </div>
+
+                    <!-- DUPLICATES FOR SEAMLESS LOOP -->
+                    <div class="business-card" style="border-left: 4px solid #007bff;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Built a line-following robot in 10 minutes. HardcoreAI handled all motor driver GPIO
+                            mapping and sensor connections automatically. Robot worked on first flash."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Sricharan Srikrishna,
+                            Founder, HardcoreAI</cite>
+                    </div>
+                    <div class="business-card" style="border-left: 4px solid #dc3545;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Used for industrial automation project. Validation caught timing issues with interrupt pins
+                            that would cause erratic behavior in production. Professional-grade checking we need at
+                            Daimler."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Sivagnanam, Daimler
+                            India</cite>
+                    </div>
+                    <div class="business-card" style="border-left: 4px solid #28a745;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "The peripheral configuration was automatic - I2C, SPI, UART all set up correctly without
+                            reading datasheets for hours. Perfect for rapid prototyping."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Adithya Balaji, SRM
+                            Institute</cite>
+                    </div>
+                    <div class="business-card" style="border-left: 4px solid #ffc107;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "We're using it for rapid prototyping at TVS Electronics. The wiring diagram UI saves hours
+                            of documentation time. Real-time updates when requirements change are game-changing."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Harish, TVS
+                            Electronics</cite>
+                    </div>
+                    <div class="business-card" style="border-left: 4px solid #343a40;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Power management validation is exceptional. Caught current limit violations and suggested
+                            proper power distribution for motor controllers. Essential for power electronics work."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Raakesh, Power Electronics
+                            Engineer</cite>
+                    </div>
+                    <div class="business-card" style="border-left: 4px solid #0056b3;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "DRDO projects demand high reliability. The validation caught power rail overload that would
+                            cause brownouts. This level of hardware checking is rare in commercial tools."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Krtin Srinivas, DRDO</cite>
+                    </div>
+                    <div class="business-card" style="border-left: 4px solid #c82333;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Had to submit IoT project next day. Built it in minutes, understood how it worked,
+                            presented to professor. This tool saved my grade."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Kishan, VIT University
+                            Student</cite>
+                    </div>
+                    <div class="business-card" style="border-left: 4px solid #218838;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Compared ChatGPT vs HardcoreAI. ChatGPT gave boot-critical pin. HardcoreAI caught it and
+                            suggested correct GPIO. Validation prevents AI hallucinations."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Ashish, SASTRA University
+                            Student</cite>
+                    </div>
+                    <div class="business-card" style="border-left: 4px solid #e0a800;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Very easy compared to other software in the market. We're evaluating it for training our
+                            junior engineers. The learning curve is significantly shorter."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Lalith Kumar, Atsuya
+                            Technologies</cite>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
