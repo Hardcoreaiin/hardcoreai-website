@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let mouse = { x: null, y: null };
 
         // Configuration
-        const particleCount = window.innerWidth < 768 ? 60 : 120;
-        const connectionDistance = 140;
-        const interactionRadius = 120; // Reduced radius
-        const color = 'rgba(139, 92, 246, 0.6)'; // Light Purple/Violet
+        const particleCount = window.innerWidth < 768 ? 80 : 180;
+        const connectionDistance = 160;
+        const interactionRadius = 150;
+        const color = 'rgba(124, 58, 237, 0.4)'; // Soft Purple Accent
 
         function resize() {
             width = window.innerWidth;
