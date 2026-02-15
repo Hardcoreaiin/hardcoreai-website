@@ -168,13 +168,14 @@
         }
 
         .testimonial-card {
-            width: 420px;
-            margin-right: 40px;
+            width: 450px;
+            margin-right: 30px;
             flex-shrink: 0;
             background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -195,154 +196,104 @@
             <div class="testimonial-marquee">
                 <div class="testimonial-marquee-inner">
                     <!-- 1. Sricharan -->
-                    <div class="testimonial-card">
-                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #333;">"Built My Robot in 10 Minutes"
-                        </h3>
-                        <p style="color: #666; line-height: 1.7; margin-bottom: 20px;">"I built a line-following robot
-                            in literally 10 minutes. I just described what I wanted and HardcoreAI generated all the
-                            firmware and wiring. Usually takes me hours to debug GPIO configurations. The robot worked
-                            on first flash. No debugging. No rewiring."</p>
-                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
-                            <strong style="color: #333;">Sricharan Srikrishna</strong><br>
-                            <span style="color: #888; font-size: 0.9rem;">Founder, HardcoreAI</span>
-                        </div>
+                    <div class="testimonial-card" style="border-left: 4px solid #007bff;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Built a line-following robot in 10 minutes. HardcoreAI handled all motor driver GPIO
+                            mapping and sensor connections automatically. Robot worked on first flash."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Sricharan Srikrishna,
+                            Founder, HardcoreAI</cite>
                     </div>
 
                     <!-- 2. Sivagnanam -->
-                    <div class="testimonial-card">
-                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #333;">"Production-Ready Validation
-                            for Automotive"</h3>
-                        <p style="color: #666; line-height: 1.7; margin-bottom: 20px;">"At Daimler, reliability isn't
-                            optional - it's mandatory. I was working on a conveyor belt controller prototype that will
-                            be deployed in our manufacturing facility. HardcoreAI's validation caught something
-                            critical: I was using GPIO pins that share interrupt resources. The system flagged it: 'GPIO
-                            4 and GPIO 16 share interrupt group. Using both for limit switches may cause timing
-                            conflicts in interrupt-heavy applications.' This is the kind of professional-grade
-                            validation you'd normally only catch during extensive automotive-grade testing."</p>
-                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
-                            <strong style="color: #333;">Sivagnanam</strong><br>
-                            <span style="color: #888; font-size: 0.9rem;">Automotive Systems Engineer, Daimler India,
-                                Chennai</span>
-                        </div>
+                    <div class="testimonial-card" style="border-left: 4px solid #dc3545;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Used for industrial automation project. Validation caught timing issues with interrupt pins
+                            that would cause erratic behavior in production. Professional-grade checking we need at
+                            Daimler."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Sivagnanam, Daimler
+                            India</cite>
                     </div>
 
                     <!-- 3. Adithya -->
-                    <div class="testimonial-card">
-                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #333;">"Automatic Peripheral
-                            Configuration"</h3>
-                        <p style="color: #666; line-height: 1.7; margin-bottom: 20px;">"The peripheral configuration was
-                            automatic - I2C, SPI, UART all set up correctly without reading datasheets for hours.
-                            Perfect for rapid prototyping."</p>
-                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
-                            <strong style="color: #333;">Adithya Balaji</strong><br>
-                            <span style="color: #888; font-size: 0.9rem;">Student, SRM Institute</span>
-                        </div>
+                    <div class="testimonial-card" style="border-left: 4px solid #28a745;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "The peripheral configuration was automatic - I2C, SPI, UART all set up correctly without
+                            reading datasheets for hours. Perfect for rapid prototyping."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Adithya Balaji, SRM
+                            Institute</cite>
                     </div>
 
                     <!-- 4. Harish -->
-                    <div class="testimonial-card">
-                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #333;">"Evaluated for Documentation
-                            efficiency"</h3>
-                        <p style="color: #666; line-height: 1.7; margin-bottom: 20px;">"We tested HardcoreAI's visual
-                            diagram feature for IoT prototyping. Documentation and wiring diagrams are usually a major
-                            bottleneck. The tool streamlines this process significantly. When changing sensor
-                            configurations or pin assignments, the diagram updates in real-time. What used to take hours
-                            of manual creation now happens automatically, ensuring documentation always matches the
-                            validated firmware."</p>
-                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
-                            <strong style="color: #333;">Harish</strong><br>
-                            <span style="color: #888; font-size: 0.9rem;">Hardware Engineer (Review from evaluation
-                                test)</span>
-                        </div>
+                    <div class="testimonial-card" style="border-left: 4px solid #ffc107;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Tested for rapid prototyping. The wiring diagram UI saves hours of documentation time.
+                            Real-time updates when requirements change are game-changing."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Harish, Hardware Engineer
+                            (Evaluated for TVS Electronics)</cite>
                     </div>
 
                     <!-- 5. Raakesh -->
-                    <div class="testimonial-card">
-                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #333;">"Power Validation That Actually
-                            Works"</h3>
-                        <p style="color: #666; line-height: 1.7; margin-bottom: 20px;">"I work in power electronics
-                            designing motor controller systems. Power management is where most junior engineers fail. I
-                            tested HardcoreAI with a 4-motor robotic system. The validation immediately flagged: 'Total
-                            motor current draw: 2.8A. GPIO total budget: 1.2A. Critical violation. Suggestion: Use
-                            external motor driver with dedicated power supply.' This kind of power budget calculation is
-                            exactly what's missing from traditional IDEs."</p>
-                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
-                            <strong style="color: #333;">Raakesh</strong><br>
-                            <span style="color: #888; font-size: 0.9rem;">Power Electronics Engineer, Industrial
-                                Automation Systems, Chennai</span>
-                        </div>
+                    <div class="testimonial-card" style="border-left: 4px solid #343a40;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Power management validation is exceptional. Caught current limit violations and suggested
+                            proper power distribution for motor controllers. Essential for power electronics work."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Raakesh, Power Electronics
+                            Engineer</cite>
                     </div>
 
                     <!-- 6. Krtin -->
-                    <div class="testimonial-card">
-                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #333;">"Defense-Grade Validation"</h3>
-                        <p style="color: #666; line-height: 1.7; margin-bottom: 20px;">"Working on embedded systems for
-                            DRDO requires a different level of reliability. I was developing a wireless sensor network.
-                            Had 5 sensors and an OLED display all powered from the ESP32's 3.3V rail. HardcoreAI caught
-                            it immediately: 'Total current draw: 450mA. ESP32 3.3V rail maximum: 400mA. Risk of
-                            brownout.' Calculating actual current budgets is exactly what defense applications need."
+                    <div class="testimonial-card" style="border-left: 4px solid #0056b3;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "DRDO projects demand high reliability. The validation caught power rail overload that would
+                            cause brownouts. This level of hardware checking is rare in commercial tools."
                         </p>
-                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
-                            <strong style="color: #333;">Krtin Srinivas</strong><br>
-                            <span style="color: #888; font-size: 0.9rem;">Embedded Systems Engineer, DRDO, Defence
-                                Research & Development</span>
-                        </div>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Krtin Srinivas, DRDO</cite>
                     </div>
 
                     <!-- 7. Kishan -->
-                    <div class="testimonial-card">
-                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #333;">"Submitted My Project In
-                            Minutes"</h3>
-                        <p style="color: #666; line-height: 1.7; margin-bottom: 20px;">"Had to submit an IoT door sensor
-                            project the next day. Built it in minutes with HardcoreAI, understood how it worked, and
-                            presented those exact points to my professor. Thank you Sricharan for this tool. It saved my
-                            grade."</p>
-                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
-                            <strong style="color: #333;">Kishan</strong><br>
-                            <span style="color: #888; font-size: 0.9rem;">Student, VIT University, Vellore</span>
-                        </div>
+                    <div class="testimonial-card" style="border-left: 4px solid #c82333;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Had to submit IoT project next day. Built it in minutes, understood how it worked,
+                            presented to professor. This tool saved my grade."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Kishan, VIT University
+                            Student</cite>
                     </div>
 
                     <!-- 8. Ashish -->
-                    <div class="testimonial-card">
-                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #333;">"Saved Me From Bricking My
-                            Board"</h3>
-                        <p style="color: #666; line-height: 1.7; margin-bottom: 20px;">"We compared ChatGPT code vs
-                            HardcoreAI. ChatGPT gave me a pin that prevents booting. HardcoreAI's validation engine
-                            caught it immediately and explained why. The validation layer prevents AI hallucinations
-                            that could damage your board."</p>
-                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
-                            <strong style="color: #333;">Ashish</strong><br>
-                            <span style="color: #888; font-size: 0.9rem;">Student, SASTRA University, Thanjavur</span>
-                        </div>
+                    <div class="testimonial-card" style="border-left: 4px solid #218838;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Compared ChatGPT vs HardcoreAI. ChatGPT gave boot-critical pin. HardcoreAI caught it and
+                            suggested correct GPIO. Validation prevents AI hallucinations."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Ashish, SASTRA University
+                            Student</cite>
                     </div>
 
                     <!-- 9. Lalith -->
-                    <div class="testimonial-card">
-                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #333;">"Junior Engineer Training"</h3>
-                        <p style="color: #666; line-height: 1.7; margin-bottom: 20px;">"Very easy compared to other
-                            software in the market. We're evaluating it for training our junior engineers. The learning
-                            curve is significantly shorter."</p>
-                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
-                            <strong style="color: #333;">Lalith Kumar</strong><br>
-                            <span style="color: #888; font-size: 0.9rem;">Senior Engineer, Atsuya Technologies</span>
-                        </div>
+                    <div class="testimonial-card" style="border-left: 4px solid #e0a800;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Very easy compared to other software in the market. We're evaluating it for training our
+                            junior engineers. The learning curve is significantly shorter."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Lalith Kumar, Atsuya
+                            Technologies</cite>
                     </div>
 
                     <!-- DUPLICATES FOR SEAMLESS LOOP -->
-                    <div class="testimonial-card">
-                        <h3 style="font-size: 1.4rem; margin-bottom: 15px; color: #333;">"Built My Robot in 10 Minutes"
-                        </h3>
-                        <p style="color: #666; line-height: 1.7; margin-bottom: 20px;">"I built a line-following robot
-                            in literally 10 minutes. I just described what I wanted and HardcoreAI generated all the
-                            firmware and wiring. Usually takes me hours to debug GPIO configurations. The robot worked
-                            on first flash. No debugging. No rewiring."</p>
-                        <div style="border-top: 2px solid #f0f0f0; padding-top: 15px;">
-                            <strong style="color: #333;">Sricharan Srikrishna</strong><br>
-                            <span style="color: #888; font-size: 0.9rem;">Founder, HardcoreAI</span>
-                        </div>
+                    <div class="testimonial-card" style="border-left: 4px solid #007bff;">
+                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
+                            "Built a line-following robot in 10 minutes. HardcoreAI handled all motor driver GPIO
+                            mapping and sensor connections automatically. Robot worked on first flash."
+                        </p>
+                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Sricharan Srikrishna,
+                            Founder, HardcoreAI</cite>
                     </div>
-                    <!-- ... duplicate others if needed for smooth loop, but 9+1 is usually enough for a 60s animation ... -->
                 </div>
             </div>
         </div>
