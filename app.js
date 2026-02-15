@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('There was an error submitting your request. Please try again or email us directly at info@hardcoreai.in');
+                alert('There was an error submitting your request. Please try again or email us directly at hardcore.ai1234@gmail.com');
                 btn.innerText = originalText;
                 btn.disabled = false;
             }
@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('There was an error submitting your review. Please try again or email us directly at info@hardcoreai.in');
+                alert('There was an error submitting your review. Please try again or email us directly at hardcore.ai1234@gmail.com');
                 btn.innerText = originalText;
                 btn.disabled = false;
             }
