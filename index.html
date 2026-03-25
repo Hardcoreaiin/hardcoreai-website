@@ -38,18 +38,7 @@
 
     <!-- Hero Section -->
     <header id="hero" class="section hero-section">
-        <!-- Background Video -->
-        <div class="video-bg-container">
-            <div class="video-overlay"></div>
-            <iframe 
-                src="https://www.youtube.com/embed/4Q5er9eRE8w?autoplay=1&mute=1&loop=1&playlist=4Q5er9eRE8w&controls=0&disablekb=1&modestbranding=1&playsinline=1" 
-                frameborder="0" 
-                allow="autoplay; muted; fullscreen" 
-                class="video-iframe">
-            </iframe>
-        </div>
-
-        <div class="container hero-container" style="position: relative; z-index: 2;">
+        <div class="container hero-container">
             <div class="hero-content fade-in-up">
                 <div class="badge">
                     <span class="pulse-dot"></span>
@@ -72,21 +61,14 @@
             </div>
             
             <div class="hero-visual fade-in-up" style="animation-delay: 0.2s;">
-                <div class="terminal-mockup glow-effect">
-                    <div class="terminal-header">
-                        <div class="dots"><span></span><span></span><span></span></div>
-                        <div class="terminal-title">bringup_log.sh</div>
-                    </div>
-                    <div class="terminal-body mono-text">
-                        <p><span class="prompt">$</span> hardcoreai init --target iMX8M-Plus</p>
-                        <p class="sys-msg">[INFO] Analyzing requirements against NXP BSP...</p>
-                        <p class="sys-msg">[INFO] Generating optimal device tree overlay...</p>
-                        <p class="sys-msg">[SUCCESS] DTB compiled successfully.</p>
-                        <p><span class="prompt">$</span> hardcoreai map --validate</p>
-                        <p class="sys-msg">[INFO] Mapping hardware interfaces. No pin conflicts detected.</p>
-                        <p class="sys-msg">[SUCCESS] System architecture validation complete.</p>
-                        <p class="cursor-blink">_</p>
-                    </div>
+                <div class="video-demo-container glow-effect">
+                    <iframe 
+                        src="https://www.youtube.com/embed/4Q5er9eRE8w?autoplay=1&mute=1" 
+                        title="HardcoreAI Demo"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
