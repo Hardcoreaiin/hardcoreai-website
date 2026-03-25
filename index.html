@@ -1,423 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HardcoreAI - Hardware Development, Automated</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>HardcoreAI | System Design & Bring-Up Pro Platform</title>
+    <meta name="description" content="HardcoreAI is the system design and bring-up intelligence platform guiding embedded system engineers through architecture, BSP setup, and end-to-end bring-up.">
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-
-<body>
-    <canvas id="particle-canvas"></canvas>
+<body class="dark-theme">
+    
+    <!-- Background Grid Pattern -->
+    <div class="bg-grid"></div>
 
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <a href="#" class="logo">HardcoreAI</a>
-        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="nav-links">
-            <a href="business.html" class="nav-link hover-float"
-                style="margin-right: 1.5rem; font-weight: 600; color: var(--text-main);">For Business</a>
-            <a href="#download" class="nav-link hover-float"
-                style="margin-right: 1.5rem; font-weight: 600; color: var(--text-main);">Download</a>
-            <a href="#pilot" class="btn btn-primary hover-float"
-                style="padding: 0.6rem 1.5rem; font-size: 0.95rem; background-color: #7c3aed; border-color: #7c3aed; color: #ffffff !important;">Get
-                Early Access</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i data-lucide="cpu" class="logo-icon"></i>
+                <span>HardcoreAI</span>
+            </div>
+            <div class="nav-links">
+                <a href="#workflow">Workflow</a>
+                <a href="#features">Platform</a>
+                <a href="#use-cases">Use Cases</a>
+            </div>
+            <div class="nav-cta">
+                <a href="#contact" class="btn btn-primary btn-sm">Request Demo</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title fade-in-up">Learn and build hardware devices<br>with simple prompts.</h1>
-            <p class="hero-subtitle fade-in-up delay-1">
-                AI powered learning system for microcontrollers — generate firmware, wiring diagrams, and build
-                real-life devices in seconds with ESP32.
-            </p>
-            <div class="hero-actions fade-in-up delay-2">
-                <a href="#pilot" class="btn btn-primary glow-effect hover-float">Get Early Access</a>
-            </div>
-        </div>
-        <div class="hero-glow"></div>
-    </section>
-
-    <!-- About / Vision (Moved to Top) -->
-    <section class="section-padding">
-        <div class="container text-center narrow">
-            <h2 class="section-title fade-on-scroll">The Vision</h2>
-            <p class="vision-text fade-on-scroll"
-                style="font-size: 1.2rem; color: var(--text-muted); line-height: 1.8;">
-                We are building the future of hardware development — where physical products can be built as easily as
-                writing software. Hardware development now begins with a prompt.
-            </p>
-        </div>
-    </section>
-
-    <!-- Process / How it Works (Scrollytelling) -->
-    <section class="scrolly-process" id="process">
-        <div class="container text-center mb-5">
-            <h2 class="section-title fade-on-scroll" style="margin-bottom: 3rem;">How It Works</h2>
-        </div>
-        <div class="process-container">
-            <!-- Scrollable Steps (Left) -->
-            <div class="process-steps">
-                <div class="step-item active" data-step="1">
-                    <div class="step-number">STEP 01</div>
-                    <h3 class="step-title">Command with AI</h3>
-                    <p class="step-description">"Build a robot control for forward and backward for the connected
-                        board."<br><br>Hardcore AI understands natural language commands and turns them into embedded
-                        firmware automatically.</p>
+    <header id="hero" class="section hero-section">
+        <div class="container hero-container">
+            <div class="hero-content fade-in-up">
+                <div class="badge">
+                    <span class="pulse-dot"></span>
+                    <span class="mono-text">v2.0 Beta Available</span>
                 </div>
-                <div class="step-item" data-step="2">
-                    <div class="step-number">STEP 02</div>
-                    <h3 class="step-title">Generate Firmware</h3>
-                    <p class="step-description">Firmware generated successfully.<br><br>The AI generates
-                        production-ready embedded C/C++ firmware tailored to the detected microcontroller.</p>
-                </div>
-                <div class="step-item" data-step="3">
-                    <div class="step-number">STEP 03</div>
-                    <h3 class="step-title">Map Connections</h3>
-                    <p class="step-description">Automatically maps GPIO pins and peripheral connections.<br><br>Hardcore
-                        AI understands hardware wiring and configures GPIO, motor drivers, power pins, and peripherals
-                        automatically.</p>
-                </div>
-                <div class="step-item" data-step="4">
-                    <div class="step-number">STEP 04</div>
-                    <h3 class="step-title">Configure Peripherals</h3>
-                    <p class="step-description">Configure GPIO, UART, SPI, I2C, Timers — automatically.<br><br>No manual
-                        register setup. Hardcore AI configures peripherals visually and generates correct low-level
-                        code.</p>
-                </div>
-                <div class="step-item" data-step="5">
-                    <div class="step-number">STEP 05</div>
-                    <h3 class="step-title">Flash & Run</h3>
-                    <p class="step-description">Flash → Robot moves instantly.<br><br>With one click, firmware is
-                        compiled and flashed to the microcontroller using USB. The robot responds immediately.</p>
+                <h1 class="hero-title">
+                    From Requirements to <br>
+                    <span class="text-gradient">Bring-Up — Faster.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    HardcoreAI is the system design and bring-up intelligence platform guiding senior engineers through architecture, platform selection, BSP setup, and end-to-end bring-up validation.
+                </p>
+                <div class="hero-actions">
+                    <a href="#demo" class="btn btn-primary">Request Demo</a>
+                    <a href="#docs" class="btn btn-secondary">
+                        <i data-lucide="terminal"></i>
+                        <span class="mono-text">Read the Docs</span>
+                    </a>
                 </div>
             </div>
-
-            <!-- Sticky Images (Right) -->
-            <div class="process-visuals">
-                <div class="visual-container">
-                    <img src="assets/uploaded_image_0_1765804431660.png" alt="Natural Language Command"
-                        class="process-img active" data-step="1">
-                    <img src="assets/uploaded_image_1_1765804431660.png" alt="Firmware Generated" class="process-img"
-                        data-step="2">
-                    <img src="assets/uploaded_image_2_1765804431660.png" alt="Pin Mapping" class="process-img"
-                        data-step="3">
-                    <img src="assets/uploaded_image_3_1765804431660.png" alt="Peripheral Configuration"
-                        class="process-img" data-step="4">
-                    <img src="assets/uploaded_image_4_1765804431660.png" alt="Flash Hardware" class="process-img"
-                        data-step="5">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Showcase Section -->
-    <section class="video-showcase" id="demo">
-        <div class="container narrow">
-            <h2 class="section-title fade-on-scroll">See HardcoreAI in Action</h2>
-            <p class="section-subtitle fade-on-scroll">Watch how our AI-powered IDE transforms hardware development from
-                concept to deployment.</p>
-            <div class="video-container fade-on-scroll">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/nnQxvBE7U4U"
-                    title="Hardcore AI Demo" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-                    style="position: absolute; top:0; left: 0; width: 100%; height: 100%; border-radius: 20px;"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Professional & Student Testimonials Section -->
-    <style>
-        .testimonial-marquee {
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-            padding: 40px 0;
-        }
-
-        .testimonial-marquee-inner {
-            display: flex;
-            width: max-content;
-            animation: marquee-scroll 60s linear infinite;
-        }
-
-        .testimonial-marquee-inner:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes marquee-scroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .testimonial-card {
-            width: 450px;
-            margin-right: 30px;
-            flex-shrink: 0;
-            background: white;
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            white-space: normal;
-        }
-    </style>
-
-    <section class="testimonials-section"
-        style="padding: 80px 20px; background: #ffffff; overflow: hidden; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 15px; color: #333;">
-                Validated by Students & Industry Professionals
-            </h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 20px;">
-                Validation that meets professional standards, from automotive to defense.
-            </p>
-
-            <div class="testimonial-marquee">
-                <div class="testimonial-marquee-inner">
-                    <!-- 1. Sricharan -->
-                    <div class="testimonial-card" style="border-left: 4px solid #007bff;">
-                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
-                            "Built a line-following robot in 10 minutes. HardcoreAI handled all motor driver GPIO
-                            mapping and sensor connections automatically. Robot worked on first flash."
-                        </p>
-                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Sricharan Srikrishna,
-                            Founder, HardcoreAI</cite>
+            
+            <div class="hero-visual fade-in-up" style="animation-delay: 0.2s;">
+                <div class="terminal-mockup glow-effect">
+                    <div class="terminal-header">
+                        <div class="dots"><span></span><span></span><span></span></div>
+                        <div class="terminal-title">bringup_log.sh</div>
                     </div>
-
-                    <!-- 2. Sivagnanam -->
-                    <div class="testimonial-card" style="border-left: 4px solid #dc3545;">
-                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
-                            "Used for industrial automation project. Validation caught timing issues with interrupt pins
-                            that would cause erratic behavior in production. Professional-grade checking we need at
-                            Daimler."
-                        </p>
-                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Sivagnanam, Daimler
-                            India</cite>
-                    </div>
-
-                    <!-- 3. Adithya -->
-                    <div class="testimonial-card" style="border-left: 4px solid #28a745;">
-                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
-                            "The peripheral configuration was automatic - I2C, SPI, UART all set up correctly without
-                            reading datasheets for hours. Perfect for rapid prototyping."
-                        </p>
-                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Adithya Balaji, SRM
-                            Institute</cite>
-                    </div>
-
-                    <!-- 4. Harish -->
-                    <div class="testimonial-card" style="border-left: 4px solid #ffc107;">
-                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
-                            "Tested for rapid prototyping. The wiring diagram UI saves hours of documentation time.
-                            Real-time updates when requirements change are game-changing."
-                        </p>
-                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Harish, TVS
-                            Electronics</cite>
-                    </div>
-
-                    <!-- 5. Raakesh -->
-                    <div class="testimonial-card" style="border-left: 4px solid #343a40;">
-                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
-                            "Power management validation is exceptional. Caught current limit violations and suggested
-                            proper power distribution for motor controllers. Essential for power electronics work."
-                        </p>
-                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Raakesh, Power Electronics
-                            Engineer</cite>
-                    </div>
-
-                    <!-- 6. Krtin -->
-                    <div class="testimonial-card" style="border-left: 4px solid #0056b3;">
-                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
-                            "DRDO projects demand high reliability. The validation caught power rail overload that would
-                            cause brownouts. This level of hardware checking is rare in commercial tools."
-                        </p>
-                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Krtin Srinivas, DRDO</cite>
-                    </div>
-
-                    <!-- 7. Kishan -->
-                    <div class="testimonial-card" style="border-left: 4px solid #c82333;">
-                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
-                            "Had to submit IoT project next day. Built it in minutes, understood how it worked,
-                            presented to professor. This tool saved my grade."
-                        </p>
-                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Kishan, VIT University
-                            Student</cite>
-                    </div>
-
-                    <!-- 8. Ashish -->
-                    <div class="testimonial-card" style="border-left: 4px solid #218838;">
-                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
-                            "Compared ChatGPT vs HardcoreAI. ChatGPT gave boot-critical pin. HardcoreAI caught it and
-                            suggested correct GPIO. Validation prevents AI hallucinations."
-                        </p>
-                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Ashish, SASTRA University
-                            Student</cite>
-                    </div>
-
-                    <!-- 9. Lalith -->
-                    <div class="testimonial-card" style="border-left: 4px solid #e0a800;">
-                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
-                            "Very easy compared to other software in the market. We're evaluating it for training our
-                            junior engineers. The learning curve is significantly shorter."
-                        </p>
-                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Lalith Kumar, Atsuya
-                            Technologies</cite>
-                    </div>
-
-                    <!-- DUPLICATES FOR SEAMLESS LOOP -->
-                    <div class="testimonial-card" style="border-left: 4px solid #007bff;">
-                        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; color: #333;">
-                            "Built a line-following robot in 10 minutes. HardcoreAI handled all motor driver GPIO
-                            mapping and sensor connections automatically. Robot worked on first flash."
-                        </p>
-                        <cite style="color: #666; font-style: normal; font-weight: 600;">— Sricharan Srikrishna,
-                            Founder, HardcoreAI</cite>
+                    <div class="terminal-body mono-text">
+                        <p><span class="prompt">$</span> hardcoreai init --target iMX8M-Plus</p>
+                        <p class="sys-msg">[INFO] Analyzing requirements against NXP BSP...</p>
+                        <p class="sys-msg">[INFO] Generating optimal device tree overlay...</p>
+                        <p class="sys-msg">[SUCCESS] DTB compiled successfully.</p>
+                        <p><span class="prompt">$</span> hardcoreai map --validate</p>
+                        <p class="sys-msg">[INFO] Mapping hardware interfaces. No pin conflicts detected.</p>
+                        <p class="sys-msg">[SUCCESS] System architecture validation complete.</p>
+                        <p class="cursor-blink">_</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Supported Controllers -->
-    <section class="section-padding">
-        <div class="container text-center">
-            <h2 class="section-title fade-on-scroll">Supported Controllers</h2>
-            <div class="chip-logos fade-on-scroll">
-                <span class="chip">ESP32</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Combined Forms Section: Reviews & Pilot Access -->
-    <section id="pilot" class="section-padding">
+    <!-- Problem Section -->
+    <section id="problem" class="section">
         <div class="container">
-            <h2 class="section-title fade-on-scroll">Get Involved</h2>
-            <p class="section-subtitle fade-on-scroll">Share your experience or request pilot access to HardcoreAI</p>
+            <div class="section-header text-center fade-in-up">
+                <h2 class="section-title">Real Systems. Real Complexity.</h2>
+                <p class="section-subtitle">The traditional embedded workflow is fragmented, manual, and prone to late-stage integration failures.</p>
+            </div>
+            
+            <div class="grid grid-3 problem-cards">
+                <div class="card fade-in-up hover-glow" style="animation-delay: 0.1s;">
+                    <div class="card-icon"><i data-lucide="book-x"></i></div>
+                    <h3>BSP Complexity</h3>
+                    <p>Navigating massive vendor lock-in, fragmented documentation, and incompatible kernel versions slows down engineering cycles.</p>
+                </div>
+                <div class="card fade-in-up hover-glow" style="animation-delay: 0.2s;">
+                    <div class="card-icon"><i data-lucide="file-code-2"></i></div>
+                    <h3>Device Tree Nightmares</h3>
+                    <p>Endless iterations spent debugging subtle device tree configuration errors and pin-mux conflicts.</p>
+                </div>
+                <div class="card fade-in-up hover-glow" style="animation-delay: 0.3s;">
+                    <div class="card-icon"><i data-lucide="bug"></i></div>
+                    <h3>Bring-Up Delays</h3>
+                    <p>Unpredictable end-to-end integration roadblocks and deep debugging black holes during initial hardware power-on.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="forms-grid fade-on-scroll">
-                <!-- Reviews Form -->
-                <div class="form-column">
-                    <div class="form-box">
-                        <h3 class="form-title">Share Your Experience</h3>
-                        <p class="form-description">Help others by sharing your experience with HardcoreAI IDE</p>
+    <!-- Solution / Workflow Section -->
+    <section id="workflow" class="section bg-alt border-y">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">A Structured Workflow for System Bring-Up</h2>
+                <p class="section-subtitle">We guide you through the optimal engineering path, reducing guesswork and preventing downstream issues.</p>
+            </div>
+            
+            <div class="workflow-timeline">
+                <div class="timeline-step fade-in-up">
+                    <div class="step-number mono-text">01</div>
+                    <div class="step-content">
+                        <h3>Define</h3>
+                        <p>Input system requirements and constraints (power, cost, I/O performance).</p>
+                    </div>
+                </div>
+                <div class="timeline-step fade-in-up">
+                    <div class="step-number mono-text">02</div>
+                    <div class="step-content">
+                        <h3>Architect</h3>
+                        <p>Get data-driven architecture and SoC platform recommendations based on exact specs.</p>
+                    </div>
+                </div>
+                <div class="timeline-step fade-in-up">
+                    <div class="step-number mono-text">03</div>
+                    <div class="step-content">
+                        <h3>Configure</h3>
+                        <p>Receive step-by-step BSP guidance tailored to your specific hardware selection.</p>
+                    </div>
+                </div>
+                <div class="timeline-step fade-in-up">
+                    <div class="step-number mono-text">04</div>
+                    <div class="step-content">
+                        <h3>Map</h3>
+                        <p>Interactive device tree assistance to eliminate pin conflicts before compilation.</p>
+                    </div>
+                </div>
+                <div class="timeline-step fade-in-up">
+                    <div class="step-number mono-text">05</div>
+                    <div class="step-content">
+                        <h3>Validate</h3>
+                        <p>Intelligent bring-up debugging support linking hardware behavior to software config.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <form class="review-form" id="reviewForm">
-                            <input type="hidden" name="access_key" value="8f25aa84-d3cc-439d-8d05-3de9a8128560">
-                            <input type="hidden" name="subject" value="New Review Submission - HardcoreAI IDE">
-                            <input type="hidden" name="from_name" value="HardcoreAI Website Reviews">
-
-                            <div class="form-group">
-                                <label for="reviewerName">Your Name *</label>
-                                <input type="text" id="reviewerName" name="name" placeholder="John Doe" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="reviewerEmail">Email *</label>
-                                <input type="email" id="reviewerEmail" name="email" placeholder="you@example.com"
-                                    required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="reviewerRole">Role/Title</label>
-                                <input type="text" id="reviewerRole" name="role" placeholder="e.g., Student, Engineer">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="rating">Rating *</label>
-                                <div class="star-rating" id="starRating">
-                                    <span class="star" data-rating="1">☆</span>
-                                    <span class="star" data-rating="2">☆</span>
-                                    <span class="star" data-rating="3">☆</span>
-                                    <span class="star" data-rating="4">☆</span>
-                                    <span class="star" data-rating="5">☆</span>
-                                </div>
-                                <input type="hidden" id="ratingValue" name="rating" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="reviewText">Your Review *</label>
-                                <textarea id="reviewText" name="review" rows="4"
-                                    placeholder="Share your experience with HardcoreAI IDE..." required></textarea>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary full-width">Submit Review</button>
-                            <p class="form-note">Reviews will be moderated before publishing.</p>
-                        </form>
-                        <div id="reviewSuccessMessage" class="success-message hidden">
-                            Thank you for your review! We'll review it and publish it soon.
+    <!-- Product Features Bento Box -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <h2 class="section-title">Practical Intelligence for Embedded Engineering</h2>
+                <p class="section-subtitle">Not a wrapper. A deeply technical platform built for Linux, BSP, and firmware engineers.</p>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="bento-item bento-large fade-in-up card hover-glow group">
+                    <div class="bento-content">
+                        <div class="card-icon"><i data-lucide="git-merge"></i></div>
+                        <h3>Platform Selection Engine</h3>
+                        <p>Instantly compare 1000+ SoCs and MPUs across power, thermal, and performance constraints to find the perfect fit for your architecture.</p>
+                    </div>
+                    <div class="bento-visual">
+                        <div class="tech-diagram">
+                            <i data-lucide="activity"></i> Power Profile Active
                         </div>
                     </div>
                 </div>
+                
+                <div class="bento-item fade-in-up card hover-glow group" style="animation-delay: 0.1s;">
+                    <div class="card-icon"><i data-lucide="layers"></i></div>
+                    <h3>BSP Intelligence</h3>
+                    <p>Automated patch discovery and kernel config guidance for Yocto and Buildroot ecosystems.</p>
+                </div>
+                
+                <div class="bento-item fade-in-up card hover-glow group" style="animation-delay: 0.2s;">
+                    <div class="card-icon"><i data-lucide="file-json"></i></div>
+                    <h3>Device Tree Assistant</h3>
+                    <p>Generates base device tree sources (DTS) and validates pin multiplexing against actual board schematics.</p>
+                </div>
+                
+                <div class="bento-item fade-in-up card hover-glow group" style="animation-delay: 0.1s;">
+                    <div class="card-icon"><i data-lucide="wrench"></i></div>
+                    <h3>Bring-Up Debugging</h3>
+                    <p>Correlate kernel panics and bootloader logs directly to platform known issues and hardware errata.</p>
+                </div>
+                
+                <div class="bento-item bento-wide fade-in-up card hover-glow group" style="animation-delay: 0.2s;">
+                    <div class="bento-content">
+                        <div class="card-icon"><i data-lucide="circuit-board"></i></div>
+                        <h3>Hardware-Software Mapping</h3>
+                        <p>Maintain a single source of truth between the hardware design constraints and the software implementation, preventing late-stage mismatch disasters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Pilot Access Form -->
-                <div class="form-column">
-                    <div class="form-box">
-                        <h3 class="form-title">Request Pilot Access</h3>
-                        <p class="form-description">Join the first 10 enterprise pilot partners building the future of
-                            hardware development</p>
-
-                        <form class="waitlist-form" id="waitlistForm">
-                            <input type="hidden" name="access_key" value="8f25aa84-d3cc-439d-8d05-3de9a8128560">
-                            <input type="hidden" name="subject" value="New Pilot Access Request - HardcoreAI">
-                            <input type="hidden" name="from_name" value="HardcoreAI Website">
-
-                            <div class="form-group">
-                                <label for="pilotName">Name *</label>
-                                <input type="text" id="pilotName" name="name" placeholder="Your name" required>
+    <!-- Contrast Section: Why Not Just Use AI? -->
+    <section id="contrast" class="section bg-contrast">
+        <div class="container">
+            <div class="contrast-layout">
+                <div class="contrast-content fade-in-up">
+                    <h2 class="section-title">Real Hardware Requires Real Workflows</h2>
+                    <p class="section-description">
+                        General-purpose AI tools generate unverified code snippets and theoretical answers. We know that embedded engineering isn't a text generation problem—it's a systems integration problem.
+                    </p>
+                    <p class="highlight-text">
+                        HardcoreAI helps you build real systems. We focus on structured workflows, precise hardware awareness, and engineering reliability.
+                    </p>
+                    <ul class="contrast-list">
+                        <li><i data-lucide="check-circle-2"></i> Deterministic Configuration</li>
+                        <li><i data-lucide="check-circle-2"></i> Verified SoC Silicon Errata</li>
+                        <li><i data-lucide="check-circle-2"></i> Complete Audit Trails</li>
+                    </ul>
+                </div>
+                <div class="contrast-visual fade-in-up">
+                    <div class="comparison-card">
+                        <div class="comp-col generic">
+                            <h4 class="mono-text text-muted">Generic AI</h4>
+                            <div class="comp-body">
+                                <div><i data-lucide="x"></i> Hallucinates registers</div>
+                                <div><i data-lucide="x"></i> Ignores power constraints</div>
+                                <div><i data-lucide="x"></i> Conversational flow</div>
                             </div>
-
-                            <div class="form-group">
-                                <label for="pilotCompany">Company *</label>
-                                <input type="text" id="pilotCompany" name="company" placeholder="Company name" required>
+                        </div>
+                        <div class="comp-col hardcore">
+                            <div class="badge-mini">HardcoreAI</div>
+                            <h4 class="mono-text text-accent">Structured Tooling</h4>
+                            <div class="comp-body">
+                                <div><i data-lucide="check"></i> Validates pin configurations</div>
+                                <div><i data-lucide="check"></i> Enforces power & cost bounds</div>
+                                <div><i data-lucide="check"></i> Guided engineering workflow</div>
                             </div>
-
-                            <div class="form-group">
-                                <label for="pilotEmail">Work Email *</label>
-                                <input type="email" id="pilotEmail" name="email" placeholder="you@company.com" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="pilotHardware">Hardware Type *</label>
-                                <input type="text" id="pilotHardware" name="hardware" placeholder="e.g., ESP32, STM32"
-                                    required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="pilotScale">Expected Scale *</label>
-                                <select id="pilotScale" name="scale" required>
-                                    <option value="" disabled selected>Select scale</option>
-                                    <option value="prototype">Prototype (under 100)</option>
-                                    <option value="production">Production (100 - 2,000)</option>
-                                    <option value="scale">Scale (2,000+)</option>
-                                </select>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary full-width">Request Pilot Access</button>
-                            <p class="form-note">NDA available before demo.</p>
-                        </form>
-                        <div id="successMessage" class="success-message hidden">
-                            Request sent! We'll be in touch shortly.
                         </div>
                     </div>
                 </div>
@@ -425,45 +252,141 @@
         </div>
     </section>
 
-    <!-- Download Section (Black) -->
-    <section id="download" class="download-section">
+    <!-- Social Proof Section -->
+    <section id="social-proof" class="section">
         <div class="container text-center">
-            <h2 class="section-title">Start Building Today</h2>
-            <div class="download-container">
-                <a href="#" class="btn btn-download hover-float">
-                    Download for Windows
-                </a>
-                <a href="#" class="btn btn-secondary hover-float">
-                    macOS (Coming Soon)
-                </a>
-                <a href="#" class="btn btn-secondary hover-float">
-                    Linux (Coming Soon)
-                </a>
+            <h4 class="mono-text subtitle-small text-muted mb-lg fade-in-up">Trusted by engineering teams building mission-critical systems at</h4>
+            <div class="logo-strip fade-in-up">
+                <div class="company-logo mono-text">Zebra Technologies</div>
+                <div class="company-logo mono-text">L&T Technology Services</div>
+                <div class="company-logo mono-text">DRDO</div>
+                <div class="company-logo mono-text">Google Devices</div>
             </div>
-            <p class="download-note">Version 1.0.2 • Free for non-commercial use</p>
+            
+            <div class="quote-card mt-xl fade-in-up mx-auto">
+                <i data-lucide="quote" class="quote-icon text-accent"></i>
+                <p>"HardcoreAI didn't just give us code; it gave us a rigorous path to hardware validation. Our recent custom baseboard bring-up time was cut by over 60%."</p>
+                <div class="quote-author">
+                    <strong>Lead Firmware Architect</strong>
+                    <span class="mono-text text-muted">Tier-1 Semiconductor Co.</span>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Use Cases Section -->
+    <section id="use-cases" class="section border-y bg-alt">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <h2 class="section-title">Built for Complex Domains</h2>
+            </div>
+            
+            <div class="tabs-container fade-in-up">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="iot">Industrial IoT</button>
+                    <button class="tab-btn" data-tab="robotics">Robotics</button>
+                    <button class="tab-btn" data-tab="linux">Embedded Linux</button>
+                    <button class="tab-btn" data-tab="edge">Edge AI</button>
+                </div>
+                
+                <div class="tab-contents">
+                    <div class="tab-pane active" id="iot">
+                        <div class="tab-grid">
+                            <div class="tab-text">
+                                <h3>Industrial IoT Systems</h3>
+                                <p>Balance extremely low power budgets against required connectivity suites. Ensure long-term reliability for remote, inaccessible deployments.</p>
+                                <ul class="feature-list">
+                                    <li><i data-lucide="zap"></i> Advanced power state modeling</li>
+                                    <li><i data-lucide="wifi"></i> Wireless stack integration validation</li>
+                                    <li><i data-lucide="shield"></i> Secure boot architecture assistance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Other tab panes will be populated via JS or can be added structurally here -->
+                    <div class="tab-pane" id="robotics">
+                        <div class="tab-grid">
+                            <div class="tab-text">
+                                <h3>Robotics Control Systems</h3>
+                                <p>Manage highly deterministic hard real-time constraints and complex sensor fusion interfaces seamlessly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="linux">
+                        <div class="tab-grid">
+                            <div class="tab-text">
+                                <h3>Embedded Linux Devices</h3>
+                                <p>Simplify Yocto/Buildroot configurations, rootfs optimization, and complex graphics/display controller bring-ups.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="edge">
+                        <div class="tab-grid">
+                            <div class="tab-text">
+                                <h3>Edge AI Systems</h3>
+                                <p>Navigate NPU/GPU accelerator integrations, memory bandwidth bottlenecks, and specialized AI compiler toolchains.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Bottom Section -->
+    <section id="cta" class="section cta-section">
+        <div class="container text-center fade-in-up glow-effect">
+            <h2 class="section-title massive-title">Work like a senior embedded engineer — every time.</h2>
+            <p class="section-subtitle mx-auto">Stop fighting toolchains and start building systems with confidence.</p>
+            <div class="mt-lg">
+                <a href="#demo" class="btn btn-primary btn-lg">Request Demo</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer border-t">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h4>HardcoreAI</h4>
-                    <p class="copyright">© 2025 HardcoreAI. All rights reserved.</p>
-
+            <div class="footer-top grid grid-4">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i data-lucide="cpu" class="logo-icon"></i>
+                        <span>HardcoreAI</span>
+                    </div>
+                    <p class="mt-sm text-muted mono-text text-sm">System System & Bring-Up Pro Platform</p>
                 </div>
-                <div class="footer-links">
-                    <span>📧 hardcore.ai1234@gmail.com</span>
-                    <span>📞 +91 7010293386</span>
-                    <a href="LICENSE.txt" target="_blank">Legal & Terms</a>
+                <div class="footer-col">
+                    <h5 class="mono-text">Product</h5>
+                    <a href="#">Architecture Gen</a>
+                    <a href="#">BSP Intelligence</a>
+                    <a href="#">Device Tree Tools</a>
+                    <a href="#">Debugging</a>
                 </div>
+                <div class="footer-col">
+                    <h5 class="mono-text">Resources</h5>
+                    <a href="#">Documentation</a>
+                    <a href="#">Supported Platforms</a>
+                    <a href="#">API Reference</a>
+                    <a href="#">Blog</a>
+                </div>
+                <div class="footer-col">
+                    <h5 class="mono-text">Company</h5>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom mono-text text-sm text-muted">
+                <p>&copy; 2026 HardcoreAI Inc. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="/app.js"></script>
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script type="module" src="./app.js"></script>
 </body>
-
 </html>
