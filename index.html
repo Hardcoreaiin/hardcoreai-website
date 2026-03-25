@@ -23,7 +23,6 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <i data-lucide="cpu" class="logo-icon"></i>
                 <span>HardcoreAI</span>
             </div>
             <div class="nav-links">
@@ -39,7 +38,18 @@
 
     <!-- Hero Section -->
     <header id="hero" class="section hero-section">
-        <div class="container hero-container">
+        <!-- Background Video -->
+        <div class="video-bg-container">
+            <div class="video-overlay"></div>
+            <iframe 
+                src="https://www.youtube.com/embed/4Q5er9eRE8w?autoplay=1&mute=1&loop=1&playlist=4Q5er9eRE8w&controls=0&disablekb=1&modestbranding=1&playsinline=1" 
+                frameborder="0" 
+                allow="autoplay; muted; fullscreen" 
+                class="video-iframe">
+            </iframe>
+        </div>
+
+        <div class="container hero-container" style="position: relative; z-index: 2;">
             <div class="hero-content fade-in-up">
                 <div class="badge">
                     <span class="pulse-dot"></span>
@@ -351,7 +361,6 @@
             <div class="footer-top grid grid-4">
                 <div class="footer-col">
                     <div class="logo">
-                        <i data-lucide="cpu" class="logo-icon"></i>
                         <span>HardcoreAI</span>
                     </div>
                     <p class="mt-sm text-muted mono-text text-sm">System System & Bring-Up Pro Platform</p>
