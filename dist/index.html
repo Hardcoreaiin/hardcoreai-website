@@ -12,8 +12,8 @@
     
     <!-- Icons (Lucide) -->
     <script src="https://unpkg.com/lucide@latest"></script>
-  <script type="module" crossorigin src="/assets/main-BPQCAzhU.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/styles-Cw-K0aBP.css">
+  <script type="module" crossorigin src="/assets/main-Wz3R2mZe.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-DM96Llbq.css">
 </head>
 <body class="dark-theme">
     
@@ -24,7 +24,6 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <i data-lucide="cpu" class="logo-icon"></i>
                 <span>HardcoreAI</span>
             </div>
             <div class="nav-links">
@@ -63,21 +62,14 @@
             </div>
             
             <div class="hero-visual fade-in-up" style="animation-delay: 0.2s;">
-                <div class="terminal-mockup glow-effect">
-                    <div class="terminal-header">
-                        <div class="dots"><span></span><span></span><span></span></div>
-                        <div class="terminal-title">bringup_log.sh</div>
-                    </div>
-                    <div class="terminal-body mono-text">
-                        <p><span class="prompt">$</span> hardcoreai init --target iMX8M-Plus</p>
-                        <p class="sys-msg">[INFO] Analyzing requirements against NXP BSP...</p>
-                        <p class="sys-msg">[INFO] Generating optimal device tree overlay...</p>
-                        <p class="sys-msg">[SUCCESS] DTB compiled successfully.</p>
-                        <p><span class="prompt">$</span> hardcoreai map --validate</p>
-                        <p class="sys-msg">[INFO] Mapping hardware interfaces. No pin conflicts detected.</p>
-                        <p class="sys-msg">[SUCCESS] System architecture validation complete.</p>
-                        <p class="cursor-blink">_</p>
-                    </div>
+                <div class="video-demo-container glow-effect">
+                    <iframe 
+                        src="https://www.youtube.com/embed/4Q5er9eRE8w?autoplay=1&mute=1" 
+                        title="HardcoreAI Demo"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -156,6 +148,107 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         hardcoreai CLI — Secondary Product Section
+         ================================================ -->
+    <section id="cli" class="cli-section">
+        <div class="container cli-inner">
+
+            <!-- Eyebrow: track label + releasing badge -->
+            <div class="cli-eyebrow fade-in-up">
+                <span class="cli-track-label">secondary product</span>
+                <span class="cli-releasing-badge">
+                    <span class="cli-pulse-dot"></span>
+                    Releasing Soon
+                </span>
+            </div>
+
+            <!-- Header -->
+            <div class="cli-header fade-in-up">
+                <h2 class="cli-title">
+                    <span class="cli-name">hardcoreai CLI</span>
+                </h2>
+                <p class="cli-tagline">The same intelligence — in your terminal and CI/CD pipeline</p>
+            </div>
+
+            <!-- Two-column layout: features left, terminal right -->
+            <div class="cli-layout">
+
+                <!-- LEFT: Feature list + waitlist -->
+                <div>
+                    <ul class="cli-features fade-in-up">
+                        <li>
+                            <span class="cli-cmd">hardcoreai validate dts</span>
+                            <span class="cli-cmd-desc">Catches conflicts before your 3-hour build</span>
+                        </li>
+                        <li>
+                            <span class="cli-cmd">hardcoreai debug hardfault</span>
+                            <span class="cli-cmd-desc">Root cause in the terminal</span>
+                        </li>
+                        <li>
+                            <span class="cli-cmd">hardcoreai generate peripheral</span>
+                            <span class="cli-cmd-desc">Correct register config for any SoC</span>
+                        </li>
+                        <li>
+                            <span class="cli-cmd">Exit code 1 on errors</span>
+                            <span class="cli-cmd-desc">Drop into GitHub Actions, Jenkins, GitLab CI</span>
+                        </li>
+                    </ul>
+
+                    <!-- Waitlist -->
+                    <div class="cli-waitlist fade-in-up">
+                        <label class="cli-waitlist-label" for="cli-email">Get notified when it ships</label>
+                        <div class="cli-waitlist-row">
+                            <input
+                                id="cli-email"
+                                type="email"
+                                class="cli-email-input"
+                                placeholder="you@company.com"
+                                autocomplete="email"
+                            />
+                            <button id="cli-notify-btn" class="btn-cli" onclick="cliWaitlistSubmit()">Notify me</button>
+                        </div>
+                        <p id="cli-feedback" class="cli-feedback">&#x2713; You're on the list. We'll ping you when hardcoreai validate ships.</p>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Terminal mockup -->
+                <div class="cli-terminal fade-in-up" style="animation-delay: 0.15s;">
+                    <div class="cli-terminal-header">
+                        <div class="cli-terminal-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="cli-terminal-title">hardcoreai-validate.sh</div>
+                    </div>
+                    <div class="cli-terminal-body">
+                        <div class="cli-line">
+                            <span class="cli-prompt-sym">$</span>
+                            <span class="cli-cmd-text">hardcoreai validate dts board.dts --soc imx8mp</span>
+                        </div>
+                        <div class="cli-spacer"></div>
+                        <div class="cli-line">
+                            <span class="cli-error">&#x2717; ERROR</span>
+                            <span class="cli-cmd-text">line 247 &mdash; <span style="color:#ffb74d;">PIN_MUX_CONFLICT</span>: i2c2 + uart2 share PAD_GPIO_B0_08</span>
+                        </div>
+                        <div class="cli-line">
+                            <span class="cli-fix">&rarr; FIX</span>
+                            <span class="cli-cmd-text" style="color:#b0bec5;">Use PAD_GPIO_B0_10 for I2C2_SCL</span>
+                        </div>
+                        <div class="cli-line">
+                            <span class="cli-ref">&rarr; REF</span>
+                            <span class="cli-cmd-text" style="color:#90a4ae;">IMX8MP RM &sect;8.2.4</span>
+                        </div>
+                        <div class="cli-spacer"></div>
+                        <div class="cli-line">
+                            <span class="cli-cmd-text" style="color:#6b7280;">exit code <span style="color:#ff5252;">1</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -256,12 +349,13 @@
     <!-- Social Proof Section -->
     <section id="social-proof" class="section">
         <div class="container text-center">
-            <h4 class="mono-text subtitle-small text-muted mb-lg fade-in-up">Trusted by engineering teams building mission-critical systems at</h4>
+            <h4 class="mono-text subtitle-small text-muted fade-in-up">Validated by</h4>
+            <p class="section-subtitle mt-sm mb-lg fade-in-up" style="font-size: 1rem;">Building for engineers with their feedback.</p>
             <div class="logo-strip fade-in-up">
                 <div class="company-logo mono-text">Zebra Technologies</div>
                 <div class="company-logo mono-text">L&T Technology Services</div>
-                <div class="company-logo mono-text">DRDO</div>
-                <div class="company-logo mono-text">Google Devices</div>
+                <div class="company-logo mono-text">SM Electronics</div>
+                <div class="company-logo mono-text">Google</div>
             </div>
             
             <div class="quote-card mt-xl fade-in-up mx-auto">
@@ -351,7 +445,6 @@
             <div class="footer-top grid grid-4">
                 <div class="footer-col">
                     <div class="logo">
-                        <i data-lucide="cpu" class="logo-icon"></i>
                         <span>HardcoreAI</span>
                     </div>
                     <p class="mt-sm text-muted mono-text text-sm">System System & Bring-Up Pro Platform</p>
@@ -384,9 +477,56 @@
         </div>
     </footer>
 
+    <!-- ================================================
+         Floating Notification Bar
+         ================================================ -->
+    <div id="cli-notify-bar" class="cli-notify-bar" role="alert" aria-live="polite">
+        <span class="cli-notify-dot"></span>
+        <div class="cli-notify-content">
+            <p class="cli-notify-text">CLI releasing soon &mdash; get notified when <code style="color:#00e676;">hardcoreai validate</code> ships</p>
+            <a href="#cli" class="cli-notify-link" onclick="document.getElementById('cli-notify-bar').classList.add('hiding')">Jump to CLI section &rarr;</a>
+        </div>
+        <button class="cli-notify-close" id="cli-notify-close" aria-label="Dismiss notification">&times;</button>
+    </div>
+
     <!-- Scripts -->
     <script>
         lucide.createIcons();
+
+        // ── CLI Waitlist ──────────────────────────────────────────
+        function cliWaitlistSubmit() {
+            const input    = document.getElementById('cli-email');
+            const feedback = document.getElementById('cli-feedback');
+            const btn      = document.getElementById('cli-notify-btn');
+            const email    = input.value.trim();
+
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                input.style.borderColor = '#ff5252';
+                input.focus();
+                return;
+            }
+
+            input.style.borderColor = '';
+            input.disabled = true;
+            btn.disabled   = true;
+            btn.textContent = '✓ Done';
+            btn.style.opacity = '0.6';
+            feedback.classList.add('visible');
+        }
+
+        // ── Notification Bar: 8 s auto-dismiss ───────────────────
+        (function () {
+            const bar   = document.getElementById('cli-notify-bar');
+            const close = document.getElementById('cli-notify-close');
+
+            function dismiss() {
+                bar.classList.add('hiding');
+                setTimeout(() => bar.remove(), 450);
+            }
+
+            close.addEventListener('click', dismiss);
+            setTimeout(dismiss, 8000);
+        })();
     </script>
 </body>
 </html>
