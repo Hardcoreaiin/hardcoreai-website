@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HardcoreAI | System Design & Bring-Up Pro Platform</title>
-    <meta name="description" content="HardcoreAI is the system design and bring-up intelligence platform guiding embedded system engineers through architecture, BSP setup, and end-to-end bring-up.">
+    <title>HardcoreAI | Embedded Systems Engineering, Reimagined</title>
+    <meta name="description" content="Making embedded systems engineering faster, safer, and less painful starting with AI-powered VS Code intelligence.">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
     
     <!-- Icons (Lucide) -->
     <script src="https://unpkg.com/lucide@latest"></script>
-  <script type="module" crossorigin src="/assets/main-Wz3R2mZe.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/styles-DM96Llbq.css">
+  <script type="module" crossorigin src="/assets/main-CrRANpbH.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-CqWAibQN.css">
 </head>
 <body class="dark-theme">
     
@@ -24,15 +26,15 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <span>HardcoreAI</span>
+                <span class="mono-text">HARDCOREAI</span>
             </div>
             <div class="nav-links">
-                <a href="#workflow">Workflow</a>
-                <a href="#features">Platform</a>
-                <a href="#use-cases">Use Cases</a>
+                <a href="#vscode">VS Code</a>
+                <a href="#cli">CLI Tool</a>
+                <a href="#roadmap">Roadmap</a>
             </div>
             <div class="nav-cta">
-                <a href="#contact" class="btn btn-primary btn-sm">Request Demo</a>
+                <a href="https://marketplace.visualstudio.com/" target="_blank" class="btn btn-primary btn-sm">Install Extension</a>
             </div>
         </div>
     </nav>
@@ -41,31 +43,27 @@
     <header id="hero" class="section hero-section">
         <div class="container hero-container">
             <div class="hero-content fade-in-up">
-                <div class="badge">
-                    <span class="pulse-dot"></span>
-                    <span class="mono-text">v2.0 Beta Available</span>
-                </div>
-                <h1 class="hero-title">
-                    From Requirements to <br>
-                    <span class="text-gradient">Bring-Up — Faster.</span>
+                <h1 class="hero-title condensed">
+                    Embedded systems <br>
+                    <span class="text-orange">engineering, reimagined</span>
                 </h1>
                 <p class="hero-subtitle">
-                    HardcoreAI is the system design and bring-up intelligence platform guiding senior engineers through architecture, platform selection, BSP setup, and end-to-end bring-up validation.
+                    HARDCOREAI brings AI-powered intelligence into your embedded workflow — starting with the VS Code extension every firmware engineer needs.
                 </p>
                 <div class="hero-actions">
-                    <a href="#demo" class="btn btn-primary">Request Demo</a>
-                    <a href="#docs" class="btn btn-secondary">
-                        <i data-lucide="terminal"></i>
-                        <span class="mono-text">Read the Docs</span>
+                    <a href="https://marketplace.visualstudio.com/" target="_blank" class="btn btn-primary">Install VS Code Extension — Free</a>
+                    <a href="#demo" class="btn btn-secondary">
+                        <i data-lucide="play-circle"></i>
+                        <span>Watch Demo (2 min)</span>
                     </a>
                 </div>
             </div>
             
-            <div class="hero-visual fade-in-up" style="animation-delay: 0.2s;">
-                <div class="video-demo-container glow-effect">
+            <div class="hero-visual fade-in-up" style="animation-delay: 0.1s;">
+                <div id="demo" class="video-demo-container glow-effect-orange">
                     <iframe 
-                        src="https://www.youtube.com/embed/4Q5er9eRE8w?autoplay=1&mute=1" 
-                        title="HardcoreAI Demo"
+                        src="https://www.youtube.com/embed/4Q5er9eRE8w" 
+                        title="HardcoreAI VS Code Demo"
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
@@ -75,33 +73,118 @@
         </div>
     </header>
 
-    <!-- ================================================
-         hardcoreai CLI — Secondary Product Section
-         ================================================ -->
+    <!-- Problem Section -->
+    <section id="problem" class="section border-t bg-black-dots">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <h2 class="section-title condensed">Real challenges. No hype.</h2>
+                <p class="section-subtitle">Embedded engineering is brutal. We're fixing the specific bottlenecks that steal your weekends.</p>
+            </div>
+            
+            <div class="grid grid-3 problem-cards">
+                <div class="card fade-in-up hover-glow-orange" style="animation-delay: 0.1s;">
+                    <div class="card-icon"><i data-lucide="zap-off"></i></div>
+                    <h3>HardFault Black Holes</h3>
+                    <p>Debugging a random hardfault shouldn't take three days of manually tracing CFSR registers and stack frames.</p>
+                </div>
+                <div class="card fade-in-up hover-glow-orange" style="animation-delay: 0.2s;">
+                    <div class="card-icon"><i data-lucide="git-branch"></i></div>
+                    <h3>DTS Conflicts</h3>
+                    <p>Discovering a pin-mux conflict after a 3-hour Yocto image build is a failure of tooling, not of the engineer.</p>
+                </div>
+                <div class="card fade-in-up hover-glow-orange" style="animation-delay: 0.3s;">
+                    <div class="card-icon"><i data-lucide="copy"></i></div>
+                    <h3>Datasheet Fatigue</h3>
+                    <p>Peripheral configs are often copy-pasted from Stack Overflow or old projects because 500-page datasheets are a pain to parse.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Primary Product: VS Code Extension -->
+    <section id="vscode" class="section bg-alt border-y">
+        <div class="container">
+            <div class="product-grid">
+                <div class="product-content fade-in-up">
+                    <div class="badge-primary">
+                        <span class="mono-text">Available Now — Free</span>
+                    </div>
+                    <h2 class="section-title condensed">HARDCOREAI for VS Code</h2>
+                    <p class="product-desc">The only AI assistant that actually understands your hardware. No generic code snippets—just hardware-aware intelligence.</p>
+                    
+                    <ul class="feature-list-check">
+                        <li>
+                            <i data-lucide="check-circle" class="text-orange"></i>
+                            <div>
+                                <strong>HardFault Decoder</strong>
+                                <p>Paste a raw register dump. Get the root cause, fix, and exact datasheet citation in 5 seconds.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle" class="text-orange"></i>
+                            <div>
+                                <strong>Inline DTS Validation</strong>
+                                <p>Real-time pin-mux conflict detection. Catch hardware mapping errors before you compile.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle" class="text-orange"></i>
+                            <div>
+                                <strong>Peripheral Generator</strong>
+                                <p>Generate perfect C register configurations directly from actual datasheet specs, not hallucinations.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle" class="text-orange"></i>
+                            <div>
+                                <strong>Datasheet Hover Docs</strong>
+                                <p>Hover over a register name in code to see the bit layout and description directly from the datasheet.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="mt-lg">
+                        <a href="https://marketplace.visualstudio.com/" target="_blank" class="btn btn-primary btn-lg">Install on VS Code Marketplace &rarr;</a>
+                    </div>
+                </div>
+                
+                <div class="product-visual fade-in-up">
+                    <div class="ui-mockup shadow-orange">
+                        <div class="ui-mockup-header">
+                            <i data-lucide="layout"></i>
+                            <span class="mono-text">vscode/extension/hardcoreai</span>
+                        </div>
+                        <div class="ui-mockup-body">
+                            <div class="code-line"><span class="c-blue">void</span> <span class="c-red">HardFault_Handler</span>(<span class="c-blue">void</span>) {</div>
+                            <div class="code-line">&nbsp;&nbsp;<span class="c-gray">// Register Dump Detected...</span></div>
+                            <div class="code-line highlight-line">SCB->CFSR = 0x01000000; <span class="badge-ai">AI Analysis</span></div>
+                            <div class="code-line">&nbsp;&nbsp;<span class="c-green">// → ROOT CAUSE: Unaligned access at 0x20004001</span></div>
+                            <div class="code-line">&nbsp;&nbsp;<span class="c-green">// → REF: Cortex-M4 RM §4.3.11</span></div>
+                            <div class="code-line">}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secondary Product: CLI Tool -->
     <section id="cli" class="cli-section">
         <div class="container cli-inner">
-
-            <!-- Eyebrow: track label + releasing badge -->
             <div class="cli-eyebrow fade-in-up">
-                <span class="cli-track-label">secondary product</span>
                 <span class="cli-releasing-badge">
                     <span class="cli-pulse-dot"></span>
                     Releasing Soon
                 </span>
+                <span class="cli-track-label">secondary product</span>
             </div>
 
-            <!-- Header -->
             <div class="cli-header fade-in-up">
-                <h2 class="cli-title">
-                    <span class="cli-name">hardcoreai CLI</span>
-                </h2>
+                <h2 class="cli-title condensed">hardcoreai <span class="text-green">CLI</span></h2>
                 <p class="cli-tagline">The same intelligence — in your terminal and CI/CD pipeline</p>
             </div>
 
-            <!-- Two-column layout: features left, terminal right -->
             <div class="cli-layout">
-
-                <!-- LEFT: Feature list + waitlist -->
                 <div>
                     <ul class="cli-features fade-in-up">
                         <li>
@@ -122,7 +205,6 @@
                         </li>
                     </ul>
 
-                    <!-- Waitlist -->
                     <div class="cli-waitlist fade-in-up">
                         <label class="cli-waitlist-label" for="cli-email">Get notified when it ships</label>
                         <div class="cli-waitlist-row">
@@ -139,12 +221,9 @@
                     </div>
                 </div>
 
-                <!-- RIGHT: Terminal mockup -->
-                <div class="cli-terminal fade-in-up" style="animation-delay: 0.15s;">
+                <div class="cli-terminal fade-in-up">
                     <div class="cli-terminal-header">
-                        <div class="cli-terminal-dots">
-                            <span></span><span></span><span></span>
-                        </div>
+                        <div class="cli-terminal-dots"><span></span><span></span><span></span></div>
                         <div class="cli-terminal-title">hardcoreai-validate.sh</div>
                     </div>
                     <div class="cli-terminal-body">
@@ -172,361 +251,109 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section id="problem" class="section">
-        <div class="container">
-            <div class="section-header text-center fade-in-up">
-                <h2 class="section-title">Real Systems. Real Complexity.</h2>
-                <p class="section-subtitle">The traditional embedded workflow is fragmented, manual, and prone to late-stage integration failures.</p>
-            </div>
-            
-            <div class="grid grid-3 problem-cards">
-                <div class="card fade-in-up hover-glow" style="animation-delay: 0.1s;">
-                    <div class="card-icon"><i data-lucide="book-x"></i></div>
-                    <h3>BSP Complexity</h3>
-                    <p>Navigating massive vendor lock-in, fragmented documentation, and incompatible kernel versions slows down engineering cycles.</p>
-                </div>
-                <div class="card fade-in-up hover-glow" style="animation-delay: 0.2s;">
-                    <div class="card-icon"><i data-lucide="file-code-2"></i></div>
-                    <h3>Device Tree Nightmares</h3>
-                    <p>Endless iterations spent debugging subtle device tree configuration errors and pin-mux conflicts.</p>
-                </div>
-                <div class="card fade-in-up hover-glow" style="animation-delay: 0.3s;">
-                    <div class="card-icon"><i data-lucide="bug"></i></div>
-                    <h3>Bring-Up Delays</h3>
-                    <p>Unpredictable end-to-end integration roadblocks and deep debugging black holes during initial hardware power-on.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution / Workflow Section -->
-    <section id="workflow" class="section bg-alt border-y">
-        <div class="container">
-            <div class="section-header fade-in-up">
-                <h2 class="section-title">A Structured Workflow for System Bring-Up</h2>
-                <p class="section-subtitle">We guide you through the optimal engineering path, reducing guesswork and preventing downstream issues.</p>
-            </div>
-            
-            <div class="workflow-timeline">
-                <div class="timeline-step fade-in-up">
-                    <div class="step-number mono-text">01</div>
-                    <div class="step-content">
-                        <h3>Define</h3>
-                        <p>Input system requirements and constraints (power, cost, I/O performance).</p>
-                    </div>
-                </div>
-                <div class="timeline-step fade-in-up">
-                    <div class="step-number mono-text">02</div>
-                    <div class="step-content">
-                        <h3>Architect</h3>
-                        <p>Get data-driven architecture and SoC platform recommendations based on exact specs.</p>
-                    </div>
-                </div>
-                <div class="timeline-step fade-in-up">
-                    <div class="step-number mono-text">03</div>
-                    <div class="step-content">
-                        <h3>Configure</h3>
-                        <p>Receive step-by-step BSP guidance tailored to your specific hardware selection.</p>
-                    </div>
-                </div>
-                <div class="timeline-step fade-in-up">
-                    <div class="step-number mono-text">04</div>
-                    <div class="step-content">
-                        <h3>Map</h3>
-                        <p>Interactive device tree assistance to eliminate pin conflicts before compilation.</p>
-                    </div>
-                </div>
-                <div class="timeline-step fade-in-up">
-                    <div class="step-number mono-text">05</div>
-                    <div class="step-content">
-                        <h3>Validate</h3>
-                        <p>Intelligent bring-up debugging support linking hardware behavior to software config.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Features Bento Box -->
-    <section id="features" class="section">
-        <div class="container">
-            <div class="section-header text-center fade-in-up">
-                <h2 class="section-title">Practical Intelligence for Embedded Engineering</h2>
-                <p class="section-subtitle">Not a wrapper. A deeply technical platform built for Linux, BSP, and firmware engineers.</p>
-            </div>
-            
-            <div class="bento-grid">
-                <div class="bento-item bento-large fade-in-up card hover-glow group">
-                    <div class="bento-content">
-                        <div class="card-icon"><i data-lucide="git-merge"></i></div>
-                        <h3>Platform Selection Engine</h3>
-                        <p>Instantly compare 1000+ SoCs and MPUs across power, thermal, and performance constraints to find the perfect fit for your architecture.</p>
-                    </div>
-                    <div class="bento-visual">
-                        <div class="tech-diagram">
-                            <i data-lucide="activity"></i> Power Profile Active
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bento-item fade-in-up card hover-glow group" style="animation-delay: 0.1s;">
-                    <div class="card-icon"><i data-lucide="layers"></i></div>
-                    <h3>BSP Intelligence</h3>
-                    <p>Automated patch discovery and kernel config guidance for Yocto and Buildroot ecosystems.</p>
-                </div>
-                
-                <div class="bento-item fade-in-up card hover-glow group" style="animation-delay: 0.2s;">
-                    <div class="card-icon"><i data-lucide="file-json"></i></div>
-                    <h3>Device Tree Assistant</h3>
-                    <p>Generates base device tree sources (DTS) and validates pin multiplexing against actual board schematics.</p>
-                </div>
-                
-                <div class="bento-item fade-in-up card hover-glow group" style="animation-delay: 0.1s;">
-                    <div class="card-icon"><i data-lucide="wrench"></i></div>
-                    <h3>Bring-Up Debugging</h3>
-                    <p>Correlate kernel panics and bootloader logs directly to platform known issues and hardware errata.</p>
-                </div>
-                
-                <div class="bento-item bento-wide fade-in-up card hover-glow group" style="animation-delay: 0.2s;">
-                    <div class="bento-content">
-                        <div class="card-icon"><i data-lucide="circuit-board"></i></div>
-                        <h3>Hardware-Software Mapping</h3>
-                        <p>Maintain a single source of truth between the hardware design constraints and the software implementation, preventing late-stage mismatch disasters.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contrast Section: Why Not Just Use AI? -->
-    <section id="contrast" class="section bg-contrast">
-        <div class="container">
-            <div class="contrast-layout">
-                <div class="contrast-content fade-in-up">
-                    <h2 class="section-title">Real Hardware Requires Real Workflows</h2>
-                    <p class="section-description">
-                        General-purpose AI tools generate unverified code snippets and theoretical answers. We know that embedded engineering isn't a text generation problem—it's a systems integration problem.
-                    </p>
-                    <p class="highlight-text">
-                        HardcoreAI helps you build real systems. We focus on structured workflows, precise hardware awareness, and engineering reliability.
-                    </p>
-                    <ul class="contrast-list">
-                        <li><i data-lucide="check-circle-2"></i> Deterministic Configuration</li>
-                        <li><i data-lucide="check-circle-2"></i> Verified SoC Silicon Errata</li>
-                        <li><i data-lucide="check-circle-2"></i> Complete Audit Trails</li>
-                    </ul>
-                </div>
-                <div class="contrast-visual fade-in-up">
-                    <div class="comparison-card">
-                        <div class="comp-col generic">
-                            <h4 class="mono-text text-muted">Generic AI</h4>
-                            <div class="comp-body">
-                                <div><i data-lucide="x"></i> Hallucinates registers</div>
-                                <div><i data-lucide="x"></i> Ignores power constraints</div>
-                                <div><i data-lucide="x"></i> Conversational flow</div>
-                            </div>
-                        </div>
-                        <div class="comp-col hardcore">
-                            <div class="badge-mini">HardcoreAI</div>
-                            <h4 class="mono-text text-accent">Structured Tooling</h4>
-                            <div class="comp-body">
-                                <div><i data-lucide="check"></i> Validates pin configurations</div>
-                                <div><i data-lucide="check"></i> Enforces power & cost bounds</div>
-                                <div><i data-lucide="check"></i> Guided engineering workflow</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- Social Proof Section -->
-    <section id="social-proof" class="section">
+    <section id="social-proof" class="section border-t">
         <div class="container text-center">
-            <h4 class="mono-text subtitle-small text-muted fade-in-up">Validated by</h4>
-            <p class="section-subtitle mt-sm mb-lg fade-in-up" style="font-size: 1rem;">Building for engineers with their feedback.</p>
+            <h4 class="condensed mb-lg fade-in-up">Built with engineers, for engineers</h4>
             <div class="logo-strip fade-in-up">
                 <div class="company-logo mono-text">Zebra Technologies</div>
-                <div class="company-logo mono-text">L&T Technology Services</div>
-                <div class="company-logo mono-text">SM Electronics</div>
-                <div class="company-logo mono-text">Google</div>
+                <div class="company-logo mono-text">Daimler India</div>
+                <div class="company-logo mono-text">DRDO</div>
+                <div class="company-logo mono-text">Google Devices</div>
+                <div class="company-logo mono-text">LTTS</div>
             </div>
+            <p class="text-muted mono-text text-xs mt-sm fade-in-up">Early pilot & validation conversations</p>
             
             <div class="quote-card mt-xl fade-in-up mx-auto">
-                <i data-lucide="quote" class="quote-icon text-accent"></i>
-                <p>"HardcoreAI didn't just give us code; it gave us a rigorous path to hardware validation. Our recent custom baseboard bring-up time was cut by over 60%."</p>
+                <i data-lucide="quote" class="quote-icon text-orange"></i>
+                <p>"Finding the I2C pull-up missing in 60 seconds instead of 4 days. That's the difference."</p>
                 <div class="quote-author">
-                    <strong>Lead Firmware Architect</strong>
-                    <span class="mono-text text-muted">Tier-1 Semiconductor Co.</span>
+                    <strong>Firmware Engineer</strong>
+                    <span class="mono-text text-muted">Industrial IoT pilot</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Use Cases Section -->
-    <section id="use-cases" class="section border-y bg-alt">
+    <!-- Roadmap -->
+    <section id="roadmap" class="section bg-alt border-y">
         <div class="container">
-            <div class="section-header text-center fade-in-up">
-                <h2 class="section-title">Built for Complex Domains</h2>
+            <div class="section-header fade-in-up">
+                <h2 class="section-title condensed">We're at the beginning.</h2>
+                <p class="section-subtitle">Here's what's coming:</p>
             </div>
             
-            <div class="tabs-container fade-in-up">
-                <div class="tabs-header">
-                    <button class="tab-btn active" data-tab="iot">Industrial IoT</button>
-                    <button class="tab-btn" data-tab="robotics">Robotics</button>
-                    <button class="tab-btn" data-tab="linux">Embedded Linux</button>
-                    <button class="tab-btn" data-tab="edge">Edge AI</button>
+            <div class="roadmap-grid">
+                <div class="roadmap-item live fade-in-up">
+                    <div class="roadmap-status">LIVE</div>
+                    <h3>VS Code Extension</h3>
+                    <p>Core hardware intelligence & validation.</p>
                 </div>
-                
-                <div class="tab-contents">
-                    <div class="tab-pane active" id="iot">
-                        <div class="tab-grid">
-                            <div class="tab-text">
-                                <h3>Industrial IoT Systems</h3>
-                                <p>Balance extremely low power budgets against required connectivity suites. Ensure long-term reliability for remote, inaccessible deployments.</p>
-                                <ul class="feature-list">
-                                    <li><i data-lucide="zap"></i> Advanced power state modeling</li>
-                                    <li><i data-lucide="wifi"></i> Wireless stack integration validation</li>
-                                    <li><i data-lucide="shield"></i> Secure boot architecture assistance</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Other tab panes will be populated via JS or can be added structurally here -->
-                    <div class="tab-pane" id="robotics">
-                        <div class="tab-grid">
-                            <div class="tab-text">
-                                <h3>Robotics Control Systems</h3>
-                                <p>Manage highly deterministic hard real-time constraints and complex sensor fusion interfaces seamlessly.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="linux">
-                        <div class="tab-grid">
-                            <div class="tab-text">
-                                <h3>Embedded Linux Devices</h3>
-                                <p>Simplify Yocto/Buildroot configurations, rootfs optimization, and complex graphics/display controller bring-ups.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="edge">
-                        <div class="tab-grid">
-                            <div class="tab-text">
-                                <h3>Edge AI Systems</h3>
-                                <p>Navigate NPU/GPU accelerator integrations, memory bandwidth bottlenecks, and specialized AI compiler toolchains.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="roadmap-item fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="roadmap-status">SOON</div>
+                    <h3>CLI Tool</h3>
+                    <p>Bringing validation into CI/CD pipelines.</p>
+                </div>
+                <div class="roadmap-item fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="roadmap-status">Q3 2026</div>
+                    <h3>Boot Log Analyzer</h3>
+                    <p>Semantic log parsing for early-stage bring-up.</p>
+                </div>
+                <div class="roadmap-item fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="roadmap-status">Q4 2026</div>
+                    <h3>Formal Constraint Validator</h3>
+                    <p>Multi-domain system integrity checking.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Bottom Section -->
-    <section id="cta" class="section cta-section">
-        <div class="container text-center fade-in-up glow-effect">
-            <h2 class="section-title massive-title">Work like a senior embedded engineer — every time.</h2>
-            <p class="section-subtitle mx-auto">Stop fighting toolchains and start building systems with confidence.</p>
-            <div class="mt-lg">
-                <a href="#demo" class="btn btn-primary btn-lg">Request Demo</a>
+    <!-- Mission Statement -->
+    <section id="mission" class="section">
+        <div class="container text-center">
+            <div class="mission-box fade-in-up">
+                <p class="mission-text">
+                    "We're two engineers who've spent careers debugging hardware at 2am with nothing but a CFSR register and a 500-page datasheet. We're building the tool we wish we had."
+                </p>
+                <div class="mission-meta mono-text">
+                    <span>Building in public &bull; Chennai, India</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer border-t">
+    <footer class="footer border-t bg-black">
         <div class="container">
-            <div class="footer-top grid grid-4">
-                <div class="footer-col">
-                    <div class="logo">
-                        <span>HardcoreAI</span>
-                    </div>
-                    <p class="mt-sm text-muted mono-text text-sm">System System & Bring-Up Pro Platform</p>
+            <div class="footer-layout">
+                <div class="footer-info">
+                    <div class="logo condensed font-bold">HARDCOREAI</div>
+                    <p class="mission-one-liner text-muted mono-text">Making embedded systems engineering faster, safer, and less painful</p>
                 </div>
-                <div class="footer-col">
-                    <h5 class="mono-text">Product</h5>
-                    <a href="#">Architecture Gen</a>
-                    <a href="#">BSP Intelligence</a>
-                    <a href="#">Device Tree Tools</a>
-                    <a href="#">Debugging</a>
-                </div>
-                <div class="footer-col">
-                    <h5 class="mono-text">Resources</h5>
-                    <a href="#">Documentation</a>
-                    <a href="#">Supported Platforms</a>
-                    <a href="#">API Reference</a>
-                    <a href="#">Blog</a>
-                </div>
-                <div class="footer-col">
-                    <h5 class="mono-text">Company</h5>
-                    <a href="#">About Us</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Privacy Policy</a>
+                <div class="footer-contact mono-text">
+                    <a href="mailto:sricharan.srikrishna@gmail.com">sricharan.srikrishna@gmail.com</a>
+                    <p>Chennai, India</p>
                 </div>
             </div>
             <div class="footer-bottom mono-text text-sm text-muted">
-                <p>&copy; 2026 HardcoreAI Inc. All rights reserved.</p>
+                <p>&copy; 2026 HardcoreAI. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ================================================
-         Floating Notification Bar
-         ================================================ -->
+    <!-- Floating Notification Bar -->
     <div id="cli-notify-bar" class="cli-notify-bar" role="alert" aria-live="polite">
         <span class="cli-notify-dot"></span>
         <div class="cli-notify-content">
-            <p class="cli-notify-text">CLI releasing soon &mdash; get notified when <code style="color:#00e676;">hardcoreai validate</code> ships</p>
+            <p class="cli-notify-text">CLI releasing soon &mdash; get notified when <code class="text-green">hardcoreai validate</code> ships</p>
             <a href="#cli" class="cli-notify-link" onclick="document.getElementById('cli-notify-bar').classList.add('hiding')">Jump to CLI section &rarr;</a>
         </div>
         <button class="cli-notify-close" id="cli-notify-close" aria-label="Dismiss notification">&times;</button>
     </div>
 
     <!-- Scripts -->
-    <script>
-        lucide.createIcons();
-
-        // ── CLI Waitlist ──────────────────────────────────────────
-        function cliWaitlistSubmit() {
-            const input    = document.getElementById('cli-email');
-            const feedback = document.getElementById('cli-feedback');
-            const btn      = document.getElementById('cli-notify-btn');
-            const email    = input.value.trim();
-
-            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                input.style.borderColor = '#ff5252';
-                input.focus();
-                return;
-            }
-
-            input.style.borderColor = '';
-            input.disabled = true;
-            btn.disabled   = true;
-            btn.textContent = '✓ Done';
-            btn.style.opacity = '0.6';
-            feedback.classList.add('visible');
-        }
-
-        // ── Notification Bar: 8 s auto-dismiss ───────────────────
-        (function () {
-            const bar   = document.getElementById('cli-notify-bar');
-            const close = document.getElementById('cli-notify-close');
-
-            function dismiss() {
-                bar.classList.add('hiding');
-                setTimeout(() => bar.remove(), 450);
-            }
-
-            close.addEventListener('click', dismiss);
-            setTimeout(dismiss, 8000);
-        })();
-    </script>
 </body>
 </html>
