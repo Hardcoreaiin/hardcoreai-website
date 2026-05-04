@@ -25,6 +25,13 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32">
+                  <rect width="32" height="32" rx="6" fill="#FF5C1A"/>
+                  <text x="50%" y="50%" dominant-baseline="middle" 
+                        text-anchor="middle" fill="white" 
+                        font-family="Arial Black" font-size="13" 
+                        font-weight="900">HC</text>
+                </svg>
                 <span class="mono-text">HARDCOREAI</span>
             </div>
             <div class="nav-links">
@@ -43,14 +50,14 @@
         <div class="container hero-container">
             <div class="hero-content fade-in-up">
                 <h1 class="hero-title condensed">
-                    Embedded systems <br>
-                    <span class="text-purple">engineering, reimagined</span>
+                    The AI Agent that writes <br>
+                    <span class="text-purple">and debugs your firmware.</span>
                 </h1>
                 <p class="hero-subtitle">
-                    HARDCOREAI brings AI-powered intelligence into your embedded workflow — starting with the VS Code extension every firmware engineer needs.
+                    Generate firmware from datasheets. Debug faults automatically. Every register cited. No hallucinations. Available as a VS Code extension and CLI tool.
                 </p>
                 <div class="hero-actions">
-                    <a href="https://marketplace.visualstudio.com/" target="_blank" class="btn btn-primary">Install VS Code Extension — Free</a>
+                    <a href="https://marketplace.visualstudio.com/" target="_blank" class="btn btn-primary">Get Early Access — Free</a>
                 </div>
             </div>
         </div>
@@ -60,25 +67,25 @@
     <section id="problem" class="section border-t bg-black-dots">
         <div class="container">
             <div class="section-header text-center fade-in-up">
-                <h2 class="section-title condensed">Real challenges. No hype.</h2>
+                <h2 class="section-title condensed">Generic AI breaks embedded. We fix it.</h2>
                 <p class="section-subtitle">Embedded engineering is brutal. We're fixing the specific bottlenecks that steal your weekends.</p>
             </div>
             
             <div class="grid grid-3 problem-cards">
                 <div class="card fade-in-up hover-glow-purple" style="animation-delay: 0.1s;">
                     <div class="card-icon"><i data-lucide="zap-off"></i></div>
-                    <h3>HardFault Black Holes</h3>
-                    <p>Debugging a random hardfault shouldn't take three days of manually tracing CFSR registers and stack frames.</p>
+                    <h3>AI Hallucinates Register Addresses</h3>
+                    <p>ChatGPT and Copilot confidently generate firmware with register addresses that don't exist in your datasheet. One wrong address bricks your board.</p>
                 </div>
                 <div class="card fade-in-up hover-glow-purple" style="animation-delay: 0.2s;">
                     <div class="card-icon"><i data-lucide="git-branch"></i></div>
-                    <h3>DTS Conflicts</h3>
-                    <p>Discovering a pin-mux conflict after a 3-hour Yocto image build is a failure of tooling, not of the engineer.</p>
+                    <h3>Datasheets Are 2,000 Pages Long</h3>
+                    <p>Engineers waste 4-8 hours per new peripheral reading datasheets manually. Every new IC means starting from scratch. No tool solves this. Until now.</p>
                 </div>
                 <div class="card fade-in-up hover-glow-purple" style="animation-delay: 0.3s;">
                     <div class="card-icon"><i data-lucide="copy"></i></div>
-                    <h3>Datasheet Fatigue</h3>
-                    <p>Peripheral configs are often copy-pasted from Stack Overflow or old projects because complex datasheets are a pain to parse.</p>
+                    <h3>Faults With No Explanation</h3>
+                    <p>When firmware crashes, existing tools show register values. HARDCOREAI tells you exactly why it crashed, which line caused it, and the exact fix — with the datasheet page cited.</p>
                 </div>
             </div>
         </div>
@@ -90,38 +97,38 @@
             <div class="product-grid">
                 <div class="product-content fade-in-up">
                     <div class="badge-primary">
-                        <span class="mono-text">Available Now — Free</span>
+                        <span class="mono-text">Product 1 — VS Code Extension</span>
                     </div>
-                    <h2 class="section-title condensed">HARDCOREAI for VS Code</h2>
-                    <p class="product-desc">The only AI assistant that actually understands your hardware. No generic code snippets—just hardware-aware intelligence.</p>
+                    <h2 class="section-title condensed">An AI Agent inside VS Code that understands your hardware.</h2>
+                    <p class="product-desc">Describe what you need. Point it at your datasheet. Get complete, verified firmware — every register address cited to the exact page. Then watch it debug your faults automatically.</p>
                     
                     <ul class="feature-list-check">
                         <li>
                             <i data-lucide="check-circle" class="text-purple"></i>
                             <div>
-                                <strong>HardFault Decoder</strong>
-                                <p>Paste a raw register dump. Get the root cause, fix, and exact datasheet citation in 5 seconds.</p>
+                                <strong>Firmware Generation from Datasheets</strong>
+                                <p>Upload your component datasheet. Describe what you need. Get complete firmware with every register address cited to the exact page. Not from training data — from your actual datasheet.</p>
                             </div>
                         </li>
                         <li>
                             <i data-lucide="check-circle" class="text-purple"></i>
                             <div>
-                                <strong>Inline DTS Validation</strong>
-                                <p>Real-time pin-mux conflict detection. Catch hardware mapping errors before you compile.</p>
+                                <strong>Autonomous Fault Debugging</strong>
+                                <p>When your firmware crashes, the agent reads the fault registers, identifies the root cause, finds the exact line of code, and tells you how to fix it. In seconds. Not hours.</p>
                             </div>
                         </li>
                         <li>
                             <i data-lucide="check-circle" class="text-purple"></i>
                             <div>
-                                <strong>Peripheral Generator</strong>
-                                <p>Generate perfect C register configurations directly from actual datasheet specs, not hallucinations.</p>
+                                <strong>Zero Hallucination Architecture</strong>
+                                <p>Every generated line is grounded in your datasheet. If the answer is not in your documentation, we say so. We never invent register addresses.</p>
                             </div>
                         </li>
                         <li>
                             <i data-lucide="check-circle" class="text-purple"></i>
                             <div>
-                                <strong>Datasheet Hover Docs</strong>
-                                <p>Hover over a register name in code to see the bit layout and description directly from the datasheet.</p>
+                                <strong>Works on 400+ MCUs and Boards</strong>
+                                <p>STM32, ESP32, nRF52, NXP i.MX8, Raspberry Pi 5, Raspberry Pi 4, Arduino, and more. Every board has its own indexed datasheet database. Pre-loaded. No upload needed.</p>
                             </div>
                         </li>
                     </ul>
@@ -138,12 +145,26 @@
                             <span class="mono-text">vscode/extension/hardcoreai</span>
                         </div>
                         <div class="ui-mockup-body">
-                            <div class="code-line"><span class="c-blue">void</span> <span class="c-red">HardFault_Handler</span>(<span class="c-blue">void</span>) {</div>
-                            <div class="code-line">&nbsp;&nbsp;<span class="c-gray">// Register Dump Detected...</span></div>
-                            <div class="code-line highlight-line">SCB->CFSR = 0x01000000; <span class="badge-ai">AI Analysis</span></div>
-                            <div class="code-line">&nbsp;&nbsp;<span class="c-green">// → ROOT CAUSE: Unaligned access at 0x20004001</span></div>
-                            <div class="code-line">&nbsp;&nbsp;<span class="c-green">// → REF: Cortex-M4 RM §4.3.11</span></div>
-                            <div class="code-line">}</div>
+                            <div class="code-line"><span class="c-gray">$ # HARDCOREAI VS Code Agent</span></div>
+                            <div class="code-line"><span class="c-gray">$ # Type in chat panel:</span></div>
+                            <div class="code-line"><br></div>
+                            <div class="code-line">"Initialize BME280 over I2C on RPi5,</div>
+                            <div class="code-line"> read temperature every second"</div>
+                            <div class="code-line"><br></div>
+                            <div class="code-line">&nbsp;&nbsp;Searching RPi5 BCM2712 §4.1...   <span class="c-green">✓</span></div>
+                            <div class="code-line">&nbsp;&nbsp;Searching BME280 §4.2.2...        <span class="c-green">✓</span></div>
+                            <div class="code-line highlight-line">&nbsp;&nbsp;Generating firmware...             <span class="c-green">✓</span></div>
+                            <div class="code-line"><br></div>
+                            <div class="code-line"><span class="c-gray">/* Per RPi5 config docs §2.3:       */</span></div>
+                            <div class="code-line"><span class="c-gray">/* Path: /boot/firmware/config.txt  */</span></div>
+                            <div class="code-line"><span class="c-gray">/* (Not /boot/config.txt — RPi4)    */</span></div>
+                            <div class="code-line"><br></div>
+                            <div class="code-line"><span class="c-blue">import</span> smbus2</div>
+                            <div class="code-line">bus = smbus2.SMBus(1)</div>
+                            <div class="code-line"><span class="c-gray"># BME280 addr = 0x76 — BME280 §4.2.2</span></div>
+                            <div class="code-line">temp = bus.read_i2c_block_data(0x76, 0xFA, 3)</div>
+                            <div class="code-line"><br></div>
+                            <div class="code-line"><span class="c-green">✓ All addresses verified from indexed datasheets</span></div>
                         </div>
                     </div>
                 </div>
@@ -156,35 +177,33 @@
         <div class="container cli-inner">
             <div class="cli-eyebrow fade-in-up">
                 <span class="cli-releasing-badge">
-                    <span class="cli-pulse-dot"></span>
-                    Releasing Soon
+                    Product 2 — CLI Tool
                 </span>
-                <span class="cli-track-label">secondary product</span>
             </div>
 
             <div class="cli-header fade-in-up">
-                <h2 class="cli-title condensed">hardcoreai <span class="text-green">CLI</span></h2>
-                <p class="cli-tagline">The same intelligence — in your terminal and CI/CD pipeline</p>
+                <h2 class="cli-title condensed">hardcoreai — The firmware agent in your terminal.</h2>
+                <p class="cli-tagline">Same AI agent. Lives in your terminal. Works over SSH. Works in CI/CD pipelines. Works without a browser. pip install and go.</p>
             </div>
 
             <div class="cli-layout">
                 <div>
                     <ul class="cli-features fade-in-up">
                         <li>
-                            <span class="cli-cmd">hardcoreai validate dts</span>
-                            <span class="cli-cmd-desc">Catches conflicts before your 3-hour build</span>
+                            <span class="cli-cmd">hardcoreai generate</span>
+                            <span class="cli-cmd-desc">Firmware from your datasheet in seconds</span>
                         </li>
                         <li>
-                            <span class="cli-cmd">hardcoreai debug hardfault</span>
-                            <span class="cli-cmd-desc">Root cause in the terminal</span>
+                            <span class="cli-cmd">hardcoreai debug</span>
+                            <span class="cli-cmd-desc">Autonomous fault analysis from UART logs or crash dumps</span>
                         </li>
                         <li>
-                            <span class="cli-cmd">hardcoreai generate peripheral</span>
-                            <span class="cli-cmd-desc">Correct register config for any SoC</span>
+                            <span class="cli-cmd">hardcoreai validate</span>
+                            <span class="cli-cmd-desc">DTS and config validation before you build</span>
                         </li>
                         <li>
-                            <span class="cli-cmd">Exit code 1 on errors</span>
-                            <span class="cli-cmd-desc">Drop into GitHub Actions, Jenkins, GitLab CI</span>
+                            <span class="cli-cmd">Works in GitHub Actions, Jenkins, GitLab CI</span>
+                            <span class="cli-cmd-desc">exit code 1 on errors. Automated firmware review.</span>
                         </li>
                     </ul>
 
@@ -212,24 +231,69 @@
                     <div class="cli-terminal-body">
                         <div class="cli-line">
                             <span class="cli-prompt-sym">$</span>
-                            <span class="cli-cmd-text">hardcoreai validate dts board.dts --soc imx8mp</span>
+                            <span class="cli-cmd-text">pip install hardcoreai</span>
                         </div>
                         <div class="cli-spacer"></div>
                         <div class="cli-line">
-                            <span class="cli-error">&#x2717; ERROR</span>
-                            <span class="cli-cmd-text">line 247 &mdash; <span style="color:#c084fc;">PIN_MUX_CONFLICT</span>: i2c2 + uart2 share PAD_GPIO_B0_08</span>
+                            <span class="cli-prompt-sym">$</span>
+                            <span class="cli-cmd-text">hardcoreai generate \</span>
                         </div>
                         <div class="cli-line">
-                            <span class="cli-fix">&rarr; FIX</span>
-                            <span class="cli-cmd-text" style="color:#b0bec5;">Use PAD_GPIO_B0_10 for I2C2_SCL</span>
+                            <span class="cli-cmd-text">&nbsp;&nbsp;&nbsp;&nbsp;--board raspberry-pi5 \</span>
                         </div>
                         <div class="cli-line">
-                            <span class="cli-ref">&rarr; REF</span>
-                            <span class="cli-cmd-text" style="color:#90a4ae;">IMX8MP RM &sect;8.2.4</span>
+                            <span class="cli-cmd-text">&nbsp;&nbsp;&nbsp;&nbsp;"Initialize I2C, read BME280 temperature"</span>
                         </div>
                         <div class="cli-spacer"></div>
                         <div class="cli-line">
-                            <span class="cli-cmd-text" style="color:#6b7280;">exit code <span style="color:#ff5252;">1</span></span>
+                            <span class="cli-cmd-text">&nbsp;&nbsp;Searching RPi5 BCM2712 §4.1... <span style="color:#4ade80;">✓</span></span>
+                        </div>
+                        <div class="cli-line">
+                            <span class="cli-cmd-text">&nbsp;&nbsp;Searching BME280 §4.2.2...      <span style="color:#4ade80;">✓</span></span>
+                        </div>
+                        <div class="cli-line">
+                            <span class="cli-cmd-text">&nbsp;&nbsp;Generating...                    <span style="color:#4ade80;">✓</span></span>
+                        </div>
+                        <div class="cli-spacer"></div>
+                        <div class="cli-line"><span class="cli-cmd-text" style="color:#9ca3af;">/* /boot/firmware/config.txt      */</span></div>
+                        <div class="cli-line"><span class="cli-cmd-text" style="color:#9ca3af;">/* dtparam=i2c_arm=on             */</span></div>
+                        <div class="cli-line"><span class="cli-cmd-text" style="color:#9ca3af;">/* Source: RPi5 firmware docs §2.3*/</span></div>
+                        <div class="cli-spacer"></div>
+                        <div class="cli-line"><span class="cli-cmd-text"><span style="color:#60a5fa;">import</span> smbus2</span></div>
+                        <div class="cli-line"><span class="cli-cmd-text">bus = smbus2.SMBus(1)  <span style="color:#9ca3af;"># I2C bus 1</span></span></div>
+                        <div class="cli-line"><span class="cli-cmd-text" style="color:#9ca3af;"># BME280 default addr 0x76</span></div>
+                        <div class="cli-line"><span class="cli-cmd-text">data = bus.read_i2c_block_data(0x76, 0xFA, 3)</span></div>
+                        <div class="cli-line"><span class="cli-cmd-text">temp = ((data[0]&lt;&lt;12)|(data[1]&lt;&lt;4)|(data[2]&gt;&gt;4))/16.0</span></div>
+                        <div class="cli-line"><span class="cli-cmd-text">print(f"Temperature: {temp:.2f}°C")</span></div>
+                        <div class="cli-spacer"></div>
+                        <div class="cli-line">
+                            <span class="cli-prompt-sym">$</span>
+                            <span class="cli-cmd-text">hardcoreai debug --log crash.log</span>
+                        </div>
+                        <div class="cli-spacer"></div>
+                        <div class="cli-line">
+                            <span class="cli-error" style="color:#ef4444;">&nbsp;&nbsp;FAULT:</span>
+                            <span class="cli-cmd-text">BusFault — Precise Error</span>
+                        </div>
+                        <div class="cli-line">
+                            <span class="cli-error" style="color:#ef4444;">&nbsp;&nbsp;ADDR: </span>
+                            <span class="cli-cmd-text">0x40005400 = I2C1_SR1</span>
+                        </div>
+                        <div class="cli-line">
+                            <span class="cli-error" style="color:#ef4444;">&nbsp;&nbsp;CAUSE:</span>
+                            <span class="cli-cmd-text">APB1 clock not enabled</span>
+                        </div>
+                        <div class="cli-line">
+                            <span class="cli-fix">&nbsp;&nbsp;FIX:  </span>
+                            <span class="cli-cmd-text" style="color:#b0bec5;">__HAL_RCC_I2C1_CLK_ENABLE()</span>
+                        </div>
+                        <div class="cli-line">
+                            <span class="cli-ref">&nbsp;&nbsp;REF:  </span>
+                            <span class="cli-cmd-text" style="color:#90a4ae;">RM0090 §6.3.14 page 148</span>
+                        </div>
+                        <div class="cli-spacer"></div>
+                        <div class="cli-line">
+                            <span class="cli-cmd-text" style="color:#6b7280;">exit code <span style="color:#4ade80;">0 ✓</span></span>
                         </div>
                     </div>
                 </div>
@@ -265,7 +329,7 @@
     <section id="roadmap" class="section bg-alt border-y">
         <div class="container">
             <div class="section-header fade-in-up">
-                <h2 class="section-title condensed">We're at the beginning.</h2>
+                <h2 class="section-title condensed">The full firmware engineering agent. Coming fast.</h2>
                 <p class="section-subtitle">Here's what's coming:</p>
             </div>
             
@@ -273,22 +337,22 @@
                 <div class="roadmap-item live fade-in-up">
                     <div class="roadmap-status">LIVE</div>
                     <h3>VS Code Extension</h3>
-                    <p>Core hardware intelligence & validation.</p>
+                    <p>AI agent that writes and debugs firmware from datasheets.</p>
                 </div>
                 <div class="roadmap-item fade-in-up" style="animation-delay: 0.1s;">
                     <div class="roadmap-status">SOON</div>
                     <h3>CLI Tool</h3>
-                    <p>Bringing validation into CI/CD pipelines.</p>
+                    <p>pip install hardcoreai. Same agent, terminal-native. Works over SSH and CI/CD.</p>
                 </div>
                 <div class="roadmap-item fade-in-up" style="animation-delay: 0.2s;">
                     <div class="roadmap-status">Q3 2026</div>
-                    <h3>Boot Log Analyzer</h3>
-                    <p>Semantic log parsing for early-stage bring-up.</p>
+                    <h3>Hardware-in-the-Loop Agent</h3>
+                    <p>Compile, flash, test, and iterate on real hardware automatically.</p>
                 </div>
                 <div class="roadmap-item fade-in-up" style="animation-delay: 0.3s;">
                     <div class="roadmap-status">Q4 2026</div>
-                    <h3>Formal Constraint Validator</h3>
-                    <p>Multi-domain system integrity checking.</p>
+                    <h3>Schematic Intelligence</h3>
+                    <p>Upload your KiCad or Altium schematic. Get DTS, HAL config, and peripheral drivers generated automatically.</p>
                 </div>
             </div>
         </div>
@@ -300,7 +364,7 @@
             <div class="footer-layout">
                 <div class="footer-info">
                     <div class="logo condensed font-bold">HARDCOREAI</div>
-                    <p class="mission-one-liner text-muted mono-text">Making embedded systems engineering faster, safer, and less painful</p>
+                    <p class="mission-one-liner text-muted mono-text">The AI agent that writes and debugs firmware. Every register cited. No hallucinations.</p>
                 </div>
                 <div class="footer-contact mono-text">
                     <a href="mailto:sricharan.srikrishna@gmail.com">sricharan.srikrishna@gmail.com</a>
@@ -317,7 +381,7 @@
     <div id="cli-notify-bar" class="cli-notify-bar" role="alert" aria-live="polite">
         <span class="cli-notify-dot"></span>
         <div class="cli-notify-content">
-            <p class="cli-notify-text">CLI releasing soon &mdash; get notified when <code class="text-green">hardcoreai validate</code> ships</p>
+            <p class="cli-notify-text">Early access open &mdash; VS Code extension and CLI tool available now</p>
             <a href="#cli" class="cli-notify-link" onclick="document.getElementById('cli-notify-bar').classList.add('hiding')">Jump to CLI section &rarr;</a>
         </div>
         <button class="cli-notify-close" id="cli-notify-close" aria-label="Dismiss notification">&times;</button>
