@@ -1,11 +1,6 @@
-import Image from 'next/image'
-import Link from 'next/link'
+'use client'
 
-export const metadata = {
-  title: 'HARDCOREAI — Firmware Development Platform for Hardware Teams',
-  description:
-    'Turn datasheets into working firmware. Build, flash, debug, and validate embedded software in a single AI-powered environment.',
-}
+import Image from 'next/image'
 
 export default function LandingPage() {
   return (
