@@ -17,7 +17,10 @@ export default function LandingPage() {
       }}>
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <Image src="/logo.png" alt="HARDCOREAI Logo" width={115} height={45} style={{ height: '24px', width: 'auto' }} />
+          <Image src="/logo.png" alt="HARDCOREAI Logo" width={28} height={28} style={{ height: '24px', width: 'auto', borderRadius: '4px' }} />
+          <span style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '-0.02em', color: '#F0F0FF' }}>
+            HARDCOREAI
+          </span>
         </div>
 
         {/* Nav links */}
@@ -562,7 +565,8 @@ export default function LandingPage() {
         flexWrap: 'wrap', gap: '16px',
       }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-            <Image src="/logo.png" alt="HARDCOREAI Logo" width={90} height={35} style={{ height: '20px', width: 'auto', opacity: 0.8, filter: 'grayscale(100%)' }} />
+            <Image src="/logo.png" alt="HARDCOREAI Logo" width={24} height={24} style={{ height: '20px', width: 'auto', opacity: 0.8, filter: 'grayscale(100%)', borderRadius: '4px' }} />
+            <span style={{ fontSize: '13px', fontWeight: 600, color: '#4A4A6A' }}>HARDCOREAI</span>
           </div>
         <p style={{ fontSize: '12px', color: '#4A4A6A' }}>
           © 2025 HARDCOREAI. Built for embedded engineers.
