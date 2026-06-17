@@ -17,17 +17,7 @@ export default function LandingPage() {
       }}>
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div style={{
-            width: '28px', height: '28px',
-            background: 'linear-gradient(135deg, #7C3AED, #A855F7)',
-            borderRadius: '6px',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '14px', fontWeight: 800, color: '#fff',
-            boxShadow: '0 0 16px rgba(124,58,237,0.5)',
-          }}>H</div>
-          <span style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '-0.02em', color: '#F0F0FF' }}>
-            HARDCOREAI
-          </span>
+          <Image src="/logo.png" alt="HARDCOREAI Logo" width={115} height={45} style={{ height: '24px', width: 'auto' }} />
         </div>
 
         {/* Nav links */}
@@ -178,8 +168,8 @@ export default function LandingPage() {
             boxShadow: '0 40px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04)',
           }}>
             <Image
-              src="/screenshots/ide-main.jpg"
-              alt="HARDCOREAI IDE — Embedded Configurator with pin mapping, clock tree, and AI copilot"
+              src="/screenshots/ide-hero.png"
+              alt="HARDCOREAI IDE — Full Workspace with Editor, Configurator, and Copilot"
               width={1100}
               height={700}
               style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -571,16 +561,9 @@ export default function LandingPage() {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         flexWrap: 'wrap', gap: '16px',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div style={{
-            width: '22px', height: '22px',
-            background: 'linear-gradient(135deg, #7C3AED, #A855F7)',
-            borderRadius: '5px',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '11px', fontWeight: 800, color: '#fff',
-          }}>H</div>
-          <span style={{ fontSize: '13px', fontWeight: 600, color: '#4A4A6A' }}>HARDCOREAI</span>
-        </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+            <Image src="/logo.png" alt="HARDCOREAI Logo" width={90} height={35} style={{ height: '20px', width: 'auto', opacity: 0.8, filter: 'grayscale(100%)' }} />
+          </div>
         <p style={{ fontSize: '12px', color: '#4A4A6A' }}>
           © 2025 HARDCOREAI. Built for embedded engineers.
         </p>
