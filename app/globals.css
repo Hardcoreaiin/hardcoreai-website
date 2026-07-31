@@ -289,7 +289,7 @@ body {
 .versus-box ul li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
 .versus-hardcore { border-color: rgba(168, 85, 247, 0.3); }
 
-/* ─── SYSTEM SHOWCASE ─── */
+/* ─── SYSTEM PIPELINE & MODULE CARDS ─── */
 .system-flow-wrapper { margin-bottom: 48px; }
 .system-flow-header {
   display: flex; justify-content: space-between; font-family: var(--font-mono);
@@ -305,28 +305,26 @@ body {
 .flow-step-card h4 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 6px; }
 .flow-step-card p { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
 
-.showcase-tabs-container { margin-bottom: 60px; }
-.showcase-tab-bar {
-  display: flex; gap: 4px; background: var(--bg-card); padding: 6px;
-  border-radius: 12px 12px 0 0; border: 1px solid var(--border-cinematic); border-bottom: none;
+.system-modules-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 60px;
 }
-.showcase-tab-btn {
-  flex: 1; padding: 12px; font-family: var(--font-mono); font-size: 12px;
-  border: none; border-radius: 8px; background: transparent; color: var(--text-muted);
-  cursor: pointer; transition: all 0.2s;
-}
-.showcase-tab-btn.active { background: rgba(168, 85, 247, 0.15); color: #fff; }
-.showcase-display-card {
+.module-card {
   background: var(--bg-card); border: 1px solid var(--border-cinematic);
-  border-radius: 0 0 16px 16px; padding: 40px;
+  border-radius: 16px; padding: 36px; transition: all 0.3s;
+  display: flex; flex-direction: column; justify-content: space-between;
 }
-.showcase-content-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 40px; align-items: center; }
-.showcase-info h3 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 16px; line-height: 1.3; }
-.showcase-info p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; }
-.showcase-badge-pill {
-  display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono);
-  font-size: 12px; color: var(--accent-purple); padding: 6px 14px; border-radius: 20px;
-  background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.2);
+.module-card:hover { border-color: rgba(168, 85, 247, 0.35); transform: translateY(-3px); }
+.module-icon {
+  width: 44px; height: 44px; border-radius: 10px; background: rgba(168, 85, 247, 0.1);
+  display: flex; align-items: center; justify-content: center; color: var(--accent-purple);
+  margin-bottom: 20px;
+}
+.module-card h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.module-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 24px; }
+.module-tag {
+  display: inline-flex; align-self: flex-start; font-family: var(--font-mono);
+  font-size: 11px; color: var(--accent-purple); padding: 4px 12px; border-radius: 20px;
+  background: rgba(168, 85, 247, 0.08); border: 1px solid rgba(168, 85, 247, 0.2);
 }
 
 /* ─── TRUST CARDS ─── */
@@ -407,7 +405,7 @@ body {
   .numbers-hero-grid { grid-template-columns: 1fr; }
   .versus-grid { grid-template-columns: 1fr; }
   .system-flow-steps { grid-template-columns: repeat(2, 1fr); }
-  .showcase-content-grid { grid-template-columns: 1fr; }
+  .system-modules-grid { grid-template-columns: 1fr; }
   .trust-cards-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {

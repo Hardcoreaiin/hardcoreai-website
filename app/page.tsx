@@ -1,22 +1,20 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 import {
   ArrowRight,
   Check,
-  ChevronRight,
   Linkedin,
   ShieldCheck,
   Cpu,
-  Clock,
-  Zap,
-  TrendingDown,
-  Layers,
   Sparkles,
   Terminal,
-  Activity,
-  CheckCircle2
+  Layers,
+  CheckCircle2,
+  BookOpen,
+  Sliders,
+  FileCode2,
+  Activity
 } from 'lucide-react'
 
 export default function LandingPage() {
@@ -38,41 +36,6 @@ export default function LandingPage() {
     }, 3200)
     return () => clearInterval(timer)
   }, [])
-
-  // ── 3. Product Modes Tab Switcher ──
-  const [activeTab, setActiveTab] = useState('research')
-  const tabs = [
-    {
-      id: 'research',
-      label: 'Documentation Intelligence',
-      headline: 'What if every hardware document became instantly understandable?',
-      desc: 'Instead of engineers spending days digging through 2,000-page PDF datasheets and errata sheets, HardcoreAI indexes all vendor specifications into an instantly queryable hardware knowledge graph.',
-      img: '/screenshots/ide-main.jpg'
-    },
-    {
-      id: 'verification',
-      label: 'Pre-Hardware Verification',
-      headline: 'What if hardware mistakes were caught before reaching physical boards?',
-      desc: 'HardcoreAI checks pin allocations, clock tree limits, peripheral conflicts, and register dependencies deterministically—eliminating silent hardware bugs before code is flashed.',
-      img: '/screenshots/ide-config.jpg'
-    },
-    {
-      id: 'generation',
-      label: 'Grounded Firmware',
-      headline: 'What if your engineers never had to write boilerplate drivers again?',
-      desc: 'Generate production-ready C/C++ firmware grounded strictly in official vendor documentation. Zero register hallucinations. Complete traceability to datasheet pages.',
-      img: '/screenshots/ide-ai.jpg'
-    },
-    {
-      id: 'debug',
-      label: 'Trace & Debug Intelligence',
-      headline: 'What if runtime crashes explained their own root cause in seconds?',
-      desc: 'Instantly map register faults, memory dumps, and bus errors back to the exact physical hardware rule in the manual, showing engineers precisely what to fix.',
-      img: '/screenshots/ide-debug.jpg'
-    }
-  ]
-
-  const activeTabData = tabs.find(t => t.id === activeTab) || tabs[0]
 
   return (
     <div style={{ background: '#020204', minHeight: '100vh', color: '#f8fafc', overflowX: 'hidden', position: 'relative' }}>
@@ -116,7 +79,7 @@ export default function LandingPage() {
         </a>
       </nav>
 
-      {/* ═══════════════ QUESTION 1: WHAT DOES THIS COMPANY DO? ═══════════════ */}
+      {/* ═══════════════ HERO SECTION ═══════════════ */}
       <section className="section hero-cinematic">
         <div className="container text-center">
           
@@ -126,13 +89,12 @@ export default function LandingPage() {
           </div>
 
           <h1 className="hero-headline-massive fade-in-up">
-            Embedded engineering has not changed in decades.<br />
-            <span className="text-gradient">Software engineering has.</span><br />
-            HardcoreAI is changing that.
+            The Infrastructure Layer for<br />
+            <span className="text-gradient">Embedded Engineering.</span>
           </h1>
 
           <p className="hero-lead-text fade-in-up">
-            We are building the intelligence platform that converts complex hardware documentation into verified engineering execution—helping teams move from product idea to working hardware dramatically faster.
+            HardcoreAI converts complex hardware specifications into verified engineering execution—helping teams prototype faster, reduce bring-up delays, and launch products sooner.
           </p>
 
           <div className="hero-actions-group fade-in-up">
@@ -195,7 +157,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ QUESTION 2: WHY SHOULD I CARE? ═══════════════ */}
+      {/* ═══════════════ WHY SHOULD I CARE? ═══════════════ */}
       <section id="why-it-matters" className="section border-t-cinematic">
         <div className="container">
           <div className="section-label-center fade-in-up">THE REIMAGINED WORKFLOW</div>
@@ -241,7 +203,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ QUESTION 3: WHY IS THIS PROBLEM IMPORTANT? (NUMBERS & TIMELINE) ═══════════════ */}
+      {/* ═══════════════ NUMBERS & TIMELINE ═══════════════ */}
       <section className="section border-t-cinematic bg-surface">
         <div className="container">
           <div className="section-label-center fade-in-up">BUSINESS IMPACT</div>
@@ -327,7 +289,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ QUESTION 4: WHY HASN'T ANYONE SOLVED IT? ═══════════════ */}
+      {/* ═══════════════ HARDCOREAI VS GENERIC AI ═══════════════ */}
       <section className="section border-t-cinematic">
         <div className="container">
           <div className="section-label-center fade-in-up">THE HARDWARE PARADOX</div>
@@ -365,7 +327,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ QUESTION 5: HOW DOES HARDCOREAI SOLVE IT? (SYSTEM SHOWCASE) ═══════════════ */}
+      {/* ═══════════════ SYSTEM PIPELINE ═══════════════ */}
       <section id="system" className="section border-t-cinematic bg-surface">
         <div className="container">
           <div className="section-label-center fade-in-up">THE SYSTEM</div>
@@ -395,46 +357,41 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Tabbed Interactive Showcase with Real IDE Screenshots */}
-          <div className="showcase-tabs-container fade-in-up">
-            <div className="showcase-tab-bar">
-              {tabs.map(t => (
-                <button
-                  key={t.id}
-                  className={`showcase-tab-btn ${activeTab === t.id ? 'active' : ''}`}
-                  onClick={() => setActiveTab(t.id)}
-                >
-                  {t.label}
-                </button>
-              ))}
+          {/* Platform Architecture Modules Grid (Clean Vector Cards — No Screenshots) */}
+          <div className="system-modules-grid fade-in-up">
+            <div className="module-card">
+              <div className="module-icon"><BookOpen size={22} /></div>
+              <h3>Documentation Knowledge Graph</h3>
+              <p>Indexes multi-thousand-page vendor manuals, schematics, and errata into a queryable hardware graph.</p>
+              <div className="module-tag">Zero Manual Searches</div>
             </div>
 
-            <div className="showcase-display-card">
-              <div className="showcase-content-grid">
-                <div className="showcase-info">
-                  <h3>{activeTabData.headline}</h3>
-                  <p>{activeTabData.desc}</p>
-                  <div className="showcase-badge-pill">
-                    <ShieldCheck size={14} /> Grounded & Verified Output
-                  </div>
-                </div>
+            <div className="module-card">
+              <div className="module-icon"><Sliders size={22} /></div>
+              <h3>Constraint Verification Engine</h3>
+              <p>Validates peripheral trees, clock configuration limits, pin mappings, and register dependencies deterministically.</p>
+              <div className="module-tag">Pre-Hardware Validation</div>
+            </div>
 
-                <div className="showcase-image-wrapper">
-                  <Image 
-                    src={activeTabData.img}
-                    alt={activeTabData.label}
-                    width={720}
-                    height={440}
-                    style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block' }}
-                  />
-                </div>
-              </div>
+            <div className="module-card">
+              <div className="module-icon"><FileCode2 size={22} /></div>
+              <h3>Grounded Driver Synthesizer</h3>
+              <p>Generates production-grade C/C++ firmware grounded strictly in vendor specs with complete manual page citations.</p>
+              <div className="module-tag">Zero Register Hallucinations</div>
+            </div>
+
+            <div className="module-card">
+              <div className="module-icon"><Activity size={22} /></div>
+              <h3>Trace & Diagnostic Intelligence</h3>
+              <p>Maps execution crashes and register dumps directly back to the physical hardware rule in the manual.</p>
+              <div className="module-tag">Instant Root Cause Analysis</div>
             </div>
           </div>
+
         </div>
       </section>
 
-      {/* ═══════════════ QUESTION 6: WHY SHOULD I TRUST THEM? (ENTERPRISE TRUST) ═══════════════ */}
+      {/* ═══════════════ ENTERPRISE TRUST ═══════════════ */}
       <section id="trust" className="section border-t-cinematic">
         <div className="container">
           <div className="section-label-center fade-in-up">ENTERPRISE GRADE</div>
@@ -470,7 +427,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ QUESTION 7: WHY SHOULD I TALK TO THEM TODAY? (URGENCY & CTA) ═══════════════ */}
+      {/* ═══════════════ FINAL CTA ═══════════════ */}
       <section className="section border-t-cinematic bg-cta-gradient">
         <div className="container">
           <div className="cta-cinematic-card fade-in-up">
