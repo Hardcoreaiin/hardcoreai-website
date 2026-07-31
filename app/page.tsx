@@ -1,462 +1,551 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import {
-  ArrowDown,
-  Clock,
-  DollarSign,
-  Rocket,
-  Users,
-  TrendingUp,
-  BookOpen,
+  ArrowRight,
   Check,
-  Building2,
-  UserCheck,
-  Lightbulb,
+  ChevronRight,
+  Linkedin,
   ShieldCheck,
-  Wrench,
-  BarChart3
+  Cpu,
+  Clock,
+  Zap,
+  TrendingDown,
+  Layers,
+  Sparkles,
+  Terminal,
+  Activity,
+  CheckCircle2
 } from 'lucide-react'
 
 export default function LandingPage() {
-  /* ── Workflow step animation ── */
-  const [activeStep, setActiveStep] = useState(0)
-  const workflowSteps = [
-    'Understand the Product Goal',
-    'Read Hardware Documentation',
-    'Build Hardware Understanding',
-    'Check Hardware Compatibility',
-    'Generate Firmware',
-    'Verify Every Decision',
-    'Engineer Reviews',
-    'Deploy'
+  // ── 1. Interactive Timeline Toggle (Before vs After) ──
+  const [timelineMode, setTimelineMode] = useState<'traditional' | 'hardcore'>('hardcore')
+
+  // ── 2. Interactive Hardware System Simulator ──
+  const [activeReasoningStep, setActiveReasoningStep] = useState(0)
+  const reasoningSteps = [
+    { title: 'Specification Processing', desc: 'Parsing 1,200+ page microcontroller reference manual & datasheet tables.' },
+    { title: 'Hardware Constraint Mapping', desc: 'Validating pin conflicts, bus speeds, clock sources, and register dependencies.' },
+    { title: 'Deterministic Verification', desc: 'Cross-checking driver rules against physical silicon boundaries before compilation.' },
+    { title: 'Verified Firmware Generation', desc: 'Producing production-ready C/C++ drivers traceable to official manual pages.' }
   ]
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % workflowSteps.length)
-    }, 2400)
+      setActiveReasoningStep((prev) => (prev + 1) % reasoningSteps.length)
+    }, 3200)
     return () => clearInterval(timer)
   }, [])
 
-  return (
-    <div style={{ background: '#030303', minHeight: '100vh', color: '#f1f5f9', overflowX: 'hidden', position: 'relative' }}>
-      <div className="bg-grid" />
-      <div className="bg-circuit-overlay" />
+  // ── 3. Product Modes Tab Switcher ──
+  const [activeTab, setActiveTab] = useState('research')
+  const tabs = [
+    {
+      id: 'research',
+      label: 'Documentation Intelligence',
+      headline: 'What if every hardware document became instantly understandable?',
+      desc: 'Instead of engineers spending days digging through 2,000-page PDF datasheets and errata sheets, HardcoreAI indexes all vendor specifications into an instantly queryable hardware knowledge graph.',
+      img: '/screenshots/ide-main.jpg'
+    },
+    {
+      id: 'verification',
+      label: 'Pre-Hardware Verification',
+      headline: 'What if hardware mistakes were caught before reaching physical boards?',
+      desc: 'HardcoreAI checks pin allocations, clock tree limits, peripheral conflicts, and register dependencies deterministically—eliminating silent hardware bugs before code is flashed.',
+      img: '/screenshots/ide-config.jpg'
+    },
+    {
+      id: 'generation',
+      label: 'Grounded Firmware',
+      headline: 'What if your engineers never had to write boilerplate drivers again?',
+      desc: 'Generate production-ready C/C++ firmware grounded strictly in official vendor documentation. Zero register hallucinations. Complete traceability to datasheet pages.',
+      img: '/screenshots/ide-ai.jpg'
+    },
+    {
+      id: 'debug',
+      label: 'Trace & Debug Intelligence',
+      headline: 'What if runtime crashes explained their own root cause in seconds?',
+      desc: 'Instantly map register faults, memory dumps, and bus errors back to the exact physical hardware rule in the manual, showing engineers precisely what to fix.',
+      img: '/screenshots/ide-debug.jpg'
+    }
+  ]
 
-      {/* ═══════════════ NAVBAR ═══════════════ */}
-      <nav style={{
-        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 40px', height: '64px',
-        background: 'rgba(3,3,3,0.75)',
-        backdropFilter: 'blur(16px)',
-        borderBottom: '1px solid #1a1a2e',
-      }}>
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="32" height="32" rx="8" fill="url(#gNav)"/>
+  const activeTabData = tabs.find(t => t.id === activeTab) || tabs[0]
+
+  return (
+    <div style={{ background: '#020204', minHeight: '100vh', color: '#f8fafc', overflowX: 'hidden', position: 'relative' }}>
+      
+      {/* Background Atmosphere */}
+      <div className="bg-grid-cinematic" />
+      <div className="bg-ambient-glow" />
+
+      {/* ═══════════════ NAVIGATION ═══════════════ */}
+      <nav className="cinematic-nav">
+        <a href="#" className="nav-brand">
+          <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="url(#gBrand)"/>
             <circle cx="9" cy="9" r="4" fill="white"/>
             <rect x="5" y="14" width="8" height="12" rx="4" fill="white"/>
             <rect x="19" y="6" width="8" height="12" rx="4" fill="white"/>
             <circle cx="23" cy="23" r="4" fill="white"/>
             <rect x="11" y="15.5" width="10" height="5" rx="2.5" fill="white"/>
-            <defs><linearGradient id="gNav" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stopColor="#6366F1"/><stop offset="1" stopColor="#8B5CF6"/></linearGradient></defs>
+            <defs>
+              <linearGradient id="gBrand" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#6366F1"/>
+                <stop offset="1" stopColor="#A855F7"/>
+              </linearGradient>
+            </defs>
           </svg>
-          <span style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.05em', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif" }}>
-            HARDCOREAI
-          </span>
+          <span className="brand-text">HARDCOREAI</span>
         </a>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-          {[
-            { label: 'How It Works', href: '#how-it-works' },
-            { label: 'Who Benefits', href: '#who-benefits' },
-            { label: 'About', href: '#trust' },
-          ].map(link => (
-            <a key={link.label} href={link.href} style={{
-              fontSize: '13px', fontWeight: 500, color: '#94a3b8',
-              fontFamily: "'IBM Plex Mono', monospace",
-              textDecoration: 'none', transition: 'color 0.2s',
-            }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#94a3b8')}
-            >{link.label}</a>
-          ))}
+        <div className="nav-links">
+          <a href="#why-it-matters">The Problem</a>
+          <a href="#transformation">Transformation</a>
+          <a href="#system">How It Works</a>
+          <a href="#trust">Trust</a>
+          <a href="https://www.linkedin.com/company/hardcoreai/" target="_blank" rel="noopener noreferrer" className="nav-social">
+            <Linkedin size={15} />
+          </a>
         </div>
 
-        <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" style={{
-          fontSize: '13px', fontWeight: 600,
-          padding: '8px 18px',
-          background: '#8b5cf6',
-          borderRadius: '6px', color: '#fff', textDecoration: 'none',
-          boxShadow: '0 4px 20px rgba(139,92,246,0.25)',
-          fontFamily: "'IBM Plex Mono', monospace",
-          transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-          border: '1px solid rgba(255,255,255,0.1)'
-        }}
-          onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 30px rgba(139,92,246,0.4)' }}
-          onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(139,92,246,0.25)' }}
-        >
-          Book a Consultation
+        <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-nav">
+          Book a 30-Minute Demo
         </a>
       </nav>
 
-      {/* ═══════════════ SECTION 1 — WHAT IS HARDCOREAI ═══════════════ */}
-      <header className="section hero-section">
+      {/* ═══════════════ QUESTION 1: WHAT DOES THIS COMPANY DO? ═══════════════ */}
+      <section className="section hero-cinematic">
+        <div className="container text-center">
+          
+          <div className="hero-badge fade-in-up">
+            <Sparkles size={13} className="badge-sparkle" />
+            <span>The Infrastructure Layer for Embedded Engineering</span>
+          </div>
+
+          <h1 className="hero-headline-massive fade-in-up">
+            Embedded engineering has not changed in decades.<br />
+            <span className="text-gradient">Software engineering has.</span><br />
+            HardcoreAI is changing that.
+          </h1>
+
+          <p className="hero-lead-text fade-in-up">
+            We are building the intelligence platform that converts complex hardware documentation into verified engineering execution—helping teams move from product idea to working hardware dramatically faster.
+          </p>
+
+          <div className="hero-actions-group fade-in-up">
+            <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-hero-primary">
+              Book a 30-Minute Demo <ArrowRight size={16} />
+            </a>
+            <a href="#why-it-matters" className="btn-hero-ghost">
+              Explore the Transformation
+            </a>
+          </div>
+
+          {/* Backed By Badges */}
+          <div className="backed-strip fade-in-up">
+            <span className="backed-title">Backed By</span>
+            <div className="backed-items">
+              <span className="backed-pill">VIT Technology Business Incubator</span>
+              <span className="backed-pill">Sarvam AI Startup Program</span>
+            </div>
+          </div>
+
+          {/* Hero Visual Moment: Hardware Reasoning Core Graphic */}
+          <div className="hero-visual-container fade-in-up">
+            <div className="hero-graphic-box">
+              <div className="graphic-header">
+                <div className="graphic-title">
+                  <Cpu size={14} />
+                  <span>HARDCOREAI REASONING SYSTEM</span>
+                </div>
+                <div className="graphic-status">
+                  <span className="pulse-dot"></span>
+                  <span>HARDWARE-AWARE EXECUTION</span>
+                </div>
+              </div>
+
+              <div className="hero-graphic-grid">
+                <div className="graphic-card">
+                  <div className="card-tag">INPUT</div>
+                  <h4>Hardware Documentation</h4>
+                  <p>Datasheets, Reference Manuals, Schematics & Register Maps</p>
+                </div>
+
+                <div className="graphic-connector">
+                  <div className="line-pulse"></div>
+                  <span>Deterministic Reasoning Layer</span>
+                </div>
+
+                <div className="graphic-card highlight-card">
+                  <div className="card-tag tag-purple">OUTPUT</div>
+                  <h4>Verified Firmware</h4>
+                  <p>Zero Register Hallucinations • Page-Level Citations • Instant Bring-Up</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="takeaway-banner fade-in-up">
+            &ldquo;Embedded engineering deserves its Cursor moment.&rdquo;
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════ QUESTION 2: WHY SHOULD I CARE? ═══════════════ */}
+      <section id="why-it-matters" className="section border-t-cinematic">
         <div className="container">
-          <div className="hero-center fade-in-up">
-            <span className="section-label">The infrastructure layer for embedded engineering</span>
-            <h1 className="hero-title-centered">
-              Build embedded products faster.
-            </h1>
-            <p className="hero-subtitle-centered">
-              HardcoreAI helps embedded engineering teams move from product idea to working firmware dramatically faster—by understanding hardware documentation, automating repetitive engineering work and catching mistakes before hardware testing begins.
+          <div className="section-label-center fade-in-up">THE REIMAGINED WORKFLOW</div>
+          <h2 className="section-title-large text-center fade-in-up">
+            What if building hardware software<br />felt like building modern web apps?
+          </h2>
+
+          <div className="transformation-grid fade-in-up">
+            <div className="transform-card">
+              <div className="transform-before">BEFORE</div>
+              <h3>Days lost searching 2,000-page manuals</h3>
+              <p>Engineers waste hundreds of hours manually translating register tables into code.</p>
+              <div className="transform-after">
+                <span className="arrow-glow">→</span>
+                <p><strong>What if every hardware document became instantly understandable?</strong></p>
+              </div>
+            </div>
+
+            <div className="transform-card">
+              <div className="transform-before">BEFORE</div>
+              <h3>Bugs discovered only on physical boards</h3>
+              <p>Clock mismatches and pin conflicts cause bricked prototypes and weeks of debugging.</p>
+              <div className="transform-after">
+                <span className="arrow-glow">→</span>
+                <p><strong>What if hardware mistakes were caught before reaching your prototype?</strong></p>
+              </div>
+            </div>
+
+            <div className="transform-card">
+              <div className="transform-before">BEFORE</div>
+              <h3>Repetitive driver setup on every project</h3>
+              <p>Senior engineers spend critical bandwidth on low-level boilerplate instead of core IP.</p>
+              <div className="transform-after">
+                <span className="arrow-glow">→</span>
+                <p><strong>What if your engineers never had to spend days reading documentation again?</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div className="takeaway-banner fade-in-up">
+            &ldquo;Engineering time should build products—not search documentation.&rdquo;
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ QUESTION 3: WHY IS THIS PROBLEM IMPORTANT? (NUMBERS & TIMELINE) ═══════════════ */}
+      <section className="section border-t-cinematic bg-surface">
+        <div className="container">
+          <div className="section-label-center fade-in-up">BUSINESS IMPACT</div>
+          <h2 className="section-title-large text-center fade-in-up">
+            The cost of friction in embedded development.
+          </h2>
+
+          {/* Large Numbers Display */}
+          <div className="numbers-hero-grid fade-in-up">
+            <div className="number-card">
+              <div className="number-stat">70%</div>
+              <div className="number-label">Reduction in Firmware Bring-Up Time</div>
+              <p>Identify hardware configuration mistakes before boards are powered on.</p>
+            </div>
+
+            <div className="number-card">
+              <div className="number-stat">100+</div>
+              <div className="number-label">Hours of Documentation Search Eliminated</div>
+              <p>Instant hardware reasoning replaces manual page-by-page datasheet research.</p>
+            </div>
+
+            <div className="number-card">
+              <div className="number-stat">3x</div>
+              <div className="number-label">Faster Prototype Iteration Cycles</div>
+              <p>Move from schematic approval to executing firmware in days instead of months.</p>
+            </div>
+          </div>
+
+          {/* Visual Moment: Interactive Before vs After Timeline Shrinking */}
+          <div className="timeline-toggle-container fade-in-up">
+            <div className="timeline-header">
+              <h3>Development Cycle Comparison</h3>
+              <div className="toggle-switch-box">
+                <button 
+                  className={`toggle-btn ${timelineMode === 'traditional' ? 'active' : ''}`}
+                  onClick={() => setTimelineMode('traditional')}
+                >
+                  Traditional Workflow
+                </button>
+                <button 
+                  className={`toggle-btn ${timelineMode === 'hardcore' ? 'active' : ''}`}
+                  onClick={() => setTimelineMode('hardcore')}
+                >
+                  With HardcoreAI
+                </button>
+              </div>
+            </div>
+
+            <div className="timeline-visual-content">
+              {timelineMode === 'traditional' ? (
+                <div className="timeline-bar-group fade-in">
+                  <div className="timeline-phase color-red" style={{ flex: 3 }}>
+                    <span>Datasheet Reading & Mapping (3 Weeks)</span>
+                  </div>
+                  <div className="timeline-phase color-orange" style={{ flex: 2 }}>
+                    <span>Manual Driver Setup (2 Weeks)</span>
+                  </div>
+                  <div className="timeline-phase color-yellow" style={{ flex: 4 }}>
+                    <span>Hardware Debugging & Flashing (4 Weeks)</span>
+                  </div>
+                  <div className="timeline-total">Total: 9 Weeks to Stable Prototype</div>
+                </div>
+              ) : (
+                <div className="timeline-bar-group fade-in">
+                  <div className="timeline-phase color-purple" style={{ flex: 1 }}>
+                    <span>Hardware Grounding & Verification (2 Days)</span>
+                  </div>
+                  <div className="timeline-phase color-indigo" style={{ flex: 1 }}>
+                    <span>Verified Generation (1 Day)</span>
+                  </div>
+                  <div className="timeline-phase color-emerald" style={{ flex: 1 }}>
+                    <span>Instant Board Bring-Up (3 Days)</span>
+                  </div>
+                  <div className="timeline-total total-highlight">Total: 6 Days to Stable Prototype</div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="takeaway-banner fade-in-up">
+            &ldquo;Every delayed product begins with a delayed engineering decision.&rdquo;
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ QUESTION 4: WHY HASN'T ANYONE SOLVED IT? ═══════════════ */}
+      <section className="section border-t-cinematic">
+        <div className="container">
+          <div className="section-label-center fade-in-up">THE HARDWARE PARADOX</div>
+          <h2 className="section-title-large text-center fade-in-up">
+            Why generic AI fails at embedded engineering.
+          </h2>
+
+          <div className="versus-grid fade-in-up">
+            <div className="versus-box versus-generic">
+              <div className="versus-badge">Generic Coding Assistants</div>
+              <h4>Trained on Web Code & Syntax</h4>
+              <ul>
+                <li>❌ No understanding of physical hardware constraints</li>
+                <li>❌ Hallucinate non-existent registers and memory offsets</li>
+                <li>❌ Cannot verify clock dependencies or pin conflicts</li>
+                <li>❌ Require engineers to spend hours fixing generated bugs</li>
+              </ul>
+            </div>
+
+            <div className="versus-box versus-hardcore">
+              <div className="versus-badge badge-purple">HardcoreAI Platform</div>
+              <h4>Grounded in Physical Silicon Boundaries</h4>
+              <ul>
+                <li><Check size={16} /> Grounded directly in official vendor specification manuals</li>
+                <li><Check size={16} /> Deterministic constraint validation before code generation</li>
+                <li><Check size={16} /> Explains every engineering recommendation with exact page citations</li>
+                <li><Check size={16} /> Keeps engineers in complete architectural control</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="takeaway-banner fade-in-up">
+            &ldquo;The fastest engineering teams don't work harder. They remove friction.&rdquo;
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ QUESTION 5: HOW DOES HARDCOREAI SOLVE IT? (SYSTEM SHOWCASE) ═══════════════ */}
+      <section id="system" className="section border-t-cinematic bg-surface">
+        <div className="container">
+          <div className="section-label-center fade-in-up">THE SYSTEM</div>
+          <h2 className="section-title-large text-center fade-in-up">
+            Turning hardware documentation into verified execution.
+          </h2>
+
+          {/* Interactive Hardware System Flow */}
+          <div className="system-flow-wrapper fade-in-up">
+            <div className="system-flow-header">
+              <span>AUTOMATED REASONING PIPELINE</span>
+              <span className="flow-step-counter">STEP {activeReasoningStep + 1} OF 4</span>
+            </div>
+
+            <div className="system-flow-steps">
+              {reasoningSteps.map((step, idx) => (
+                <div 
+                  key={step.title}
+                  className={`flow-step-card ${idx === activeReasoningStep ? 'active' : ''}`}
+                  onClick={() => setActiveReasoningStep(idx)}
+                >
+                  <div className="step-num">0{idx + 1}</div>
+                  <h4>{step.title}</h4>
+                  <p>{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tabbed Interactive Showcase with Real IDE Screenshots */}
+          <div className="showcase-tabs-container fade-in-up">
+            <div className="showcase-tab-bar">
+              {tabs.map(t => (
+                <button
+                  key={t.id}
+                  className={`showcase-tab-btn ${activeTab === t.id ? 'active' : ''}`}
+                  onClick={() => setActiveTab(t.id)}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="showcase-display-card">
+              <div className="showcase-content-grid">
+                <div className="showcase-info">
+                  <h3>{activeTabData.headline}</h3>
+                  <p>{activeTabData.desc}</p>
+                  <div className="showcase-badge-pill">
+                    <ShieldCheck size={14} /> Grounded & Verified Output
+                  </div>
+                </div>
+
+                <div className="showcase-image-wrapper">
+                  <Image 
+                    src={activeTabData.img}
+                    alt={activeTabData.label}
+                    width={720}
+                    height={440}
+                    style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block' }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ QUESTION 6: WHY SHOULD I TRUST THEM? (ENTERPRISE TRUST) ═══════════════ */}
+      <section id="trust" className="section border-t-cinematic">
+        <div className="container">
+          <div className="section-label-center fade-in-up">ENTERPRISE GRADE</div>
+          <h2 className="section-title-large text-center fade-in-up">
+            Designed for mission-critical engineering teams.
+          </h2>
+
+          <div className="trust-cards-grid fade-in-up">
+            <div className="trust-card">
+              <div className="trust-icon"><ShieldCheck size={24} /></div>
+              <h3>Grounded in Official Documentation</h3>
+              <p>Every response and generated driver strictly references vendor datasheets and manuals—eliminating hallucinations.</p>
+            </div>
+
+            <div className="trust-card">
+              <div className="trust-icon"><CheckCircle2 size={24} /></div>
+              <h3>Explainable Recommendations</h3>
+              <p>Every configuration decision includes detailed technical context and citations back to original manual pages.</p>
+            </div>
+
+            <div className="trust-card">
+              <div className="trust-icon"><Layers size={24} /></div>
+              <h3>Engineers Remain in Control</h3>
+              <p>Engineers review and approve every architectural choice before deployment. HardcoreAI augments—never replaces—human judgment.</p>
+            </div>
+
+            <div className="trust-card">
+              <div className="trust-icon"><Terminal size={24} /></div>
+              <h3>Zero Workflow Disruption</h3>
+              <p>Integrates seamlessly alongside PlatformIO, STM32CubeIDE, ESP-IDF, and existing Git repositories.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ QUESTION 7: WHY SHOULD I TALK TO THEM TODAY? (URGENCY & CTA) ═══════════════ */}
+      <section className="section border-t-cinematic bg-cta-gradient">
+        <div className="container">
+          <div className="cta-cinematic-card fade-in-up">
+            <div className="section-label-center">NEXT STEPS</div>
+            
+            <h2 className="cta-title">
+              Let&rsquo;s see how much engineering time<br />your team could save.
+            </h2>
+
+            <p className="cta-body">
+              In a 30-minute conversation we&rsquo;ll understand your current firmware workflow, identify engineering bottlenecks and explore whether HardcoreAI can help your team prototype faster, reduce bring-up time and launch products sooner.
             </p>
-            <div className="hero-actions-centered">
-              <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" className="btn btn-primary btn-lg">
-                Book a 30-Minute Engineering Consultation
+
+            <div className="cta-button-wrapper">
+              <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-cta-massive">
+                Book a 30-Minute Demo <ArrowRight size={18} />
               </a>
             </div>
 
-            {/* Backed By badges */}
-            <div className="backed-by-centered">
-              <span className="backed-by-label">Backed By</span>
-              <div className="backed-badge">VIT Technology Business Incubator</div>
-              <div className="backed-badge">Sarvam AI Startup Program</div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* ═══════════════ SECTION 2 — WHY DOES THIS MATTER ═══════════════ */}
-      <section className="section border-t" style={{ backgroundColor: '#080810' }}>
-        <div className="container">
-          <div className="section-header text-center fade-in-up">
-            <span className="section-label">The Problem</span>
-            <h2 className="section-title">
-              Why does this matter?
-            </h2>
-          </div>
-
-          <div className="problem-center fade-in-up">
-            <p className="problem-statement">
-              Embedded engineering teams spend weeks manually interpreting hardware documentation, configuring hardware and debugging issues that could have been prevented much earlier in the process.
-            </p>
-            <p className="problem-resolution">
-              HardcoreAI reduces that engineering effort—so teams can focus on building products instead of searching through manuals.
-            </p>
-          </div>
-
-          {/* Supporting stats/points */}
-          <div className="problem-points-grid fade-in-up">
-            <div className="problem-point">
-              <BookOpen size={20} />
-              <p>Engineers spend days reading hardware manuals before writing a single line of firmware.</p>
-            </div>
-            <div className="problem-point">
-              <Clock size={20} />
-              <p>Configuration mistakes are discovered only after firmware reaches physical hardware—adding weeks to timelines.</p>
-            </div>
-            <div className="problem-point">
-              <DollarSign size={20} />
-              <p>Experienced engineers spend significant time on repetitive tasks instead of high-value product work.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ SECTION 3 — BUSINESS OUTCOMES ═══════════════ */}
-      <section className="section border-t">
-        <div className="container">
-          <div className="section-header text-center fade-in-up">
-            <span className="section-label">Business Outcomes</span>
-            <h2 className="section-title">
-              What changes for your team.
-            </h2>
-          </div>
-
-          <div className="outcomes-grid fade-in-up">
-            {[
-              {
-                icon: Rocket,
-                title: 'Accelerate Product Development',
-                desc: 'Reduce the time required to move from an idea to a working embedded prototype.'
-              },
-              {
-                icon: ShieldCheck,
-                title: 'Shorter Bring-up',
-                desc: 'Identify hardware configuration issues before engineers spend days debugging physical boards.'
-              },
-              {
-                icon: DollarSign,
-                title: 'Reduce Engineering Costs',
-                desc: 'Automate repetitive engineering tasks so experienced engineers can focus on higher-value work.'
-              },
-              {
-                icon: BarChart3,
-                title: 'Improve Team Productivity',
-                desc: 'Help engineers spend more time building products and less time searching through documentation.'
-              },
-              {
-                icon: TrendingUp,
-                title: 'Faster Time-to-Market',
-                desc: 'Reduce firmware bottlenecks that delay product launches.'
-              },
-              {
-                icon: Users,
-                title: 'Scale Engineering Knowledge',
-                desc: 'Capture engineering best practices and make them available across the entire team.'
-              }
-            ].map((item, idx) => {
-              const Icon = item.icon
-              return (
-                <div key={item.title} className="outcome-card fade-in-up" style={{ animationDelay: `${(idx + 1) * 80}ms` }}>
-                  <div className="outcome-icon"><Icon size={22} /></div>
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ SECTION 4 — HOW IT WORKS ═══════════════ */}
-      <section id="how-it-works" className="section border-t" style={{ backgroundColor: '#080810' }}>
-        <div className="container">
-          <div className="section-header text-center fade-in-up">
-            <span className="section-label">How It Works</span>
-            <h2 className="section-title">
-              From product idea to working firmware.
-            </h2>
-            <p className="section-subtitle">
-              Instead of engineers manually reading thousands of pages of documentation—HardcoreAI handles the repetitive work.
-            </p>
-          </div>
-
-          <div className="workflow-vertical fade-in-up">
-            {workflowSteps.map((step, idx) => (
-              <div key={step}>
-                <div className={`wf-step ${idx === activeStep ? 'active' : ''}`}>
-                  <div className="wf-step-number">{String(idx + 1).padStart(2, '0')}</div>
-                  <div className="wf-step-label">{step}</div>
-                </div>
-                {idx < workflowSteps.length - 1 && (
-                  <div className="wf-connector">
-                    <ArrowDown size={14} />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <div className="workflow-note fade-in-up">
-            Simple. Understandable. Engineers remain in control at every step.
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ SECTION 5 — WHY COMPANIES CHOOSE ═══════════════ */}
-      <section className="section border-t">
-        <div className="container">
-          <div className="section-header text-center fade-in-up">
-            <span className="section-label">Why HardcoreAI</span>
-            <h2 className="section-title">
-              A better way to build embedded products.
-            </h2>
-          </div>
-
-          <div className="comparison-split fade-in-up">
-            <div className="comparison-col comparison-old">
-              <h3>Traditional Firmware Development</h3>
-              <ul>
-                <li>Engineers manually read hardware documentation</li>
-                <li>Configuration is done by hand</li>
-                <li>Mistakes are discovered after hardware testing</li>
-                <li>Debugging takes days or weeks</li>
-                <li>Knowledge stays with individual engineers</li>
-              </ul>
-            </div>
-            <div className="comparison-col comparison-new">
-              <h3>With HardcoreAI</h3>
-              <ul>
-                <li><Check size={15} /> Hardware documentation is understood automatically</li>
-                <li><Check size={15} /> Compatibility is checked before development begins</li>
-                <li><Check size={15} /> Mistakes are caught before they reach hardware</li>
-                <li><Check size={15} /> Engineers focus on product decisions, not repetitive work</li>
-                <li><Check size={15} /> Best practices are available to the entire team</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="comparison-bottom-statement fade-in-up">
-            Traditional coding assistants help developers write software.<br />
-            HardcoreAI helps engineering teams build hardware products faster.
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ SECTION 6 — WHO BENEFITS ═══════════════ */}
-      <section id="who-benefits" className="section border-t" style={{ backgroundColor: '#080810' }}>
-        <div className="container">
-          <div className="section-header text-center fade-in-up">
-            <span className="section-label">Who Benefits</span>
-            <h2 className="section-title">
-              Built for the people who build products.
-            </h2>
-          </div>
-
-          <div className="persona-grid fade-in-up">
-            {[
-              {
-                icon: Users,
-                title: 'Engineering Teams',
-                desc: 'Build products faster.'
-              },
-              {
-                icon: BarChart3,
-                title: 'Engineering Managers',
-                desc: 'Increase team productivity.'
-              },
-              {
-                icon: UserCheck,
-                title: 'CTOs',
-                desc: 'Launch products sooner with fewer engineering bottlenecks.'
-              },
-              {
-                icon: Lightbulb,
-                title: 'Founders',
-                desc: 'Prototype hardware products with leaner teams.'
-              },
-              {
-                icon: Building2,
-                title: 'Large Enterprises',
-                desc: 'Standardize firmware development across engineering organizations.'
-              }
-            ].map((persona, idx) => {
-              const Icon = persona.icon
-              return (
-                <div key={persona.title} className="persona-card fade-in-up" style={{ animationDelay: `${(idx + 1) * 80}ms` }}>
-                  <div className="persona-icon"><Icon size={22} /></div>
-                  <h3>{persona.title}</h3>
-                  <p>{persona.desc}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ SECTION 7 — TRUST ═══════════════ */}
-      <section id="trust" className="section border-t">
-        <div className="container">
-          <div className="section-header text-center fade-in-up">
-            <span className="section-label">Why Teams Trust HardcoreAI</span>
-            <h2 className="section-title">
-              Engineering-grade reliability.
-            </h2>
-          </div>
-
-          <div className="trust-grid fade-in-up">
-            {[
-              'Built around official hardware documentation',
-              'Every recommendation is explainable',
-              'Engineers remain in complete control',
-              'Works with existing development tools',
-              'No workflow disruption'
-            ].map(item => (
-              <div key={item} className="trust-item">
-                <Check size={18} className="trust-check" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ SECTION 8 — BACKED BY ═══════════════ */}
-      <section className="section border-t" style={{ backgroundColor: '#080810' }}>
-        <div className="container text-center">
-          <div className="section-header fade-in-up">
-            <span className="section-label">Backed By</span>
-          </div>
-          <div className="backer-cards fade-in-up">
-            <div className="backer-card">VIT Technology Business Incubator</div>
-            <div className="backer-card">Sarvam AI Startup Program</div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ SECTION 9 — FINAL CTA ═══════════════ */}
-      <section className="section border-t">
-        <div className="container">
-          <div className="cta-card fade-in-up">
-            <span className="section-label">Next Steps</span>
-            <h2 className="cta-headline">
-              Let&rsquo;s understand your engineering workflow.
-            </h2>
-            <p className="cta-subheading">
-              Book a 30-minute engineering consultation. We&rsquo;ll understand how your team currently develops firmware, identify bottlenecks and explore whether HardcoreAI can help accelerate development and reduce engineering effort.
-            </p>
-
-            <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" className="btn btn-primary btn-cta">
-              Book a 30-Minute Engineering Consultation →
-            </a>
-
-            <div className="cta-contacts">
+            <div className="cta-contact-details">
               <span>Email: <a href="mailto:sricharan.srikrishna@gmail.com">sricharan.srikrishna@gmail.com</a></span>
               <span>Phone: <a href="tel:+917010293396">+91 7010293396</a></span>
+              <span>LinkedIn: <a href="https://www.linkedin.com/company/hardcoreai/" target="_blank" rel="noopener noreferrer">HardcoreAI LinkedIn</a></span>
             </div>
           </div>
         </div>
       </section>
 
       {/* ═══════════════ FOOTER ═══════════════ */}
-      <footer className="footer border-t">
+      <footer className="footer-cinematic border-t-cinematic">
         <div className="container">
-          <div className="footer-layout">
-            <div className="footer-brand">
+          <div className="footer-grid">
+            <div className="footer-brand-col">
               <div className="footer-logo">
                 <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="32" height="32" rx="8" fill="url(#gFoot)"/>
+                  <rect width="32" height="32" rx="8" fill="url(#gFootCin)"/>
                   <circle cx="9" cy="9" r="4" fill="white"/>
                   <rect x="5" y="14" width="8" height="12" rx="4" fill="white"/>
                   <rect x="19" y="6" width="8" height="12" rx="4" fill="white"/>
                   <circle cx="23" cy="23" r="4" fill="white"/>
                   <rect x="11" y="15.5" width="10" height="5" rx="2.5" fill="white"/>
-                  <defs><linearGradient id="gFoot" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stopColor="#6366F1"/><stop offset="1" stopColor="#8B5CF6"/></linearGradient></defs>
+                  <defs>
+                    <linearGradient id="gFootCin" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                      <stop stopColor="#6366F1"/>
+                      <stop offset="1" stopColor="#A855F7"/>
+                    </linearGradient>
+                  </defs>
                 </svg>
-                HARDCOREAI
+                <span>HARDCOREAI</span>
               </div>
-              <p className="footer-desc">The infrastructure layer for embedded engineering. Helping teams build products faster.</p>
+              <p className="footer-tagline">Building the intelligence platform for embedded engineering.</p>
             </div>
 
-            <div className="footer-nav">
-              <div className="footer-nav-col">
-                <h4>Navigation</h4>
-                <ul>
-                  <li><a href="#how-it-works">How It Works</a></li>
-                  <li><a href="#who-benefits">Who Benefits</a></li>
-                  <li><a href="#trust">About</a></li>
-                </ul>
-              </div>
-              <div className="footer-nav-col">
-                <h4>Connect</h4>
-                <ul>
-                  <li><a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank">Book a Consultation</a></li>
-                  <li><a href="mailto:sricharan.srikrishna@gmail.com">Email</a></li>
-                  <li><a href="tel:+917010293396">Phone</a></li>
-                </ul>
-              </div>
+            <div className="footer-links-col">
+              <h4>Platform</h4>
+              <a href="#why-it-matters">Transformation</a>
+              <a href="#system">System Pipeline</a>
+              <a href="#trust">Enterprise Trust</a>
+            </div>
+
+            <div className="footer-links-col">
+              <h4>Company & Connect</h4>
+              <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+              <a href="https://www.linkedin.com/company/hardcoreai/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+              <a href="mailto:sricharan.srikrishna@gmail.com">Contact Us</a>
             </div>
           </div>
 
-          <div className="footer-bottom">
+          <div className="footer-sub">
             <p>&copy; 2026 HardcoreAI. All rights reserved.</p>
+            <p className="mono-sub">The Standard Platform for Embedded Systems Engineering.</p>
           </div>
         </div>
       </footer>
+
     </div>
   )
 }
