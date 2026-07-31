@@ -3,13 +3,13 @@ import './globals.css'
 import { Providers } from './providers'
 
 export const metadata: Metadata = {
-  title: 'HARDCOREAI — Firmware Development Platform for Hardware Teams',
-  description: 'Turn datasheets into working firmware. Build, flash, debug, and validate embedded software in a single AI-powered environment.',
+  title: 'HardcoreAI — The Infrastructure Layer for Embedded Engineering',
+  description: 'HardcoreAI converts hardware documentation into verified engineering execution—helping teams move from product idea to working hardware dramatically faster.',
   openGraph: {
-    title: 'HARDCOREAI — Firmware Development Platform',
-    description: 'Build, flash, debug, and validate embedded software in a single environment.',
+    title: 'HardcoreAI — The Infrastructure Layer for Embedded Engineering',
+    description: 'HardcoreAI converts hardware documentation into verified engineering execution—helping teams move from product idea to working hardware dramatically faster.',
     url: 'https://hardcoreai.in',
-    siteName: 'HARDCOREAI',
+    siteName: 'HardcoreAI',
   },
 }
 
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body style={{ margin: 0, padding: 0, background: '#0A0A0F' }}>
+      <body style={{ margin: 0, padding: 0, background: '#020204' }}>
         <Providers>
           {children}
         </Providers>
