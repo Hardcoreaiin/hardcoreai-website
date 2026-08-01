@@ -36,43 +36,49 @@ export default function LandingPage() {
   }, [])
 
   return (
-    <div style={{ minHeight: '100vh', overflowX: 'hidden' }}>
+    <div style={{ minHeight: '100vh', position: 'relative', overflowX: 'hidden' }}>
       
-      {/* ═══════════════ NAVIGATION ═══════════════ */}
-      <nav className="minimal-nav">
-        <a href="#" className="nav-brand">
-          <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="32" height="32" rx="8" fill="#111111"/>
-            <circle cx="9" cy="9" r="4" fill="white"/>
-            <rect x="5" y="14" width="8" height="12" rx="4" fill="white"/>
-            <rect x="19" y="6" width="8" height="12" rx="4" fill="white"/>
-            <circle cx="23" cy="23" r="4" fill="white"/>
-            <rect x="11" y="15.5" width="10" height="5" rx="2.5" fill="white"/>
-          </svg>
-          HARDCOREAI
-        </a>
+      {/* Background Textures */}
+      <div className="bg-radial-glow"></div>
+      <div className="bg-engineering-grid"></div>
 
-        <div className="nav-links">
-          <a href="#why-it-matters">The Problem</a>
-          <a href="#transformation">Transformation</a>
-          <a href="#system">How It Works</a>
-          <a href="#trust">Trust</a>
-          <a href="https://www.linkedin.com/company/hardcoreai/" target="_blank" rel="noopener noreferrer">
-            <Linkedin size={18} strokeWidth={1.5} />
+      {/* ═══════════════ FLOATING NAVIGATION ═══════════════ */}
+      <div className="nav-wrapper">
+        <nav className="floating-nav">
+          <a href="#" className="nav-brand">
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="8" fill="#2563EB"/>
+              <circle cx="9" cy="9" r="4" fill="white"/>
+              <rect x="5" y="14" width="8" height="12" rx="4" fill="white"/>
+              <rect x="19" y="6" width="8" height="12" rx="4" fill="white"/>
+              <circle cx="23" cy="23" r="4" fill="white"/>
+              <rect x="11" y="15.5" width="10" height="5" rx="2.5" fill="white"/>
+            </svg>
+            HARDCOREAI
           </a>
-        </div>
 
-        <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-nav">
-          Book Demo
-        </a>
-      </nav>
+          <div className="nav-links">
+            <a href="#why-it-matters">The Problem</a>
+            <a href="#transformation">Transformation</a>
+            <a href="#system">How It Works</a>
+            <a href="#trust">Trust</a>
+            <a href="https://www.linkedin.com/company/hardcoreai/" target="_blank" rel="noopener noreferrer">
+              <Linkedin size={18} strokeWidth={1.5} />
+            </a>
+          </div>
+
+          <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-nav">
+            Book Demo
+          </a>
+        </nav>
+      </div>
 
       {/* ═══════════════ HERO SECTION ═══════════════ */}
-      <section className="section">
-        <div className="container text-center" style={{ paddingTop: '4rem' }}>
+      <section className="section" style={{ paddingTop: '12rem', paddingBottom: '8rem' }}>
+        <div className="container text-center">
           
           <div className="hero-badge fade-in-up">
-            <Sparkles size={14} strokeWidth={2} style={{ color: 'var(--accent-blue)' }} />
+            <Sparkles size={14} strokeWidth={2} style={{ color: 'var(--accent-secondary)' }} />
             <span>Build Embedded Products Faster.</span>
           </div>
 
@@ -87,49 +93,57 @@ export default function LandingPage() {
 
           <div className="hero-actions-group fade-in-up">
             <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-hero-primary">
-              Book a 30-Minute Demo <ArrowRight size={18} strokeWidth={2} />
+              Book a 30-Minute Demo <ArrowRight size={20} strokeWidth={2} />
             </a>
             <a href="#why-it-matters" className="btn-hero-ghost">
               Explore the Transformation
             </a>
           </div>
 
-          {/* Clean Engineering Visual (Replacing old neon boxes) */}
-          <div className="engineering-visual fade-in-up">
-            <div className="bg-blueprint"></div>
-            <div className="engineering-visual-header">
-              <span>SYSTEM ARCHITECTURE DIAGRAM</span>
-              <span>VERIFIED_STATE: ACTIVE</span>
-            </div>
-            <div className="engineering-visual-content">
-              {/* Minimal SVG representation of the reasoning engine */}
-              <svg width="100%" height="100%" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ position: 'relative', zIndex: 10 }}>
-                {/* Inputs */}
-                <rect x="20" y="40" width="120" height="40" rx="6" fill="white" stroke="#D1D5DB" strokeWidth="2"/>
-                <text x="80" y="64" fill="#4B5563" fontSize="12" fontWeight="500" textAnchor="middle">Datasheets</text>
+          {/* Premium Dark Tech SVG Visual (Animated Constraint Graph / Data flow) */}
+          <div className="hero-visual-wrapper fade-in-up">
+            <div className="engineering-visual">
+              <div className="engineering-visual-header">
+                <span>SYSTEM ARCHITECTURE ENGINE</span>
+                <span style={{ color: 'var(--success)' }}>● VERIFIED_STATE: ACTIVE</span>
+              </div>
+              <div className="engineering-visual-content">
                 
-                <rect x="20" y="100" width="120" height="40" rx="6" fill="white" stroke="#D1D5DB" strokeWidth="2"/>
-                <text x="80" y="124" fill="#4B5563" fontSize="12" fontWeight="500" textAnchor="middle">Schematics</text>
+                {/* Glow behind the core */}
+                <div className="animated-glow" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '200px', height: '100px', background: 'var(--accent-primary)', borderRadius: '50%', zIndex: 0 }}></div>
 
-                {/* Connecting Lines */}
-                <path d="M140 60 L180 60 L180 90 L220 90" stroke="#D1D5DB" strokeWidth="2" strokeLinejoin="round" fill="none" />
-                <path d="M140 120 L180 120 L180 90 L220 90" stroke="#D1D5DB" strokeWidth="2" strokeLinejoin="round" fill="none" />
-                <path d="M140 60 L180 60 L180 90 L220 90" stroke="#2563EB" strokeWidth="2" strokeLinejoin="round" fill="none" className="svg-path-animate" />
+                <svg width="100%" height="100%" viewBox="0 0 600 250" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ position: 'relative', zIndex: 10 }}>
+                  {/* Left Nodes (Inputs) */}
+                  <rect x="30" y="50" width="120" height="44" rx="10" fill="#1E293B" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
+                  <text x="90" y="77" fill="#CBD5E1" fontSize="13" fontWeight="500" textAnchor="middle">Datasheets</text>
+                  
+                  <rect x="30" y="140" width="120" height="44" rx="10" fill="#1E293B" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
+                  <text x="90" y="167" fill="#CBD5E1" fontSize="13" fontWeight="500" textAnchor="middle">Schematics</text>
 
-                {/* Core Engine */}
-                <rect x="220" y="50" width="160" height="80" rx="8" fill="white" stroke="#2563EB" strokeWidth="2"/>
-                <text x="300" y="85" fill="#111111" fontSize="14" fontWeight="600" textAnchor="middle">Reasoning Engine</text>
-                <text x="300" y="105" fill="#6B7280" fontSize="10" textAnchor="middle">Constraint Validation</text>
+                  {/* Circuit traces connecting to center */}
+                  <path d="M150 72 L190 72 L190 115 L230 115" stroke="rgba(255,255,255,0.1)" strokeWidth="2" strokeLinejoin="round" fill="none" />
+                  <path d="M150 162 L190 162 L190 115 L230 115" stroke="rgba(255,255,255,0.1)" strokeWidth="2" strokeLinejoin="round" fill="none" />
+                  
+                  {/* Animated glowing traces */}
+                  <path d="M150 72 L190 72 L190 115 L230 115" stroke="#38BDF8" strokeWidth="2" strokeLinejoin="round" fill="none" className="svg-path-animate" />
+                  <path d="M150 162 L190 162 L190 115 L230 115" stroke="#38BDF8" strokeWidth="2" strokeLinejoin="round" fill="none" className="svg-path-animate" style={{ animationDelay: '0.5s' }} />
 
-                {/* Output Lines */}
-                <path d="M380 90 L460 90" stroke="#D1D5DB" strokeWidth="2" fill="none" />
-                <path d="M380 90 L460 90" stroke="#2563EB" strokeWidth="2" fill="none" className="svg-path-animate" style={{ animationDelay: '1s' }} />
+                  {/* Center Node (Reasoning Engine) */}
+                  <rect x="230" y="75" width="150" height="80" rx="14" fill="#0B0F19" stroke="#2563EB" strokeWidth="1.5"/>
+                  <rect x="235" y="80" width="140" height="70" rx="10" fill="rgba(37, 99, 235, 0.15)"/>
+                  <text x="305" y="112" fill="#FFFFFF" fontSize="14" fontWeight="600" textAnchor="middle">Reasoning Engine</text>
+                  <text x="305" y="132" fill="#38BDF8" fontSize="11" fontWeight="500" textAnchor="middle" opacity="0.8">Constraint Validation</text>
 
-                {/* Output Box */}
-                <rect x="460" y="65" width="120" height="50" rx="6" fill="#111111"/>
-                <text x="520" y="90" fill="white" fontSize="12" fontWeight="600" textAnchor="middle">Verified</text>
-                <text x="520" y="106" fill="#D1D5DB" fontSize="10" textAnchor="middle">Firmware (C/C++)</text>
-              </svg>
+                  {/* Circuit traces connecting to right */}
+                  <path d="M380 115 L450 115" stroke="rgba(255,255,255,0.1)" strokeWidth="2" fill="none" />
+                  <path d="M380 115 L450 115" stroke="#10B981" strokeWidth="2" fill="none" className="svg-path-animate" style={{ animationDelay: '1.5s' }} />
+
+                  {/* Right Node (Output) */}
+                  <rect x="450" y="85" width="120" height="60" rx="10" fill="#1E293B" stroke="rgba(16, 185, 129, 0.3)" strokeWidth="1"/>
+                  <text x="510" y="114" fill="#10B981" fontSize="13" fontWeight="600" textAnchor="middle">Verified</text>
+                  <text x="510" y="132" fill="#CBD5E1" fontSize="11" textAnchor="middle">Firmware (C/C++)</text>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -137,7 +151,7 @@ export default function LandingPage() {
       </section>
 
       {/* ═══════════════ THE PROBLEM ═══════════════ */}
-      <section id="why-it-matters" className="section border-t-light bg-surface">
+      <section id="why-it-matters" className="section bg-alternate">
         <div className="container">
           <div className="section-label-center fade-in-up">THE REIMAGINED WORKFLOW</div>
           <h2 className="section-title-large text-center fade-in-up">
@@ -145,30 +159,30 @@ export default function LandingPage() {
           </h2>
 
           <div className="transformation-grid fade-in-up">
-            <div className="transform-card">
+            <div className="premium-card">
               <div className="transform-before">BEFORE</div>
               <h3>Days lost searching 2,000-page manuals</h3>
               <p>Engineers waste hundreds of hours manually translating register tables into code.</p>
               <div className="transform-after">
-                <p><strong>What if every hardware document became instantly understandable?</strong></p>
+                <p>What if every hardware document became instantly understandable?</p>
               </div>
             </div>
 
-            <div className="transform-card">
+            <div className="premium-card">
               <div className="transform-before">BEFORE</div>
               <h3>Bugs discovered only on physical boards</h3>
               <p>Clock mismatches and pin conflicts cause bricked prototypes and weeks of debugging.</p>
               <div className="transform-after">
-                <p><strong>What if hardware mistakes were caught before reaching your prototype?</strong></p>
+                <p>What if hardware mistakes were caught before reaching your prototype?</p>
               </div>
             </div>
 
-            <div className="transform-card">
+            <div className="premium-card">
               <div className="transform-before">BEFORE</div>
               <h3>Repetitive driver setup on every project</h3>
               <p>Senior engineers spend critical bandwidth on low-level boilerplate instead of core IP.</p>
               <div className="transform-after">
-                <p><strong>What if your engineers never had to spend days reading documentation again?</strong></p>
+                <p>What if your engineers never had to spend days reading documentation again?</p>
               </div>
             </div>
           </div>
@@ -176,7 +190,7 @@ export default function LandingPage() {
       </section>
 
       {/* ═══════════════ IMPACT & TIMELINE ═══════════════ */}
-      <section className="section border-t-light">
+      <section className="section bg-deep">
         <div className="container">
           <div className="section-label-center fade-in-up">BUSINESS IMPACT</div>
           <h2 className="section-title-large text-center fade-in-up">
@@ -257,7 +271,7 @@ export default function LandingPage() {
       </section>
 
       {/* ═══════════════ VERSUS ═══════════════ */}
-      <section className="section border-t-light bg-surface">
+      <section className="section bg-alternate">
         <div className="container">
           <div className="section-label-center fade-in-up">THE HARDWARE PARADOX</div>
           <h2 className="section-title-large text-center fade-in-up">
@@ -280,10 +294,10 @@ export default function LandingPage() {
               <div className="versus-badge badge-blue">HardcoreAI Platform</div>
               <h4>Grounded in Physical Silicon Boundaries</h4>
               <ul>
-                <li><Check size={18} strokeWidth={2} style={{ color: 'var(--accent-blue)' }} /> Grounded directly in official vendor specification manuals</li>
-                <li><Check size={18} strokeWidth={2} style={{ color: 'var(--accent-blue)' }} /> Deterministic constraint validation before code generation</li>
-                <li><Check size={18} strokeWidth={2} style={{ color: 'var(--accent-blue)' }} /> Explains every engineering recommendation with exact page citations</li>
-                <li><Check size={18} strokeWidth={2} style={{ color: 'var(--accent-blue)' }} /> Keeps engineers in complete architectural control</li>
+                <li><Check size={20} strokeWidth={2} style={{ color: 'var(--accent-secondary)' }} /> Grounded directly in official vendor specification manuals</li>
+                <li><Check size={20} strokeWidth={2} style={{ color: 'var(--accent-secondary)' }} /> Deterministic constraint validation before code generation</li>
+                <li><Check size={20} strokeWidth={2} style={{ color: 'var(--accent-secondary)' }} /> Explains every engineering recommendation with exact page citations</li>
+                <li><Check size={20} strokeWidth={2} style={{ color: 'var(--accent-secondary)' }} /> Keeps engineers in complete architectural control</li>
               </ul>
             </div>
           </div>
@@ -291,7 +305,7 @@ export default function LandingPage() {
       </section>
 
       {/* ═══════════════ SYSTEM ═══════════════ */}
-      <section id="system" className="section border-t-light">
+      <section id="system" className="section bg-deep">
         <div className="container">
           <div className="section-label-center fade-in-up">THE SYSTEM</div>
           <h2 className="section-title-large text-center fade-in-up">
@@ -320,32 +334,28 @@ export default function LandingPage() {
           </div>
 
           <div className="system-modules-grid fade-in-up">
-            <div className="module-card">
-              <div className="module-icon"><BookOpen size={24} strokeWidth={1.5} /></div>
+            <div className="premium-card" style={{ padding: '2.5rem' }}>
+              <div className="module-icon"><BookOpen size={24} strokeWidth={1.5} style={{ color: 'var(--accent-secondary)' }} /></div>
               <h3>Documentation Knowledge Graph</h3>
-              <p>Indexes multi-thousand-page vendor manuals, schematics, and errata into a queryable hardware graph.</p>
-              <div className="module-tag">Zero Manual Searches</div>
+              <p style={{ marginBottom: 0 }}>Indexes multi-thousand-page vendor manuals, schematics, and errata into a queryable hardware graph.</p>
             </div>
 
-            <div className="module-card">
-              <div className="module-icon"><Sliders size={24} strokeWidth={1.5} /></div>
+            <div className="premium-card" style={{ padding: '2.5rem' }}>
+              <div className="module-icon"><Sliders size={24} strokeWidth={1.5} style={{ color: 'var(--accent-secondary)' }} /></div>
               <h3>Constraint Verification Engine</h3>
-              <p>Validates peripheral trees, clock configuration limits, pin mappings, and register dependencies deterministically.</p>
-              <div className="module-tag">Pre-Hardware Validation</div>
+              <p style={{ marginBottom: 0 }}>Validates peripheral trees, clock configuration limits, pin mappings, and register dependencies deterministically.</p>
             </div>
 
-            <div className="module-card">
-              <div className="module-icon"><FileCode2 size={24} strokeWidth={1.5} /></div>
+            <div className="premium-card" style={{ padding: '2.5rem' }}>
+              <div className="module-icon"><FileCode2 size={24} strokeWidth={1.5} style={{ color: 'var(--accent-secondary)' }} /></div>
               <h3>Grounded Driver Synthesizer</h3>
-              <p>Generates production-grade C/C++ firmware grounded strictly in vendor specs with complete manual page citations.</p>
-              <div className="module-tag">Zero Register Hallucinations</div>
+              <p style={{ marginBottom: 0 }}>Generates production-grade C/C++ firmware grounded strictly in vendor specs with complete manual page citations.</p>
             </div>
 
-            <div className="module-card">
-              <div className="module-icon"><Activity size={24} strokeWidth={1.5} /></div>
+            <div className="premium-card" style={{ padding: '2.5rem' }}>
+              <div className="module-icon"><Activity size={24} strokeWidth={1.5} style={{ color: 'var(--accent-secondary)' }} /></div>
               <h3>Trace & Diagnostic Intelligence</h3>
-              <p>Maps execution crashes and register dumps directly back to the physical hardware rule in the manual.</p>
-              <div className="module-tag">Instant Root Cause Analysis</div>
+              <p style={{ marginBottom: 0 }}>Maps execution crashes and register dumps directly back to the physical hardware rule in the manual.</p>
             </div>
           </div>
 
@@ -353,7 +363,7 @@ export default function LandingPage() {
       </section>
 
       {/* ═══════════════ ENTERPRISE TRUST ═══════════════ */}
-      <section id="trust" className="section border-t-light bg-surface">
+      <section id="trust" className="section bg-alternate">
         <div className="container">
           <div className="section-label-center fade-in-up">ENTERPRISE GRADE</div>
           <h2 className="section-title-large text-center fade-in-up">
@@ -389,7 +399,7 @@ export default function LandingPage() {
       </section>
 
       {/* ═══════════════ CTA ═══════════════ */}
-      <section className="section border-t-light">
+      <section className="section bg-deep">
         <div className="container">
           <div className="cta-clean-card fade-in-up">
             <div className="section-label-center">NEXT STEPS</div>
@@ -402,7 +412,7 @@ export default function LandingPage() {
               In a 30-minute conversation we&rsquo;ll understand your current firmware workflow, identify bottlenecks and explore whether HardcoreAI can help your team prototype faster.
             </p>
 
-            <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-cta-massive">
+            <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-hero-primary" style={{ position: 'relative', zIndex: 10 }}>
               Book a 30-Minute Demo <ArrowRight size={20} strokeWidth={2} />
             </a>
 
@@ -422,7 +432,7 @@ export default function LandingPage() {
             <div className="footer-brand-col">
               <div className="footer-logo">
                 <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="32" height="32" rx="8" fill="#111111"/>
+                  <rect width="32" height="32" rx="8" fill="#2563EB"/>
                   <circle cx="9" cy="9" r="4" fill="white"/>
                   <rect x="5" y="14" width="8" height="12" rx="4" fill="white"/>
                   <rect x="19" y="6" width="8" height="12" rx="4" fill="white"/>
