@@ -47,12 +47,17 @@ export default function LandingPage() {
         <nav className="floating-nav">
           <a href="#" className="nav-brand">
             <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="32" height="32" rx="8" fill="#2563EB"/>
-              <circle cx="9" cy="9" r="4" fill="white"/>
-              <rect x="5" y="14" width="8" height="12" rx="4" fill="white"/>
-              <rect x="19" y="6" width="8" height="12" rx="4" fill="white"/>
-              <circle cx="23" cy="23" r="4" fill="white"/>
-              <rect x="11" y="15.5" width="10" height="5" rx="2.5" fill="white"/>
+              <defs>
+                <linearGradient id="navLogoPurple" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#A78BFA"/>
+                  <stop offset="1" stopColor="#4C1D95"/>
+                </linearGradient>
+              </defs>
+              <circle cx="9" cy="9" r="4" fill="url(#navLogoPurple)"/>
+              <rect x="5" y="14" width="8" height="12" rx="4" fill="url(#navLogoPurple)"/>
+              <rect x="19" y="6" width="8" height="12" rx="4" fill="url(#navLogoPurple)"/>
+              <circle cx="23" cy="23" r="4" fill="url(#navLogoPurple)"/>
+              <rect x="11" y="15.5" width="10" height="5" rx="2.5" fill="url(#navLogoPurple)"/>
             </svg>
             HARDCOREAI
           </a>
@@ -125,14 +130,14 @@ export default function LandingPage() {
                   <path d="M150 162 L190 162 L190 115 L230 115" stroke="rgba(255,255,255,0.1)" strokeWidth="2" strokeLinejoin="round" fill="none" />
                   
                   {/* Animated glowing traces */}
-                  <path d="M150 72 L190 72 L190 115 L230 115" stroke="#38BDF8" strokeWidth="2" strokeLinejoin="round" fill="none" className="svg-path-animate" />
-                  <path d="M150 162 L190 162 L190 115 L230 115" stroke="#38BDF8" strokeWidth="2" strokeLinejoin="round" fill="none" className="svg-path-animate" style={{ animationDelay: '0.5s' }} />
+                  <path d="M150 72 L190 72 L190 115 L230 115" stroke="#A78BFA" strokeWidth="2" strokeLinejoin="round" fill="none" className="svg-path-animate" />
+                  <path d="M150 162 L190 162 L190 115 L230 115" stroke="#A78BFA" strokeWidth="2" strokeLinejoin="round" fill="none" className="svg-path-animate" style={{ animationDelay: '0.5s' }} />
 
                   {/* Center Node (Reasoning Engine) */}
-                  <rect x="230" y="75" width="150" height="80" rx="14" fill="#0B0F19" stroke="#2563EB" strokeWidth="1.5"/>
-                  <rect x="235" y="80" width="140" height="70" rx="10" fill="rgba(37, 99, 235, 0.15)"/>
+                  <rect x="230" y="75" width="150" height="80" rx="14" fill="#0B0F19" stroke="#7C3AED" strokeWidth="1.5"/>
+                  <rect x="235" y="80" width="140" height="70" rx="10" fill="rgba(124, 58, 237, 0.15)"/>
                   <text x="305" y="112" fill="#FFFFFF" fontSize="14" fontWeight="600" textAnchor="middle">Reasoning Engine</text>
-                  <text x="305" y="132" fill="#38BDF8" fontSize="11" fontWeight="500" textAnchor="middle" opacity="0.8">Constraint Validation</text>
+                  <text x="305" y="132" fill="#A78BFA" fontSize="11" fontWeight="500" textAnchor="middle" opacity="0.8">Constraint Validation</text>
 
                   {/* Circuit traces connecting to right */}
                   <path d="M380 115 L450 115" stroke="rgba(255,255,255,0.1)" strokeWidth="2" fill="none" />
@@ -432,12 +437,17 @@ export default function LandingPage() {
             <div className="footer-brand-col">
               <div className="footer-logo">
                 <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="32" height="32" rx="8" fill="#2563EB"/>
-                  <circle cx="9" cy="9" r="4" fill="white"/>
-                  <rect x="5" y="14" width="8" height="12" rx="4" fill="white"/>
-                  <rect x="19" y="6" width="8" height="12" rx="4" fill="white"/>
-                  <circle cx="23" cy="23" r="4" fill="white"/>
-                  <rect x="11" y="15.5" width="10" height="5" rx="2.5" fill="white"/>
+                  <defs>
+                    <linearGradient id="footLogoPurple" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                      <stop stopColor="#A78BFA"/>
+                      <stop offset="1" stopColor="#4C1D95"/>
+                    </linearGradient>
+                  </defs>
+                  <circle cx="9" cy="9" r="4" fill="url(#footLogoPurple)"/>
+                  <rect x="5" y="14" width="8" height="12" rx="4" fill="url(#footLogoPurple)"/>
+                  <rect x="19" y="6" width="8" height="12" rx="4" fill="url(#footLogoPurple)"/>
+                  <circle cx="23" cy="23" r="4" fill="url(#footLogoPurple)"/>
+                  <rect x="11" y="15.5" width="10" height="5" rx="2.5" fill="url(#footLogoPurple)"/>
                 </svg>
                 HARDCOREAI
               </div>

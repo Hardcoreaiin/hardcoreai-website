@@ -11,9 +11,9 @@
   --bg-card: #111827;
   --bg-card-secondary: #1E293B;
   
-  --accent-primary: #2563EB;
-  --accent-primary-hover: #1D4ED8;
-  --accent-secondary: #38BDF8;
+  --accent-primary: #7C3AED;
+  --accent-primary-hover: #6D28D9;
+  --accent-secondary: #A78BFA;
   --success: #10B981;
   
   --text-primary: #FFFFFF;
@@ -47,7 +47,7 @@ body {
   transform: translateX(-50%);
   width: 100vw;
   height: 80vh;
-  background: radial-gradient(circle at top center, rgba(37, 99, 235, 0.08) 0%, rgba(11, 15, 25, 0) 70%);
+  background: radial-gradient(circle at top center, rgba(124, 58, 237, 0.08) 0%, rgba(11, 15, 25, 0) 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -231,7 +231,7 @@ p {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  background: linear-gradient(180deg, #3B82F6 0%, var(--accent-primary) 100%);
+  background: linear-gradient(180deg, #8B5CF6 0%, var(--accent-primary) 100%);
   color: white;
   padding: 1.125rem 2.5rem;
   border-radius: var(--radius-button);
@@ -239,7 +239,7 @@ p {
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
+  box-shadow: 0 4px 14px 0 rgba(124, 58, 237, 0.39);
   border: 1px solid rgba(255,255,255,0.1);
   position: relative;
   overflow: hidden;
@@ -257,7 +257,7 @@ p {
 }
 
 .btn-hero-primary:hover {
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
   transform: translateY(-2px);
 }
 
@@ -429,8 +429,8 @@ p {
 
 .versus-hardcore {
   background: var(--bg-card); /* Lighter */
-  border-color: rgba(37, 99, 235, 0.3);
-  box-shadow: 0 0 40px rgba(37, 99, 235, 0.05);
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.05);
   position: relative;
   overflow: hidden;
 }
@@ -459,9 +459,9 @@ p {
 }
 
 .versus-badge.badge-blue {
-  background: rgba(37, 99, 235, 0.1);
+  background: rgba(124, 58, 237, 0.1);
   color: var(--accent-secondary);
-  border-color: rgba(37, 99, 235, 0.3);
+  border-color: rgba(124, 58, 237, 0.3);
 }
 
 .versus-box h4 {
@@ -566,7 +566,7 @@ p {
   transform: translateX(-50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -823,8 +823,8 @@ p {
 }
 
 .timeline-phase.highlight {
-  background: rgba(37, 99, 235, 0.1);
-  border-color: rgba(37, 99, 235, 0.3);
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.3);
   color: var(--accent-secondary);
 }
 
@@ -879,7 +879,7 @@ p {
 }
 
 .flow-step-card.active {
-  border-color: rgba(37, 99, 235, 0.5);
+  border-color: rgba(124, 58, 237, 0.5);
   background: var(--bg-card-secondary);
   box-shadow: 0 8px 24px -8px rgba(0,0,0,0.5);
   transform: translateY(-2px);
