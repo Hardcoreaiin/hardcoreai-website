@@ -85,12 +85,12 @@ export default function LandingPage() {
           
           <div className="hero-badge fade-in-up">
             <Sparkles size={13} className="badge-sparkle" />
-            <span>The Infrastructure Layer for Embedded Engineering</span>
+            <span>Build Embedded Products Faster.</span>
           </div>
 
           <h1 className="hero-headline-massive fade-in-up">
-            The Infrastructure Layer for<br />
-            <span className="text-gradient">Embedded Engineering.</span>
+            Build Embedded Products<br />
+            <span className="text-gradient">Faster.</span>
           </h1>
 
           <p className="hero-lead-text fade-in-up">
