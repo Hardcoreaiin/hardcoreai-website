@@ -162,7 +162,7 @@ export default function LandingPage() {
         <div className="container">
           <div className="section-label-center fade-in-up">THE REIMAGINED WORKFLOW</div>
           <h2 className="section-title-large text-center fade-in-up">
-            What if building hardware software<br />felt like building modern web apps?
+            What if building hardware products<br />felt like building modern web apps?
           </h2>
 
           <div className="transformation-grid fade-in-up">
