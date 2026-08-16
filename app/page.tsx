@@ -72,9 +72,14 @@ export default function LandingPage() {
             </a>
           </div>
 
-          <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-nav">
-            Book Demo
-          </a>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <a href="/login" style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 500, padding: '0.4rem 0.8rem', borderRadius: '6px', textDecoration: 'none' }}>
+              Sign In
+            </a>
+            <a href="/signup" className="btn-nav">
+              Launch App
+            </a>
+          </div>
         </nav>
       </div>
 
@@ -97,11 +102,11 @@ export default function LandingPage() {
           </p>
 
           <div className="hero-actions-group fade-in-up">
-            <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-hero-primary">
-              Book a 30-Minute Demo <ArrowRight size={20} strokeWidth={2} />
+            <a href="/signup" className="btn-hero-primary">
+              Launch Platform <ArrowRight size={20} strokeWidth={2} />
             </a>
-            <a href="#why-it-matters" className="btn-hero-ghost">
-              Explore the Transformation
+            <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-hero-ghost">
+              Book 30-Min Demo
             </a>
           </div>
 
@@ -417,9 +422,14 @@ export default function LandingPage() {
               In a 30-minute conversation we&rsquo;ll understand your current firmware workflow, identify bottlenecks and explore whether HardcoreAI can help your team prototype faster.
             </p>
 
-            <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-hero-primary" style={{ position: 'relative', zIndex: 10 }}>
-              Book a 30-Minute Demo <ArrowRight size={20} strokeWidth={2} />
-            </a>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 my-6">
+              <a href="/signup" className="btn-hero-primary" style={{ position: 'relative', zIndex: 10 }}>
+                Launch Platform <ArrowRight size={20} strokeWidth={2} />
+              </a>
+              <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-hero-ghost" style={{ position: 'relative', zIndex: 10 }}>
+                Book 30-Min Demo
+              </a>
+            </div>
 
             <div className="cta-contact-details">
               <span>Email: <a href="mailto:sricharan.srikrishna@gmail.com">sricharan.srikrishna@gmail.com</a></span>
@@ -456,9 +466,10 @@ export default function LandingPage() {
 
             <div className="footer-links-col">
               <h4>Platform</h4>
-              <a href="#why-it-matters">Transformation</a>
+              <a href="/login">Sign In</a>
+              <a href="/signup">Launch Platform</a>
+              <a href="/dashboard">Developer Dashboard</a>
               <a href="#system">System Pipeline</a>
-              <a href="#trust">Enterprise Trust</a>
             </div>
 
             <div className="footer-links-col">
