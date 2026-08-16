@@ -73,10 +73,25 @@ export async function middleware(request: NextRequest) {
   try {
     const { data: { user } } = await supabase.auth.getUser()
 
-    const isProtectedRoute = request.nextUrl.pathname.startsWith('/dashboard') || request.nextUrl.pathname.startsWith('/projects')
+    const isProtectedRoute = request.nextUrl.pathname.startsWith('/dashboard') || request.nextUrl.pathname.startsWith('/projects') || request.nextUrl.pathname.startsWith('/getting-started')
+    const isAdminRoute = request.nextUrl.pathname.startsWith('/admin')
 
-    if (isProtectedRoute && !user) {
+    if ((isProtectedRoute || isAdminRoute) && !user) {
       return NextResponse.redirect(new URL('/login', request.url))
+    }
+
+    if (isAdminRoute && user) {
+      // Check if user is an administrator in public.profiles
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', user.id)
+        .single()
+
+      if (!profile || profile.role !== 'admin') {
+        // Safe redirect for non-admin users attempting to access /admin
+        return NextResponse.redirect(new URL('/dashboard', request.url))
+      }
     }
 
     // If user is signed in and the current path is /login or /signup, redirect to /dashboard

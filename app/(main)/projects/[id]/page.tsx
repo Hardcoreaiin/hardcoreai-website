@@ -28,9 +28,14 @@ export default function ProjectDetailPage() {
   useEffect(() => {
     const supabase = createClient()
     supabase.auth.getUser().then(({ data }) => {
-      if (data.user) setUserId(data.user.id)
+      if (data.user) {
+        setUserId(data.user.id)
+        import('@/lib/analytics').then(({ trackEvent }) => {
+          trackEvent('PROJECT_OPENED', { projectId })
+        })
+      }
     })
-  }, [])
+  }, [projectId])
 
   if (isLoading) {
     return (

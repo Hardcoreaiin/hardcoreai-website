@@ -84,6 +84,17 @@ export function UploadZone({ projectId, userId, onUploadComplete }: UploadZonePr
 
     updateUpload(file.name, { progress: 100, status: 'done' })
     toast.success(`${file.name} uploaded successfully!`)
+
+    try {
+      const { trackEvent } = await import('@/lib/analytics')
+      await trackEvent('DOCUMENT_UPLOADED', {
+        projectId,
+        metadata: { fileName: file.name, fileSize: file.size },
+      })
+    } catch {
+      // Non-fatal
+    }
+
     onUploadComplete()
   }
 

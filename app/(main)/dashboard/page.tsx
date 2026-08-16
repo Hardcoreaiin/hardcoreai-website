@@ -6,12 +6,16 @@ import { ProjectCard } from '@/components/projects/ProjectCard'
 import { NewProjectModal } from '@/components/projects/NewProjectModal'
 import { Plus, Loader2 } from 'lucide-react'
 
+import { ProfileCompletionCard } from '@/components/onboarding/ProfileCompletionCard'
+
 export default function DashboardPage() {
   const { data: projects, isLoading, isError } = useProjects()
   const { openNewProjectModal } = useProjectStore()
 
   return (
     <div className="max-w-6xl mx-auto w-full h-full animate-in fade-in duration-500">
+      <ProfileCompletionCard />
+
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-white">Projects</h1>

@@ -49,7 +49,11 @@ export function NewProjectModal() {
     if (!name || !platform) return
 
     try {
-      await createMutation.mutateAsync({ name, platform, description })
+      const created = await createMutation.mutateAsync({ name, platform, description })
+      if (created?.id) {
+        const { trackEvent } = await import('@/lib/analytics')
+        await trackEvent('PROJECT_CREATED', { projectId: created.id, metadata: { platform } })
+      }
       // Reset form on success
       setName('')
       setDescription('')
