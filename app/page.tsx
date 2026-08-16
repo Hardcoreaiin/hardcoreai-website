@@ -73,10 +73,10 @@ export default function LandingPage() {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <a href="/login" style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 500, padding: '0.4rem 0.8rem', borderRadius: '6px', textDecoration: 'none' }}>
+            <a href="https://hardcore-ai-inky.vercel.app/login" style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 500, padding: '0.4rem 0.8rem', borderRadius: '6px', textDecoration: 'none' }}>
               Sign In
             </a>
-            <a href="/signup" className="btn-nav">
+            <a href="https://hardcore-ai-inky.vercel.app/" className="btn-nav">
               Launch App
             </a>
           </div>
@@ -102,7 +102,7 @@ export default function LandingPage() {
           </p>
 
           <div className="hero-actions-group fade-in-up">
-            <a href="/signup" className="btn-hero-primary">
+            <a href="https://hardcore-ai-inky.vercel.app/" className="btn-hero-primary">
               Launch Platform <ArrowRight size={20} strokeWidth={2} />
             </a>
             <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-hero-ghost">
@@ -423,7 +423,7 @@ export default function LandingPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 my-6">
-              <a href="/signup" className="btn-hero-primary" style={{ position: 'relative', zIndex: 10 }}>
+              <a href="https://hardcore-ai-inky.vercel.app/" className="btn-hero-primary" style={{ position: 'relative', zIndex: 10 }}>
                 Launch Platform <ArrowRight size={20} strokeWidth={2} />
               </a>
               <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-hero-ghost" style={{ position: 'relative', zIndex: 10 }}>
@@ -466,9 +466,9 @@ export default function LandingPage() {
 
             <div className="footer-links-col">
               <h4>Platform</h4>
-              <a href="/login">Sign In</a>
-              <a href="/signup">Launch Platform</a>
-              <a href="/dashboard">Developer Dashboard</a>
+              <a href="https://hardcore-ai-inky.vercel.app/login">Sign In</a>
+              <a href="https://hardcore-ai-inky.vercel.app/">Launch Platform</a>
+              <a href="https://hardcore-ai-inky.vercel.app/dashboard">Developer Dashboard</a>
               <a href="#system">System Pipeline</a>
             </div>
 
