@@ -66,6 +66,7 @@ export default function LandingPage() {
             <a href="#why-it-matters">The Problem</a>
             <a href="#transformation">Transformation</a>
             <a href="#system">How It Works</a>
+            <a href="#readme">Getting Started</a>
             <a href="#trust">Trust</a>
             <a href="https://www.linkedin.com/company/hardcoreai/" target="_blank" rel="noopener noreferrer">
               <Linkedin size={18} strokeWidth={1.5} />
@@ -367,6 +368,138 @@ export default function LandingPage() {
               <h3>Trace & Diagnostic Intelligence</h3>
               <p style={{ marginBottom: 0 }}>Maps execution crashes and register dumps directly back to the physical hardware rule in the manual.</p>
             </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════ GETTING STARTED / README ═══════════════ */}
+      <section id="readme" className="section bg-deep" style={{ borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
+        <div className="container">
+          <div className="section-label-center fade-in-up">GETTING STARTED</div>
+          <h2 className="section-title-large text-center fade-in-up" style={{ marginBottom: '1rem' }}>
+            HardcoreAI — Getting Started
+          </h2>
+          <p className="hero-lead-text text-center fade-in-up" style={{ maxWidth: '800px', margin: '0 auto 3rem auto', fontSize: '1.05rem' }}>
+            Welcome to HardcoreAI, your AI-powered firmware engineering platform. HardcoreAI understands your hardware and its documentation before generating firmware, helping you move from board selection &rarr; research &rarr; firmware &rarr; hardware.
+          </p>
+
+          {/* Golden Rule Callout Banner */}
+          <div className="premium-card fade-in-up" style={{ padding: '2rem', border: '1px solid rgba(124, 58, 237, 0.4)', background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.12) 0%, rgba(17, 24, 39, 0.8) 100%)', marginBottom: '3rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+              <div style={{ height: '40px', width: '40px', borderRadius: '10px', background: 'rgba(124, 58, 237, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#A78BFA' }}>
+                <Sparkles size={22} />
+              </div>
+              <div>
+                <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em', color: '#A78BFA', display: 'block' }}>GOLDEN RULE</span>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, margin: 0, color: '#FFFFFF' }}>Research first. Generate second. Flash last.</h3>
+              </div>
+            </div>
+            <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6' }}>
+              HardcoreAI is designed to understand the hardware and documentation before generating firmware. That is what makes the workflow fundamentally different from simply asking an AI to write embedded C code.
+            </p>
+          </div>
+
+          {/* Workflow Sequence Summary */}
+          <div className="fade-in-up" style={{ marginBottom: '3.5rem', background: 'rgba(17, 24, 39, 0.6)', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '1.5rem 2rem', textAlign: 'center' }}>
+            <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '0.75rem' }}>RECOMMENDED HARDCOREAI WORKFLOW</span>
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+              <span>Select Board</span> &rarr;
+              <span>Research</span> &rarr;
+              <span>Generate</span> &rarr;
+              <span>Build &amp; Check</span> &rarr;
+              <span>Flash</span> &rarr;
+              <span>Test</span> &rarr;
+              <span>Debug</span>
+            </div>
+          </div>
+
+          {/* 6 Step Cards Grid */}
+          <div className="grid-2-col fade-in-up" style={{ gap: '1.5rem', marginBottom: '3rem' }}>
+            {/* Step 1 */}
+            <div className="premium-card" style={{ padding: '2rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                <span style={{ height: '32px', width: '32px', borderRadius: '50%', background: 'rgba(124, 58, 237, 0.2)', border: '1px solid rgba(124, 58, 237, 0.4)', color: '#A78BFA', fontWeight: 700, fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>1</span>
+                <h3 style={{ margin: 0, fontSize: '1.15rem' }}>Select Your Board</h3>
+              </div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1rem' }}>
+                Start by selecting the development board or MCU you are working with. Choose your development board, microcontroller, required peripherals, and hardware configuration.
+              </p>
+              <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '0.75rem 1rem', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                <strong style={{ color: '#A78BFA' }}>Tip:</strong> Make sure the selected board matches the actual hardware you are using. If your exact board isn&apos;t listed, select the closest supported MCU/board configuration and verify details before generating firmware.
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="premium-card" style={{ padding: '2rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                <span style={{ height: '32px', width: '32px', borderRadius: '50%', background: 'rgba(124, 58, 237, 0.2)', border: '1px solid rgba(124, 58, 237, 0.4)', color: '#A78BFA', fontWeight: 700, fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>2</span>
+                <h3 style={{ margin: 0, fontSize: '1.15rem' }}>Research Your Project</h3>
+              </div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1rem' }}>
+                Before generating firmware, use Research Mode. Provide requirements, datasheets, reference manuals, schematics, pin requirements, and sensor docs so HardcoreAI understands pins, clocks, peripherals, and registers.
+              </p>
+              <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '0.75rem 1rem', fontSize: '0.825rem', fontFamily: 'monospace', color: 'var(--text-primary)' }}>
+                &ldquo;I want to interface an MPU6050 over I2C1 and send the sensor data over USART2. Research the required hardware configuration and identify the relevant pins, clocks and peripherals.&rdquo;
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="premium-card" style={{ padding: '2rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                <span style={{ height: '32px', width: '32px', borderRadius: '50%', background: 'rgba(124, 58, 237, 0.2)', border: '1px solid rgba(124, 58, 237, 0.4)', color: '#A78BFA', fontWeight: 700, fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>3</span>
+                <h3 style={{ margin: 0, fontSize: '1.15rem' }}>Generate Firmware</h3>
+              </div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0 }}>
+                Once research is complete, ask HardcoreAI to generate firmware. Specify peripheral configuration, communication protocols, sensors, interrupts, timing requirements, and existing code constraints. HardcoreAI generates firmware based on selected hardware and research.
+              </p>
+            </div>
+
+            {/* Step 4 */}
+            <div className="premium-card" style={{ padding: '2rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                <span style={{ height: '32px', width: '32px', borderRadius: '50%', background: 'rgba(124, 58, 237, 0.2)', border: '1px solid rgba(124, 58, 237, 0.4)', color: '#A78BFA', fontWeight: 700, fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>4</span>
+                <h3 style={{ margin: 0, fontSize: '1.15rem' }}>Build &amp; Check</h3>
+              </div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0 }}>
+                Build the generated firmware before flashing. Check for compilation errors, warnings, missing dependencies, incorrect pin configurations, peripheral conflicts, and clock issues. If the build fails, provide error log to HardcoreAI for immediate hardware-grounded fixes.
+              </p>
+            </div>
+
+            {/* Step 5 */}
+            <div className="premium-card" style={{ padding: '2rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                <span style={{ height: '32px', width: '32px', borderRadius: '50%', background: 'rgba(124, 58, 237, 0.2)', border: '1px solid rgba(124, 58, 237, 0.4)', color: '#A78BFA', fontWeight: 700, fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>5</span>
+                <h3 style={{ margin: 0, fontSize: '1.15rem' }}>Flash to Your Board</h3>
+              </div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.75rem' }}>
+                Connect your development board, select programming/debugging interface, flash firmware, reset board, and test expected behavior.
+              </p>
+              <div style={{ fontWeight: 600, fontSize: '0.85rem', color: '#A78BFA' }}>
+                Workflow: Generate &rarr; Build &rarr; Flash &rarr; Test
+              </div>
+            </div>
+
+            {/* Step 6 */}
+            <div className="premium-card" style={{ padding: '2rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                <span style={{ height: '32px', width: '32px', borderRadius: '50%', background: 'rgba(124, 58, 237, 0.2)', border: '1px solid rgba(124, 58, 237, 0.4)', color: '#A78BFA', fontWeight: 700, fontSize: '0.85rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>6</span>
+                <h3 style={{ margin: 0, fontSize: '1.15rem' }}>Debug &amp; Iterate</h3>
+              </div>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.75rem' }}>
+                If firmware doesn&apos;t behave as expected, don&apos;t start from scratch. Tell HardcoreAI what happened (e.g. &ldquo;The firmware builds and flashes, but USART2 produces no output&rdquo;). HardcoreAI investigates across:
+              </p>
+              <div style={{ fontWeight: 600, fontSize: '0.85rem', color: 'var(--text-primary)' }}>
+                Firmware &rarr; Hardware Configuration &rarr; Peripherals &rarr; Manual Docs
+              </div>
+            </div>
+          </div>
+
+          {/* Launch Action */}
+          <div className="text-center fade-in-up">
+            <a href="https://hardcore-ai-inky.vercel.app/" className="btn-hero-primary">
+              Launch Platform &amp; Begin Workflow <ArrowRight size={20} strokeWidth={2} />
+            </a>
           </div>
 
         </div>
