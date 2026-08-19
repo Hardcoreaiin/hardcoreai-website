@@ -76,7 +76,7 @@ export default function LandingPage() {
       <div className="bg-radial-glow"></div>
       <div className="bg-engineering-grid"></div>
 
-      {/* ═══════════════ FLOATING NAVIGATION ═══════════════ */}
+      {/* FLOATING NAVIGATION */}
       <div className="nav-wrapper">
         <nav className="floating-nav">
           <a href="#" className="nav-brand">
@@ -119,7 +119,7 @@ export default function LandingPage() {
         </nav>
       </div>
 
-      {/* ═══════════════ HERO SECTION ═══════════════ */}
+      {/* HERO SECTION */}
       <section className="section" style={{ paddingTop: '12rem', paddingBottom: '8rem' }}>
         <div className="container text-center">
 
@@ -128,7 +128,7 @@ export default function LandingPage() {
             <Sparkles size={16} style={{ color: '#C084FC' }} />
             <span>🎉 LAUNCH OFFER: Launch 1 Embedded Project 100% Free!</span>
             <a href="https://hardcore-ai-inky.vercel.app/" style={{ color: '#FFFFFF', textDecoration: 'underline', marginLeft: '0.5rem', fontWeight: 700 }}>
-              Launch Free &rarr;
+              Launch Free →
             </a>
           </div>
           
@@ -205,7 +205,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ THE PROBLEM ═══════════════ */}
+      {/* THE PROBLEM */}
       <section id="why-it-matters" className="section bg-alternate">
         <div className="container">
           <div className="section-label-center fade-in-up">THE REIMAGINED WORKFLOW</div>
@@ -244,7 +244,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ IMPACT & TIMELINE ═══════════════ */}
+      {/* IMPACT & TIMELINE */}
       <section className="section bg-deep">
         <div className="container">
           <div className="section-label-center fade-in-up">BUSINESS IMPACT</div>
@@ -325,7 +325,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ VERSUS ═══════════════ */}
+      {/* VERSUS */}
       <section className="section bg-alternate">
         <div className="container">
           <div className="section-label-center fade-in-up">THE HARDWARE PARADOX</div>
@@ -359,7 +359,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ SYSTEM ═══════════════ */}
+      {/* SYSTEM */}
       <section id="system" className="section bg-deep">
         <div className="container">
           <div className="section-label-center fade-in-up">THE SYSTEM</div>
@@ -417,7 +417,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ GETTING STARTED / README ═══════════════ */}
+      {/* GETTING STARTED / README */}
       <section id="readme" className="section bg-deep" style={{ borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container">
           <div className="section-label-center fade-in-up">GETTING STARTED</div>
@@ -425,7 +425,7 @@ export default function LandingPage() {
             HardcoreAI — Getting Started
           </h2>
           <p className="hero-lead-text text-center fade-in-up" style={{ maxWidth: '800px', margin: '0 auto 3rem auto', fontSize: '1.05rem' }}>
-            Welcome to HardcoreAI, your AI-powered firmware engineering platform. HardcoreAI understands your hardware and its documentation before generating firmware, helping you move from board selection &rarr; research &rarr; firmware &rarr; hardware.
+            Welcome to HardcoreAI, your AI-powered firmware engineering platform. HardcoreAI understands your hardware and its documentation before generating firmware, helping you move from board selection → research → firmware → hardware.
           </p>
 
           {/* Golden Rule Callout Banner */}
@@ -448,12 +448,12 @@ export default function LandingPage() {
           <div className="fade-in-up" style={{ marginBottom: '3.5rem', background: 'rgba(17, 24, 39, 0.6)', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '1.5rem 2rem', textAlign: 'center' }}>
             <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '0.75rem' }}>RECOMMENDED HARDCOREAI WORKFLOW</span>
             <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-primary)' }}>
-              <span>Select Board</span> &rarr;
-              <span>Research</span> &rarr;
-              <span>Generate</span> &rarr;
-              <span>Build &amp; Check</span> &rarr;
-              <span>Flash</span> &rarr;
-              <span>Test</span> &rarr;
+              <span>Select Board</span> →
+              <span>Research</span> →
+              <span>Generate</span> →
+              <span>Build &amp; Check</span> →
+              <span>Flash</span> →
+              <span>Test</span> →
               <span>Debug</span>
             </div>
           </div>
@@ -470,7 +470,7 @@ export default function LandingPage() {
                 Start by selecting the development board or MCU you are working with. Choose your development board, microcontroller, required peripherals, and hardware configuration.
               </p>
               <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '0.75rem 1rem', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                <strong style={{ color: '#A78BFA' }}>Tip:</strong> Make sure the selected board matches the actual hardware you are using. If your exact board isn&apos;t listed, select the closest supported MCU/board configuration and verify details before generating firmware.
+                <strong style={{ color: '#A78BFA' }}>Tip:</strong> Make sure the selected board matches the actual hardware you are using. If your exact board isn't listed, select the closest supported MCU/board configuration and verify details before generating firmware.
               </div>
             </div>
 
@@ -484,7 +484,7 @@ export default function LandingPage() {
                 Before generating firmware, use Research Mode. Provide requirements, datasheets, reference manuals, schematics, pin requirements, and sensor docs so HardcoreAI understands pins, clocks, peripherals, and registers.
               </p>
               <div style={{ background: 'var(--bg-app)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '0.75rem 1rem', fontSize: '0.825rem', fontFamily: 'monospace', color: 'var(--text-primary)' }}>
-                &ldquo;I want to interface an MPU6050 over I2C1 and send the sensor data over USART2. Research the required hardware configuration and identify the relevant pins, clocks and peripherals.&rdquo;
+                "I want to interface an MPU6050 over I2C1 and send the sensor data over USART2. Research the required hardware configuration and identify the relevant pins, clocks and peripherals."
               </div>
             </div>
 
@@ -520,7 +520,7 @@ export default function LandingPage() {
                 Connect your development board, select programming/debugging interface, flash firmware, reset board, and test expected behavior.
               </p>
               <div style={{ fontWeight: 600, fontSize: '0.85rem', color: '#A78BFA' }}>
-                Workflow: Generate &rarr; Build &rarr; Flash &rarr; Test
+                Workflow: Generate → Build → Flash → Test
               </div>
             </div>
 
@@ -531,10 +531,10 @@ export default function LandingPage() {
                 <h3 style={{ margin: 0, fontSize: '1.15rem' }}>Debug &amp; Iterate</h3>
               </div>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.75rem' }}>
-                If firmware doesn&apos;t behave as expected, don&apos;t start from scratch. Tell HardcoreAI what happened (e.g. &ldquo;The firmware builds and flashes, but USART2 produces no output&rdquo;). HardcoreAI investigates across:
+                If firmware doesn't behave as expected, don't start from scratch. Tell HardcoreAI what happened (e.g. "The firmware builds and flashes, but USART2 produces no output"). HardcoreAI investigates across:
               </p>
               <div style={{ fontWeight: 600, fontSize: '0.85rem', color: 'var(--text-primary)' }}>
-                Firmware &rarr; Hardware Configuration &rarr; Peripherals &rarr; Manual Docs
+                Firmware → Hardware Configuration → Peripherals → Manual Docs
               </div>
             </div>
           </div>
@@ -549,7 +549,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ PRICING & SEAT MODEL ═══════════════ */}
+      {/* PRICING & SEAT MODEL */}
       <section id="pricing" className="section bg-alternate" style={{ borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container">
           <div className="section-label-center fade-in-up">TRANSPARENT PRICING</div>
@@ -649,11 +649,11 @@ export default function LandingPage() {
               </p>
             </div>
             <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-hero-ghost" style={{ padding: '0.65rem 1.25rem', fontSize: '0.9rem' }}>
-              Contact Enterprise Sales &rarr;
+              Contact Enterprise Sales →
             </a>
           </div>
 
-          {/* ════════════ INTERACTIVE SEAT PREFERENCE FORM (Google Forms Style Lead Collector) ════════════ */}
+          {/* INTERACTIVE SEAT PREFERENCE FORM */}
           <div id="seat-survey" className="fade-in-up" style={{ maxWidth: '720px', margin: '0 auto', background: 'var(--bg-app)', border: '1px solid rgba(124, 58, 237, 0.4)', borderRadius: '24px', padding: '2.5rem', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
               <div style={{ height: '36px', width: '36px', borderRadius: '10px', background: 'rgba(124, 58, 237, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#A78BFA' }}>
@@ -676,7 +676,7 @@ export default function LandingPage() {
                   Thank you! Your seat preference has been registered. You have priority access reserved for HardcoreAI team workspaces.
                 </p>
                 <a href="https://hardcore-ai-inky.vercel.app/" className="btn-hero-primary">
-                  Launch Your 1 Free Project Now &rarr;
+                  Launch Your 1 Free Project Now →
                 </a>
               </div>
             ) : (
@@ -777,7 +777,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ ENTERPRISE TRUST ═══════════════ */}
+      {/* ENTERPRISE TRUST */}
       <section id="trust" className="section bg-alternate">
         <div className="container">
           <div className="section-label-center fade-in-up">ENTERPRISE GRADE</div>
@@ -813,18 +813,18 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ CTA ═══════════════ */}
+      {/* CTA */}
       <section className="section bg-deep">
         <div className="container">
           <div className="cta-clean-card fade-in-up">
             <div className="section-label-center">NEXT STEPS</div>
             
             <h2 className="cta-title">
-              Let&rsquo;s see how much engineering time your team could save.
+              Let's see how much engineering time your team could save.
             </h2>
 
             <p className="cta-body">
-              In a 30-minute conversation we&rsquo;ll understand your current firmware workflow, identify bottlenecks and explore whether HardcoreAI can help your team prototype faster.
+              In a 30-minute conversation we'll understand your current firmware workflow, identify bottlenecks and explore whether HardcoreAI can help your team prototype faster.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 my-6">
@@ -845,7 +845,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ═══════════════ FOOTER ═══════════════ */}
+      {/* FOOTER */}
       <footer className="footer-clean">
         <div className="container">
           <div className="footer-grid">
