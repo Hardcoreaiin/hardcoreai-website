@@ -20,13 +20,47 @@ import {
 export default function LandingPage() {
   const [timelineMode, setTimelineMode] = useState<'traditional' | 'hardcore'>('hardcore')
   const [activeReasoningStep, setActiveReasoningStep] = useState(0)
-  
+
   const reasoningSteps = [
     { title: 'Specification Processing', desc: 'Parsing 1,200+ page microcontroller reference manual & datasheet tables.' },
     { title: 'Hardware Constraint Mapping', desc: 'Validating pin conflicts, bus speeds, clock sources, and register dependencies.' },
     { title: 'Deterministic Verification', desc: 'Cross-checking driver rules against physical silicon boundaries before compilation.' },
     { title: 'Verified Firmware Generation', desc: 'Producing production-ready C/C++ drivers traceable to official manual pages.' }
   ]
+
+  // Seat Survey State
+  const [formSubmitted, setFormSubmitted] = useState(false)
+  const [surveyEmail, setSurveyEmail] = useState('')
+  const [surveyCompany, setSurveyCompany] = useState('')
+  const [surveySeats, setSurveySeats] = useState('1 Developer ($30/mo)')
+  const [surveyWillingness, setSurveyWillingness] = useState('Yes, ready to pay for developer seats')
+  const [surveyNotes, setSurveyNotes] = useState('')
+  const [isSubmittingSurvey, setIsSubmittingSurvey] = useState(false)
+
+  const handleSurveySubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmittingSurvey(true)
+    try {
+      const { createClient } = await import('@/lib/supabase')
+      const supabase = createClient()
+      await supabase.from('user_events').insert({
+        user_id: '00000000-0000-0000-0000-000000000000',
+        event_type: 'SEAT_SURVEY_SUBMITTED',
+        metadata: {
+          email: surveyEmail,
+          company: surveyCompany,
+          seats: surveySeats,
+          willingness: surveyWillingness,
+          notes: surveyNotes,
+        }
+      })
+    } catch {
+      // Non-fatal
+    } finally {
+      setIsSubmittingSurvey(false)
+      setFormSubmitted(true)
+    }
+  }
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -67,6 +101,7 @@ export default function LandingPage() {
             <a href="#transformation">Transformation</a>
             <a href="#system">How It Works</a>
             <a href="#readme">Getting Started</a>
+            <a href="#pricing">Pricing &amp; Seats</a>
             <a href="#trust">Trust</a>
             <a href="https://www.linkedin.com/company/hardcoreai/" target="_blank" rel="noopener noreferrer">
               <Linkedin size={18} strokeWidth={1.5} />
@@ -87,6 +122,15 @@ export default function LandingPage() {
       {/* ═══════════════ HERO SECTION ═══════════════ */}
       <section className="section" style={{ paddingTop: '12rem', paddingBottom: '8rem' }}>
         <div className="container text-center">
+
+          {/* Top Launch Offer Banner */}
+          <div className="fade-in-up" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'linear-gradient(90deg, rgba(124, 58, 237, 0.25) 0%, rgba(168, 85, 247, 0.25) 100%)', border: '1px solid rgba(168, 85, 247, 0.5)', padding: '0.45rem 1.25rem', borderRadius: '9999px', fontSize: '0.875rem', fontWeight: 600, color: '#F3E8FF', marginBottom: '1.5rem', boxShadow: '0 0 25px rgba(168, 85, 247, 0.25)' }}>
+            <Sparkles size={16} style={{ color: '#C084FC' }} />
+            <span>🎉 LAUNCH OFFER: Launch 1 Embedded Project 100% Free!</span>
+            <a href="https://hardcore-ai-inky.vercel.app/" style={{ color: '#FFFFFF', textDecoration: 'underline', marginLeft: '0.5rem', fontWeight: 700 }}>
+              Launch Free &rarr;
+            </a>
+          </div>
           
           <div className="hero-badge fade-in-up">
             <Sparkles size={14} strokeWidth={2} style={{ color: 'var(--accent-secondary)' }} />
@@ -500,6 +544,234 @@ export default function LandingPage() {
             <a href="https://hardcore-ai-inky.vercel.app/" className="btn-hero-primary">
               Launch Platform &amp; Begin Workflow <ArrowRight size={20} strokeWidth={2} />
             </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ═══════════════ PRICING & SEAT MODEL ═══════════════ */}
+      <section id="pricing" className="section bg-alternate" style={{ borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
+        <div className="container">
+          <div className="section-label-center fade-in-up">TRANSPARENT PRICING</div>
+          <h2 className="section-title-large text-center fade-in-up" style={{ marginBottom: '1rem' }}>
+            Built for Individual Developers &amp; Engineering Teams
+          </h2>
+          <p className="hero-lead-text text-center fade-in-up" style={{ maxWidth: '750px', margin: '0 auto 3rem auto', fontSize: '1.05rem' }}>
+            Start building today with <strong style={{ color: '#FFFFFF' }}>1 Free Project</strong>. Scale up to seat-based plans as your hardware team expands.
+          </p>
+
+          {/* Pricing Cards Grid (3 Columns) */}
+          <div className="fade-in-up" style={{ gap: '1.5rem', marginBottom: '4rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+            
+            {/* Free Launch Tier */}
+            <div className="premium-card" style={{ padding: '2.5rem 2rem', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-secondary)', display: 'block', marginBottom: '0.5rem' }}>FREE LAUNCH OFFER</span>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 700, margin: '0 0 0.5rem 0', color: '#FFFFFF' }}>1 Free Project</h3>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: '1.5rem' }}>
+                  <span style={{ fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF' }}>$0</span>
+                  <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>/ 1 Project</span>
+                </div>
+                <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: '1.5' }}>
+                  Ideal for testing HardcoreAI on your board and datasheet requirements.
+                </p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', fontSize: '0.875rem', color: 'var(--text-primary)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} style={{ color: '#A78BFA' }} /> 1 Full Embedded Project Workspace</li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} style={{ color: '#A78BFA' }} /> MCU Reference Manual Indexing</li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} style={{ color: '#A78BFA' }} /> Hardware Constraint Mapping</li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} style={{ color: '#A78BFA' }} /> Ground-Truth Firmware Generation</li>
+                </ul>
+              </div>
+              <a href="https://hardcore-ai-inky.vercel.app/" className="btn-hero-ghost" style={{ textAlign: 'center', width: '100%', display: 'block', padding: '0.85rem' }}>
+                Launch 1 Project Free
+              </a>
+            </div>
+
+            {/* Individual Developer Tier */}
+            <div className="premium-card" style={{ padding: '2.5rem 2rem', position: 'relative', border: '1px solid rgba(124, 58, 237, 0.5)', background: 'linear-gradient(180deg, rgba(124, 58, 237, 0.12) 0%, rgba(17, 24, 39, 0.8) 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 8px 30px rgba(124, 58, 237, 0.25)' }}>
+              <div style={{ position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)', background: 'linear-gradient(90deg, #8B5CF6 0%, #C084FC 100%)', color: '#FFFFFF', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.05em', padding: '0.25rem 0.75rem', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                INDIVIDUAL DEVELOPER
+              </div>
+              <div>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#A78BFA', display: 'block', marginBottom: '0.5rem' }}>SINGLE DEVELOPER</span>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 700, margin: '0 0 0.5rem 0', color: '#FFFFFF' }}>Developer Seat</h3>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: '1.5rem' }}>
+                  <span style={{ fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF' }}>$30</span>
+                  <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>/ seat / month</span>
+                </div>
+                <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: '1.5' }}>
+                  For professional embedded engineers &amp; firmware architects building production products.
+                </p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', fontSize: '0.875rem', color: 'var(--text-primary)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} style={{ color: '#A78BFA' }} /> <strong>Unlimited</strong> Projects &amp; Workspaces</li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} style={{ color: '#A78BFA' }} /> Multi-thousand-page Vendor RAG</li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} style={{ color: '#A78BFA' }} /> Register &amp; Clock Constraint Engine</li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} style={{ color: '#A78BFA' }} /> Priority Execution &amp; Support</li>
+                </ul>
+              </div>
+              <a href="#seat-survey" className="btn-hero-primary" style={{ textAlign: 'center', width: '100%', display: 'block', padding: '0.85rem' }}>
+                Reserve $30 Developer Seat
+              </a>
+            </div>
+
+            {/* Engineering Team Tier */}
+            <div className="premium-card" style={{ padding: '2.5rem 2rem', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-secondary)', display: 'block', marginBottom: '0.5rem' }}>ENGINEERING TEAMS</span>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 700, margin: '0 0 0.5rem 0', color: '#FFFFFF' }}>Team Seats</h3>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: '1.5rem' }}>
+                  <span style={{ fontSize: '2.5rem', fontWeight: 800, color: '#FFFFFF' }}>$25</span>
+                  <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>/ seat / month</span>
+                </div>
+                <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: '1.5' }}>
+                  Designed for hardware engineering teams collaborating across schematics &amp; firmware.
+                </p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', fontSize: '0.875rem', color: 'var(--text-primary)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} style={{ color: '#A78BFA' }} /> Everything in Individual Plan</li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} style={{ color: '#A78BFA' }} /> Shared Team Workspaces &amp; Specs</li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} style={{ color: '#A78BFA' }} /> Centralized Hardware Rule Index</li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Check size={16} style={{ color: '#A78BFA' }} /> Team License Management</li>
+                </ul>
+              </div>
+              <a href="#seat-survey" className="btn-hero-ghost" style={{ textAlign: 'center', width: '100%', display: 'block', padding: '0.85rem' }}>
+                Reserve Team Seats ($25/seat)
+              </a>
+            </div>
+
+          </div>
+
+          {/* Enterprise Contact Row */}
+          <div className="fade-in-up" style={{ background: 'rgba(17, 24, 39, 0.6)', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '1.75rem 2rem', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1.5rem', marginBottom: '4rem' }}>
+            <div>
+              <h4 style={{ fontSize: '1.15rem', fontWeight: 700, margin: '0 0 0.25rem 0', color: '#FFFFFF' }}>Enterprise &amp; Custom Deployments</h4>
+              <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
+                On-premise deployment, dedicated hardware models, custom MCU indexing, and SLA guarantees for enterprise hardware firms.
+              </p>
+            </div>
+            <a href="https://calendly.com/sricharan-srikrishna/30min" target="_blank" rel="noopener noreferrer" className="btn-hero-ghost" style={{ padding: '0.65rem 1.25rem', fontSize: '0.9rem' }}>
+              Contact Enterprise Sales &rarr;
+            </a>
+          </div>
+
+          {/* ════════════ INTERACTIVE SEAT PREFERENCE FORM (Google Forms Style Lead Collector) ════════════ */}
+          <div id="seat-survey" className="fade-in-up" style={{ maxWidth: '720px', margin: '0 auto', background: 'var(--bg-app)', border: '1px solid rgba(124, 58, 237, 0.4)', borderRadius: '24px', padding: '2.5rem', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+              <div style={{ height: '36px', width: '36px', borderRadius: '10px', background: 'rgba(124, 58, 237, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#A78BFA' }}>
+                <BookOpen size={20} />
+              </div>
+              <div>
+                <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em', color: '#A78BFA', display: 'block' }}>DEVELOPER SEAT SURVEY</span>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 700, margin: 0, color: '#FFFFFF' }}>Tell us your team seat requirement</h3>
+              </div>
+            </div>
+            <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '2rem', lineHeight: '1.5' }}>
+              We are finalizing seat allocation for our upcoming team features. Let us know how many developer seats your team needs and confirm your pricing tier preferences.
+            </p>
+
+            {formSubmitted ? (
+              <div style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '16px', padding: '2rem', textAlign: 'center', color: '#34D399' }}>
+                <CheckCircle2 size={36} style={{ margin: '0 auto 1rem auto' }} />
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#FFFFFF', margin: '0 0 0.5rem 0' }}>Response Submitted Successfully!</h4>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', margin: '0 0 1.5rem 0' }}>
+                  Thank you! Your seat preference has been registered. You have priority access reserved for HardcoreAI team workspaces.
+                </p>
+                <a href="https://hardcore-ai-inky.vercel.app/" className="btn-hero-primary">
+                  Launch Your 1 Free Project Now &rarr;
+                </a>
+              </div>
+            ) : (
+              <form onSubmit={handleSurveySubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+                    Work Email Address <span style={{ color: '#F43F5E' }}>*</span>
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={surveyEmail}
+                    onChange={(e) => setSurveyEmail(e.target.value)}
+                    placeholder="engineer@company.com"
+                    style={{ width: '100%', padding: '0.8rem 1rem', background: 'rgba(17, 24, 39, 0.8)', border: '1px solid var(--border-color)', borderRadius: '10px', color: '#FFFFFF', fontSize: '0.9rem', outline: 'none' }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+                    Company / Organization Name
+                  </label>
+                  <input
+                    type="text"
+                    value={surveyCompany}
+                    onChange={(e) => setSurveyCompany(e.target.value)}
+                    placeholder="e.g. ABC Robotics / Individual Developer"
+                    style={{ width: '100%', padding: '0.8rem 1rem', background: 'rgba(17, 24, 39, 0.8)', border: '1px solid var(--border-color)', borderRadius: '10px', color: '#FFFFFF', fontSize: '0.9rem', outline: 'none' }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+                    How many developer seats does your team need?
+                  </label>
+                  <select
+                    value={surveySeats}
+                    onChange={(e) => setSurveySeats(e.target.value)}
+                    style={{ width: '100%', padding: '0.8rem 1rem', background: 'rgba(17, 24, 39, 0.8)', border: '1px solid var(--border-color)', borderRadius: '10px', color: '#FFFFFF', fontSize: '0.9rem', outline: 'none' }}
+                  >
+                    <option value="1 Developer ($30/mo)" style={{ background: '#0B0F19' }}>1 Developer ($30/month)</option>
+                    <option value="2-5 Team Seats ($25/seat/mo)" style={{ background: '#0B0F19' }}>2 - 5 Team Seats ($25/seat/month)</option>
+                    <option value="6-15 Team Seats ($25/seat/mo)" style={{ background: '#0B0F19' }}>6 - 15 Team Seats ($25/seat/month)</option>
+                    <option value="15+ Enterprise Seats (Custom)" style={{ background: '#0B0F19' }}>15+ Enterprise Seats (Custom Pricing)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+                    Are you willing to pay $30/seat (Individual) or $25/seat (Team)?
+                  </label>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {[
+                      'Yes, ready to pay for developer seats',
+                      'Yes, pending team budget approval',
+                      'I prefer using 1 Free Project for now',
+                      'Need custom enterprise billing'
+                    ].map((opt) => (
+                      <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', background: 'rgba(17, 24, 39, 0.5)', border: '1px solid var(--border-color)', borderRadius: '8px', cursor: 'pointer', fontSize: '0.875rem', color: 'var(--text-primary)' }}>
+                        <input
+                          type="radio"
+                          name="willingness"
+                          checked={surveyWillingness === opt}
+                          onChange={() => setSurveyWillingness(opt)}
+                          style={{ accentColor: '#8B5CF6' }}
+                        />
+                        <span>{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+                    Target MCUs, Toolchains, or Specific Requirements <span style={{ color: 'var(--text-secondary)', fontWeight: 400 }}>(Optional)</span>
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={surveyNotes}
+                    onChange={(e) => setSurveyNotes(e.target.value)}
+                    placeholder="e.g. STM32H7, ESP32-S3, PlatformIO, custom board schematics..."
+                    style={{ width: '100%', padding: '0.8rem 1rem', background: 'rgba(17, 24, 39, 0.8)', border: '1px solid var(--border-color)', borderRadius: '10px', color: '#FFFFFF', fontSize: '0.9rem', outline: 'none', resize: 'vertical' }}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmittingSurvey}
+                  className="btn-hero-primary"
+                  style={{ width: '100%', justifyContent: 'center', padding: '1rem' }}
+                >
+                  {isSubmittingSurvey ? 'Submitting...' : 'Submit Seat Preference & Reserve Access'}
+                </button>
+              </form>
+            )}
           </div>
 
         </div>
