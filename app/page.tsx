@@ -654,7 +654,7 @@ export default function LandingPage() {
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
               <a
-                href="https://forms.gle/4N1zP9d3hVj6gYyq6"
+                href="https://forms.gle/ZxVPnQqqDhyr5xhC7"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-hero-primary"
