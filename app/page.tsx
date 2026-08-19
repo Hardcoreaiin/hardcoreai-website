@@ -28,40 +28,6 @@ export default function LandingPage() {
     { title: 'Verified Firmware Generation', desc: 'Producing production-ready C/C++ drivers traceable to official manual pages.' }
   ]
 
-  // Seat Survey State
-  const [formSubmitted, setFormSubmitted] = useState(false)
-  const [surveyEmail, setSurveyEmail] = useState('')
-  const [surveyCompany, setSurveyCompany] = useState('')
-  const [surveySeats, setSurveySeats] = useState('1 Developer ($30/mo)')
-  const [surveyWillingness, setSurveyWillingness] = useState('Yes, ready to pay for developer seats')
-  const [surveyNotes, setSurveyNotes] = useState('')
-  const [isSubmittingSurvey, setIsSubmittingSurvey] = useState(false)
-
-  const handleSurveySubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmittingSurvey(true)
-    try {
-      const { createClient } = await import('@/lib/supabase')
-      const supabase = createClient()
-      await supabase.from('user_events').insert({
-        user_id: '00000000-0000-0000-0000-000000000000',
-        event_type: 'SEAT_SURVEY_SUBMITTED',
-        metadata: {
-          email: surveyEmail,
-          company: surveyCompany,
-          seats: surveySeats,
-          willingness: surveyWillingness,
-          notes: surveyNotes,
-        }
-      })
-    } catch {
-      // Non-fatal
-    } finally {
-      setIsSubmittingSurvey(false)
-      setFormSubmitted(true)
-    }
-  }
-
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveReasoningStep((prev) => (prev + 1) % reasoningSteps.length)
@@ -653,125 +619,54 @@ export default function LandingPage() {
             </a>
           </div>
 
-          {/* INTERACTIVE SEAT PREFERENCE FORM */}
-          <div id="seat-survey" className="fade-in-up" style={{ maxWidth: '720px', margin: '0 auto', background: 'var(--bg-app)', border: '1px solid rgba(124, 58, 237, 0.4)', borderRadius: '24px', padding: '2.5rem', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-              <div style={{ height: '36px', width: '36px', borderRadius: '10px', background: 'rgba(124, 58, 237, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#A78BFA' }}>
-                <BookOpen size={20} />
-              </div>
-              <div>
-                <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em', color: '#A78BFA', display: 'block' }}>DEVELOPER SEAT SURVEY</span>
-                <h3 style={{ fontSize: '1.35rem', fontWeight: 700, margin: 0, color: '#FFFFFF' }}>Tell us your team seat requirement</h3>
-              </div>
+          {/* GOOGLE FORMS SEAT PREFERENCE SECTION */}
+          <div id="seat-survey" className="fade-in-up" style={{ maxWidth: '760px', margin: '0 auto', background: 'var(--bg-app)', border: '1px solid rgba(124, 58, 237, 0.4)', borderRadius: '24px', padding: '2.5rem', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)', textAlign: 'center' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', height: '48px', width: '48px', borderRadius: '12px', background: 'rgba(124, 58, 237, 0.2)', color: '#A78BFA', marginBottom: '1.25rem' }}>
+              <BookOpen size={24} />
             </div>
-            <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '2rem', lineHeight: '1.5' }}>
-              We are finalizing seat allocation for our upcoming team features. Let us know how many developer seats your team needs and confirm your pricing tier preferences.
+            
+            <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.08em', color: '#A78BFA', marginBottom: '0.5rem' }}>
+              DEVELOPER & TEAM SEAT SURVEY
+            </div>
+            
+            <h3 style={{ fontSize: '1.75rem', fontWeight: 800, margin: '0 0 1rem 0', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+              Reserve Your Seats & Share Pricing Preferences
+            </h3>
+            
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 2rem auto', lineHeight: '1.6' }}>
+              We are finalizing seat allocation for upcoming individual ($30/seat) and team ($25/seat) workspaces. Fill out our quick 1-minute Google Form to register your interest and get priority access.
             </p>
 
-            {formSubmitted ? (
-              <div style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '16px', padding: '2rem', textAlign: 'center', color: '#34D399' }}>
-                <CheckCircle2 size={36} style={{ margin: '0 auto 1rem auto' }} />
-                <h4 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#FFFFFF', margin: '0 0 0.5rem 0' }}>Response Submitted Successfully!</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', margin: '0 0 1.5rem 0' }}>
-                  Thank you! Your seat preference has been registered. You have priority access reserved for HardcoreAI team workspaces.
-                </p>
-                <a href="https://hardcore-ai-inky.vercel.app/" className="btn-hero-primary">
-                  Launch Your 1 Free Project Now →
-                </a>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '2rem', textAlign: 'left' }}>
+              <div style={{ background: 'rgba(17, 24, 39, 0.6)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '1rem' }}>
+                <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#A78BFA', marginBottom: '0.25rem' }}>1. Seat Requirement</div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Individual ($30) or Team ($25/seat)</div>
               </div>
-            ) : (
-              <form onSubmit={handleSurveySubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
-                    Work Email Address <span style={{ color: '#F43F5E' }}>*</span>
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={surveyEmail}
-                    onChange={(e) => setSurveyEmail(e.target.value)}
-                    placeholder="engineer@company.com"
-                    style={{ width: '100%', padding: '0.8rem 1rem', background: 'rgba(17, 24, 39, 0.8)', border: '1px solid var(--border-color)', borderRadius: '10px', color: '#FFFFFF', fontSize: '0.9rem', outline: 'none' }}
-                  />
-                </div>
+              <div style={{ background: 'rgba(17, 24, 39, 0.6)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '1rem' }}>
+                <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#A78BFA', marginBottom: '0.25rem' }}>2. Pricing Feedback</div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Willingness to pay & budget status</div>
+              </div>
+              <div style={{ background: 'rgba(17, 24, 39, 0.6)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '1rem' }}>
+                <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#A78BFA', marginBottom: '0.25rem' }}>3. Hardware Stack</div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Target MCUs, RTOS, & toolchains</div>
+              </div>
+            </div>
 
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
-                    Company / Organization Name
-                  </label>
-                  <input
-                    type="text"
-                    value={surveyCompany}
-                    onChange={(e) => setSurveyCompany(e.target.value)}
-                    placeholder="e.g. ABC Robotics / Individual Developer"
-                    style={{ width: '100%', padding: '0.8rem 1rem', background: 'rgba(17, 24, 39, 0.8)', border: '1px solid var(--border-color)', borderRadius: '10px', color: '#FFFFFF', fontSize: '0.9rem', outline: 'none' }}
-                  />
-                </div>
-
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
-                    How many developer seats does your team need?
-                  </label>
-                  <select
-                    value={surveySeats}
-                    onChange={(e) => setSurveySeats(e.target.value)}
-                    style={{ width: '100%', padding: '0.8rem 1rem', background: 'rgba(17, 24, 39, 0.8)', border: '1px solid var(--border-color)', borderRadius: '10px', color: '#FFFFFF', fontSize: '0.9rem', outline: 'none' }}
-                  >
-                    <option value="1 Developer ($30/mo)" style={{ background: '#0B0F19' }}>1 Developer ($30/month)</option>
-                    <option value="2-5 Team Seats ($25/seat/mo)" style={{ background: '#0B0F19' }}>2 - 5 Team Seats ($25/seat/month)</option>
-                    <option value="6-15 Team Seats ($25/seat/mo)" style={{ background: '#0B0F19' }}>6 - 15 Team Seats ($25/seat/month)</option>
-                    <option value="15+ Enterprise Seats (Custom)" style={{ background: '#0B0F19' }}>15+ Enterprise Seats (Custom Pricing)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
-                    Are you willing to pay $30/seat (Individual) or $25/seat (Team)?
-                  </label>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    {[
-                      'Yes, ready to pay for developer seats',
-                      'Yes, pending team budget approval',
-                      'I prefer using 1 Free Project for now',
-                      'Need custom enterprise billing'
-                    ].map((opt) => (
-                      <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', background: 'rgba(17, 24, 39, 0.5)', border: '1px solid var(--border-color)', borderRadius: '8px', cursor: 'pointer', fontSize: '0.875rem', color: 'var(--text-primary)' }}>
-                        <input
-                          type="radio"
-                          name="willingness"
-                          checked={surveyWillingness === opt}
-                          onChange={() => setSurveyWillingness(opt)}
-                          style={{ accentColor: '#8B5CF6' }}
-                        />
-                        <span>{opt}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
-                    Target MCUs, Toolchains, or Specific Requirements <span style={{ color: 'var(--text-secondary)', fontWeight: 400 }}>(Optional)</span>
-                  </label>
-                  <textarea
-                    rows={3}
-                    value={surveyNotes}
-                    onChange={(e) => setSurveyNotes(e.target.value)}
-                    placeholder="e.g. STM32H7, ESP32-S3, PlatformIO, custom board schematics..."
-                    style={{ width: '100%', padding: '0.8rem 1rem', background: 'rgba(17, 24, 39, 0.8)', border: '1px solid var(--border-color)', borderRadius: '10px', color: '#FFFFFF', fontSize: '0.9rem', outline: 'none', resize: 'vertical' }}
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmittingSurvey}
-                  className="btn-hero-primary"
-                  style={{ width: '100%', justifyContent: 'center', padding: '1rem' }}
-                >
-                  {isSubmittingSurvey ? 'Submitting...' : 'Submit Seat Preference & Reserve Access'}
-                </button>
-              </form>
-            )}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+              <a
+                href="https://forms.gle/4N1zP9d3hVj6gYyq6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-hero-primary"
+                style={{ padding: '1rem 2rem', fontSize: '1rem', width: '100%', maxWidth: '400px', justifyContent: 'center' }}
+              >
+                Open Google Form Survey <ArrowRight size={18} />
+              </a>
+            </div>
+            
+            <div style={{ marginTop: '1.25rem', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+              Responses go directly to our engineering team. No spam, ever.
+            </div>
           </div>
 
         </div>
