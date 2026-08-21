@@ -121,6 +121,13 @@ export default function LandingPage() {
             </a>
           </div>
 
+          {/* Featured on Smol Launch Badge */}
+          <div className="fade-in-up" style={{ marginTop: '1.75rem', display: 'flex', justifyContent: 'center' }}>
+            <a href="https://smollaunch.com" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', transition: 'opacity 0.2s ease', opacity: 0.95 }}>
+              <img src="https://smollaunch.com/badges/featured.svg" alt="HardcoreAI — Featured on Smol Launch" loading="lazy" width={250} height={60} style={{ maxWidth: '100%', height: 'auto' }} />
+            </a>
+          </div>
+
           {/* Premium Dark Tech SVG Visual (Animated Constraint Graph / Data flow) */}
           <div className="hero-visual-wrapper fade-in-up">
             <div className="engineering-visual">
